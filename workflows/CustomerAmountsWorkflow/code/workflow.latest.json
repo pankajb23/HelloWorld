@@ -4,9 +4,6 @@
       "JoinComponent" : {
         "component" : "Join",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "JoinComponent",
           "phase" : 0,
@@ -103,9 +100,6 @@
       "CustomerOrdersDatasetOutput" : {
         "component" : "Target",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "CustomerOrdersDatasetOutput",
           "phase" : 0,
@@ -128,20 +122,11 @@
       "AggregateComponent" : {
         "component" : "Aggregate",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
+          "interim" : true,
+          "cache" : false,
           "src_desc" : "AggregateComponent",
-          "phase" : 0,
           "ramp" : 0,
-          "columns" : [ {
-            "targetCol" : "order_id",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "order_id"
-            }
-          } ],
           "aggcols" : [ {
             "targetCol" : "orders",
             "expression" : {
@@ -204,7 +189,15 @@
             }
           } ],
           "opType" : "groupBy",
-          "limit" : 0
+          "phase" : 0,
+          "limit" : 0,
+          "columns" : [ {
+            "targetCol" : "order_id",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "order_id"
+            }
+          } ]
         },
         "metadata" : {
           "label" : "AggregateComponent",
@@ -220,9 +213,6 @@
       "CustomersDatasetInput" : {
         "component" : "Source",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "CustomersDatasetInput",
           "phase" : 0,
@@ -245,9 +235,6 @@
       "OrdersDatasetInput" : {
         "component" : "Source",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "OrdersDatasetInput",
           "phase" : 0,
@@ -270,9 +257,6 @@
       "PrepareComponent" : {
         "component" : "Reformat",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "PrepareComponent",
           "phase" : 0,
@@ -286,8 +270,7 @@
               "expr" : "datediff(current_date(), col(\"account_open_date\"))"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "order_id",
             "functionName" : "column_expression",
@@ -296,8 +279,7 @@
               "expr" : "col(\"order_id\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "customer_id",
             "functionName" : "column_expression",
@@ -306,8 +288,7 @@
               "expr" : "col(\"customer_id\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "amount",
             "functionName" : "column_expression",
@@ -316,8 +297,7 @@
               "expr" : "col(\"amount\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "first_name",
             "functionName" : "column_expression",
@@ -326,8 +306,7 @@
               "expr" : "col(\"first_name\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "last_name",
             "functionName" : "column_expression",
@@ -336,8 +315,7 @@
               "expr" : "col(\"last_name\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "phone",
             "functionName" : "column_expression",
@@ -346,8 +324,7 @@
               "expr" : "col(\"phone\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "email",
             "functionName" : "column_expression",
@@ -356,8 +333,7 @@
               "expr" : "col(\"email\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "country_code",
             "functionName" : "column_expression",
@@ -366,8 +342,7 @@
               "expr" : "col(\"country_code\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "account_flags",
             "functionName" : "column_expression",
@@ -376,8 +351,7 @@
               "expr" : "col(\"account_flags\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           } ],
           "limit" : 0
         },
@@ -462,23 +436,17 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1589239105368,
-      "id" : "CustomerAmounts",
+      "lastUpdated" : 1611768767282,
+      "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
-      "changed" : false,
       "language" : "scala",
       "processors" : 1,
-      "metastore" : "",
-      "temp_storage_type" : "",
-      "temp_storage_url" : "",
-      "check_phases" : false,
       "cluster" : "local",
       "mode" : "batch",
-      "submode" : ""
+      "interimMode" : "full"
     },
     "inports" : { },
-    "outports" : { },
-    "codeId" : ""
+    "outports" : { }
   }
 }

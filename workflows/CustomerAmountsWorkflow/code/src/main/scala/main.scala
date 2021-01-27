@@ -13,7 +13,7 @@ import config.ConfigStore._
 
 import graph._
 
-@Visual(mode = "batch")
+@Visual(mode = "batch", interimMode = "full")
 object Main {
 
   def graph(spark: SparkSession): Unit = {
@@ -33,7 +33,7 @@ object Main {
 
     val spark: SparkSession = SparkSession
       .builder()
-      .appName("CustomerAmounts")
+      .appName("CustomerAmountsWorkflow")
       .config("spark.default.parallelism", 4)
       .enableHiveSupport()
       .getOrCreate()
