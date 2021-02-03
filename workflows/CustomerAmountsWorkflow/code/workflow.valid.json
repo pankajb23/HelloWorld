@@ -126,6 +126,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
+          "detailedStats" : true,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -353,7 +354,8 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "limit" : 0
+          "limit" : 0,
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -436,7 +438,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1611768767282,
+      "lastUpdated" : 1612345481697,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
@@ -444,7 +446,8 @@
       "processors" : 1,
       "cluster" : "local",
       "mode" : "batch",
-      "interimMode" : "full"
+      "interimMode" : "full",
+      "udfs" : null
     },
     "inports" : { },
     "outports" : { }
