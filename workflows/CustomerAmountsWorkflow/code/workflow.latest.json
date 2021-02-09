@@ -407,7 +407,7 @@
         "metadata" : {
           "label" : "Reformat0",
           "x" : 478,
-          "y" : 237
+          "y" : 236
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -530,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612892910439,
+      "lastUpdated" : 1612896065990,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
