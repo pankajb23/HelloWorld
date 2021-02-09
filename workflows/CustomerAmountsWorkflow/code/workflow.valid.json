@@ -384,18 +384,25 @@
             "comment" : null,
             "enabled" : true
           }, {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "amount"
             } ],
-            "addReplaceColumn" : "amount"
-          } ]
+            "comment" : null,
+            "enabled" : true
+          } ],
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat0",
@@ -523,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612850403874,
+      "lastUpdated" : 1612873175187,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
