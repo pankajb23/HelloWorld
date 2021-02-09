@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "AggregateComponent", label = "AggregateComponent", x = 383, y = 108, phase = 0, detailedStats = true)
+@Visual(id = "AggregateComponent", label = "AggregateComponent", x = 465, y = 50, phase = 0, detailedStats = true)
 object AggregateComponent {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {
