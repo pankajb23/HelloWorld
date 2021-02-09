@@ -24,6 +24,8 @@ object Main {
     val df_PrepareComponent:      Reformat  = PrepareComponent(spark,   df_JoinComponent)
     val df_AggregateComponent:    Aggregate = AggregateComponent(spark, df_PrepareComponent)
     CustomerOrdersDatasetOutput(spark, df_AggregateComponent)
+    val df_Reformat0: Reformat = Reformat0(spark, df_PrepareComponent)
+    val df_Reformat1: Reformat = Reformat1(spark, df_Reformat0)
 
   }
 

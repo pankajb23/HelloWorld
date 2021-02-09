@@ -23,7 +23,7 @@ object CustomersDatasetInput {
 
     val fabric = Config.fabricName
 
-    lazy val out = fabric match {
+    val out = fabric match {
       case "azdb" =>
         val schemaArg = StructType(
           Array(
