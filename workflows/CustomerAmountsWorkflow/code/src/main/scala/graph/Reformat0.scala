@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Reformat0", label = "Reformat0", x = 478, y = 235, phase = 0)
+@Visual(id = "Reformat0", label = "Reformat0", x = 478, y = 235, phase = 0, detailedStats = true)
 object Reformat0 {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {

@@ -402,7 +402,7 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat0",
@@ -530,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612898017147,
+      "lastUpdated" : 1612898384553,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
