@@ -88,8 +88,8 @@
         },
         "metadata" : {
           "label" : "JoinComponent",
-          "x" : 129,
-          "y" : 98
+          "x" : 135,
+          "y" : 95
         },
         "ports" : {
           "inputs" : [ "left", "right" ],
@@ -355,7 +355,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -530,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612898384553,
+      "lastUpdated" : 1612898445929,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
