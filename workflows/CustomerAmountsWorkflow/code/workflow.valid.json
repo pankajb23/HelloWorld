@@ -126,7 +126,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
-          "detailedStats" : true,
+          "detailedStats" : false,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -203,7 +203,7 @@
         "metadata" : {
           "label" : "AggregateComponent",
           "x" : 465,
-          "y" : 50
+          "y" : 48
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -530,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612897439898,
+      "lastUpdated" : 1612897907839,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
