@@ -402,12 +402,12 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Reformat0",
           "x" : 478,
-          "y" : 236
+          "y" : 235
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -530,7 +530,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612896065990,
+      "lastUpdated" : 1612897439898,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
