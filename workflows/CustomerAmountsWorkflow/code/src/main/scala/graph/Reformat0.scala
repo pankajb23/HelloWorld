@@ -14,14 +14,16 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Reformat0", label = "Reformat0", x = 477, y = 239, phase = 0)
+@Visual(id = "Reformat0", label = "Reformat0", x = 478, y = 238, phase = 0)
 object Reformat0 {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._
 
     val out = in.select(
-      col("order_id")
+      col("order_id"),
+      col("customer_id"),
+      col("amount")
     )
 
     out

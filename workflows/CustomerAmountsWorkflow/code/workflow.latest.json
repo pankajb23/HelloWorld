@@ -370,21 +370,37 @@
       },
       "Reformat0" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "order_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_id"
             } ],
-            "addReplaceColumn" : "order_id"
+            "comment" : null,
+            "enabled" : true
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "customer_id"
+            } ],
+            "addReplaceColumn" : "customer_id"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "amount"
+            } ],
+            "addReplaceColumn" : "amount"
           } ]
         },
         "metadata" : {
           "label" : "Reformat0",
-          "x" : 477,
-          "y" : 239
+          "x" : 478,
+          "y" : 238
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -394,6 +410,7 @@
       },
       "Reformat1" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -506,7 +523,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612850348384,
+      "lastUpdated" : 1612850403874,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
