@@ -126,7 +126,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
-          "detailedStats" : true,
+          "detailedStats" : false,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -355,78 +355,12 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "PrepareComponent",
           "x" : 251,
           "y" : 98
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Reformat0" : {
-        "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ {
-            "addReplaceColumn" : "order_id",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "order_id"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "customer_id",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "customer_id"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "amount",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "amount"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          } ],
-          "detailedStats" : true
-        },
-        "metadata" : {
-          "label" : "Reformat0",
-          "x" : 478,
-          "y" : 235
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Reformat1" : {
-        "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
-        "metadata" : {
-          "label" : "Reformat1",
-          "x" : 676,
-          "y" : 226
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -500,37 +434,11 @@
         "route" : "e5"
       },
       "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_rJ594sJb_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat1",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_HJ8sEsy$d"
-      },
-      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612898502135,
+      "lastUpdated" : 1612899246274,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
