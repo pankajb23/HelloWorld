@@ -167,7 +167,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -226,6 +226,7 @@
       },
       "Repartition0" : {
         "component" : "Repartition",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -313,7 +314,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612948240936,
+      "lastUpdated" : 1612948253957,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
