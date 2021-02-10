@@ -15,7 +15,7 @@
         "metadata" : {
           "label" : "FinalDatasetOutput",
           "x" : 617,
-          "y" : 20
+          "y" : 19
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -167,7 +167,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -315,7 +315,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612948442255,
+      "lastUpdated" : 1612948481579,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
