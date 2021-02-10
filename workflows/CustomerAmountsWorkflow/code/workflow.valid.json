@@ -332,14 +332,17 @@
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ],
-          "detailedStats" : true
+          "opType" : "hashRepartition",
+          "partitionCols" : [ {
+            "column" : {
+              "expr" : "col(\"country_code\")",
+              "format" : "scala"
+            }
+          } ]
         },
         "metadata" : {
           "label" : "Repartition0",
-          "x" : 718,
+          "x" : 719,
           "y" : 97
         },
         "ports" : {
@@ -431,7 +434,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612978654288,
+      "lastUpdated" : 1612978826607,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

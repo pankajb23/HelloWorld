@@ -14,13 +14,13 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Repartition0", label = "Repartition0", x = 718, y = 97, phase = 0, detailedStats = true)
+@Visual(id = "Repartition0", label = "Repartition0", x = 719, y = 97, phase = 0)
 object Repartition0 {
 
   def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val out = in.coalesce(1)
+    val out = in.repartition(col("country_code"))
 
     out
 
