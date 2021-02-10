@@ -248,10 +248,12 @@
       },
       "Repartition0" : {
         "component" : "Repartition",
+        "group" : null,
         "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "opType" : "",
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "opType" : "coalesce",
+          "numPartitions" : "1",
           "partitionCols" : [ ]
         },
         "metadata" : {
@@ -348,7 +350,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612949856938,
+      "lastUpdated" : 1612949869652,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
