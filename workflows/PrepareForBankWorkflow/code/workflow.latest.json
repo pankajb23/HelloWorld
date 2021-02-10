@@ -223,26 +223,6 @@
           "outputs" : [ ]
         },
         "lineage" : ""
-      },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "opType" : "",
-          "partitionCols" : [ ]
-        },
-        "metadata" : {
-          "label" : "Repartition0",
-          "x" : 377,
-          "y" : 32
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -277,19 +257,6 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_B1rxlXbW_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
         "process" : "AggReportComponent",
         "port" : "in"
       },
@@ -299,7 +266,7 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "Repartition0",
+        "process" : "PrepareComponent",
         "port" : "out"
       },
       "tgt" : {
@@ -307,14 +274,14 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_SkMzlQb$u"
+        "route" : "e_H1OXlmW$d"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612947470349,
+      "lastUpdated" : 1612947489464,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
