@@ -325,50 +325,6 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
-      },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
-        "properties" : {
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ]
-        },
-        "metadata" : {
-          "label" : "Repartition0",
-          "x" : 842,
-          "y" : 91
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Filter0" : {
-        "component" : "Filter",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "condition" : {
-            "format" : "sql",
-            "expr" : "country_code='CN'"
-          },
-          "detailedStats" : true
-        },
-        "metadata" : {
-          "label" : "Filter0",
-          "x" : 1136,
-          "y" : 92
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -429,44 +385,18 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_ryJfGcbbO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Filter0",
-        "port" : "out"
-      },
-      "tgt" : {
         "process" : "CustomerOrdersDatasetOutput",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_rkXGM5ZZ_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Repartition0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Filter0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_SJLGGqbWd"
+        "route" : "e_Bk9kV5b$O"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976931306,
+      "lastUpdated" : 1612977123191,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
