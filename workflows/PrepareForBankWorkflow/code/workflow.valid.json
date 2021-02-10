@@ -14,8 +14,8 @@
         },
         "metadata" : {
           "label" : "FinalDatasetOutput",
-          "x" : 331,
-          "y" : 34
+          "x" : 593,
+          "y" : 22
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -223,6 +223,25 @@
           "outputs" : [ ]
         },
         "lineage" : ""
+      },
+      "Repartition0" : {
+        "component" : "Repartition",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "opType" : "",
+          "partitionCols" : [ ]
+        },
+        "metadata" : {
+          "label" : "Repartition0",
+          "x" : 377,
+          "y" : 32
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -240,32 +259,6 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "FinalDatasetOutput",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e2"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "AggReportComponent",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e3"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
         "process" : "AggReportComponent",
         "port" : "out"
       },
@@ -277,11 +270,24 @@
         "route" : "e4"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "PrepareComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Repartition0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_B1rxlXbW_"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612947398096,
+      "lastUpdated" : 1612947447987,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,

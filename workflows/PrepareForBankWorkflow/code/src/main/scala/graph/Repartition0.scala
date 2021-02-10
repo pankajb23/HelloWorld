@@ -14,19 +14,13 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "AggReportComponent", label = "AggReportComponent", x = 315, y = 224, phase = 0)
-object AggReportComponent {
+@Visual(id = "Repartition0", label = "Repartition0", x = 377, y = 32, phase = 0)
+object Repartition0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Aggregate = {
+  def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val dfGroupBy = in.groupBy(col("id").as("id"))
-    val out = dfGroupBy.agg(
-      lit("VAT_Summary_Report").as("report_title"),
-      count(col("id")).as("customers"),
-      sum(col("amount")).as("amount_total"),
-      sum(col("orders")).as("orders_total")
-    )
+    val out = in.repartition()
 
     out
 

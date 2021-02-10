@@ -11,9 +11,11 @@ object ConfigStore {
 }
 
 object ConfigurationFactoryImpl extends ConfigurationFactory[Config] {
-    override protected def load(fileConfig: ConfigObjectSource): Result[Config] = {
-        implicit val confHint: ProductHint[Config] = ProductHint[Config](ConfigFieldMapping(CamelCase, CamelCase))
 
-        fileConfig.load[Config]
-    }
+  override protected def load(fileConfig: ConfigObjectSource): Result[Config] = {
+    implicit val confHint: ProductHint[Config] = ProductHint[Config](ConfigFieldMapping(CamelCase, CamelCase))
+
+    fileConfig.load[Config]
+  }
+
 }
