@@ -193,10 +193,10 @@
           "phase" : 0,
           "limit" : 0,
           "columns" : [ {
-            "targetCol" : "order_id",
+            "targetCol" : "customer_id",
             "expression" : {
               "format" : "sql",
-              "expr" : "order_id"
+              "expr" : "customer_id"
             }
           } ]
         },
@@ -438,7 +438,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612973449411,
+      "lastUpdated" : 1612973959952,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

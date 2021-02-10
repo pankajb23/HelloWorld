@@ -20,7 +20,7 @@ object AggregateComponent {
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {
     import spark.implicits._
 
-    val dfGroupBy = in.groupBy(col("order_id").as("order_id"))
+    val dfGroupBy = in.groupBy(col("customer_id").as("customer_id"))
     val out = dfGroupBy.agg(
       count(col("order_id")).as("orders"),
       sum(col("amount")).as("amount"),
