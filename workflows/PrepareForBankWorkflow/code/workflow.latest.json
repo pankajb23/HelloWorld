@@ -230,13 +230,9 @@
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
-          "opType" : "hashRepartition",
-          "partitionCols" : [ {
-            "column" : {
-              "expr" : "phone_area_code",
-              "format" : "sql"
-            }
-          } ]
+          "opType" : "coalesce",
+          "numPartitions" : "50",
+          "partitionCols" : [ ]
         },
         "metadata" : {
           "label" : "Repartition0",
@@ -319,7 +315,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612948306383,
+      "lastUpdated" : 1612948442255,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
