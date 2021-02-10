@@ -110,8 +110,8 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 1190,
-          "y" : 89
+          "x" : 1464,
+          "y" : 98
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -360,8 +360,8 @@
         },
         "metadata" : {
           "label" : "Filter0",
-          "x" : 811,
-          "y" : 28
+          "x" : 1107,
+          "y" : 90
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -465,7 +465,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976655565,
+      "lastUpdated" : 1612976662458,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
