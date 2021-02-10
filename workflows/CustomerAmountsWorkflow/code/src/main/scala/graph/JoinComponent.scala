@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "JoinComponent", label = "JoinComponent", x = 135, y = 95, phase = 0)
+@Visual(id = "JoinComponent", label = "JoinComponent", x = 155, y = 102, phase = 0)
 object JoinComponent {
 
   def apply(spark: SparkSession, left: DataFrame, right: DataFrame): Join = {
