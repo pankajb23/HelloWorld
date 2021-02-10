@@ -14,8 +14,8 @@
         },
         "metadata" : {
           "label" : "FinalDatasetOutput",
-          "x" : 617,
-          "y" : 19
+          "x" : 698,
+          "y" : 20
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -231,13 +231,13 @@
           "udf_definitions" : [ ],
           "limit" : 0,
           "opType" : "coalesce",
-          "numPartitions" : "50",
+          "numPartitions" : "2",
           "partitionCols" : [ ]
         },
         "metadata" : {
           "label" : "Repartition0",
           "x" : 432,
-          "y" : 104
+          "y" : 103
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -315,7 +315,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612948481579,
+      "lastUpdated" : 1612948904741,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
