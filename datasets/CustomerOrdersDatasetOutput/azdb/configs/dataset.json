@@ -20,6 +20,11 @@
       "nullable" : false,
       "metadata" : { }
     }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
       "name" : "orders",
       "type" : "long",
       "nullable" : false,
