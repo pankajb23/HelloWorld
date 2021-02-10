@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 842, y = 97, phase = 0)
+@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 843, y = 97, phase = 0)
 object CustomerOrdersDatasetOutput {
 
   @UsesDataset(id = "17", version = 0)
@@ -25,9 +25,11 @@ object CustomerOrdersDatasetOutput {
     fabric match {
       case "azdb" =>
         val schemaArg = StructType(
-          Array(StructField("country_code", StringType, false),
-                StructField("orders",       LongType,   false),
-                StructField("amount",       DoubleType, false)
+          Array(
+            StructField("country_code", StringType, false),
+            StructField("first_name",   StringType, false),
+            StructField("orders",       LongType,   false),
+            StructField("amount",       DoubleType, false)
           )
         )
         in.write
@@ -35,7 +37,7 @@ object CustomerOrdersDatasetOutput {
           .option("header", true)
           .option("sep",    ",")
           .mode("overwrite")
-          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput3.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
