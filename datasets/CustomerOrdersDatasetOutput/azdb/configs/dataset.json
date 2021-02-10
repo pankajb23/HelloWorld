@@ -15,12 +15,12 @@
   "schema" : {
     "type" : "struct",
     "fields" : [ {
-      "name" : "country_code",
-      "type" : "string",
+      "name" : "customer_id",
+      "type" : "integer",
       "nullable" : false,
       "metadata" : { }
     }, {
-      "name" : "first_name",
+      "name" : "country_code",
       "type" : "string",
       "nullable" : false,
       "metadata" : { }
