@@ -25,10 +25,10 @@ object PrepareComponent {
       concat(col("first_name"), lit(" "), col("last_name")).as("full_name"),
       substring(col("phone"),   2,        10).as("phone"),
       substring(col("phone"),   0,        2).as("phone_area_code"),
-      col("email").as("email"),
+      col("email"),
       col("email").as("email_provider"),
-      col("orders").as("orders"),
-      col("amount").as("amount"),
+      col("orders"),
+      col("amount"),
       when(substring(col("account_flags"), 1, 1) === "D", lit("Y")).otherwise(lit("N")).as("delinquent_last_90_days")
     )
 

@@ -4,9 +4,6 @@
       "FinalDatasetOutput" : {
         "component" : "Target",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "FinalDatasetOutput",
           "phase" : 0,
@@ -17,8 +14,8 @@
         },
         "metadata" : {
           "label" : "FinalDatasetOutput",
-          "x" : 251,
-          "y" : 42
+          "x" : 331,
+          "y" : 34
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -29,9 +26,6 @@
       "AggReportComponent" : {
         "component" : "Aggregate",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "AggReportComponent",
           "phase" : 0,
@@ -73,8 +67,8 @@
         },
         "metadata" : {
           "label" : "AggReportComponent",
-          "x" : 251,
-          "y" : 154
+          "x" : 315,
+          "y" : 224
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -85,9 +79,6 @@
       "PrepareComponent" : {
         "component" : "Reformat",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "PrepareComponent",
           "phase" : 0,
@@ -101,8 +92,7 @@
               "expr" : "col(\"customer_id\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "full_name",
             "functionName" : "column_expression",
@@ -111,8 +101,7 @@
               "expr" : "concat(col(\"first_name\"), lit(\" \"), col(\"last_name\"))"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "phone",
             "functionName" : "column_expression",
@@ -121,8 +110,7 @@
               "expr" : "substring(col(\"phone\"), 2, 10)"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "phone_area_code",
             "functionName" : "column_expression",
@@ -131,8 +119,7 @@
               "expr" : "substring(col(\"phone\"), 0, 2)"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "email",
             "functionName" : "column_expression",
@@ -141,8 +128,7 @@
               "expr" : "col(\"email\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "email_provider",
             "functionName" : "column_expression",
@@ -151,8 +137,7 @@
               "expr" : "col(\"email\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "orders",
             "functionName" : "column_expression",
@@ -161,8 +146,7 @@
               "expr" : "col(\"orders\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "amount",
             "functionName" : "column_expression",
@@ -171,8 +155,7 @@
               "expr" : "col(\"amount\")"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           }, {
             "addReplaceColumn" : "delinquent_last_90_days",
             "functionName" : "column_expression",
@@ -181,8 +164,7 @@
               "expr" : "when(substring(col(\"account_flags\"), 1, 1) === \"D\", lit(\"Y\")).otherwise(lit(\"N\"))"
             } ],
             "comment" : null,
-            "enabled" : true,
-            "id" : null
+            "enabled" : true
           } ],
           "limit" : 0
         },
@@ -200,9 +182,6 @@
       "CustomerOrdersDatasetInput" : {
         "component" : "Source",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "CustomerOrdersDatasetInput",
           "phase" : 0,
@@ -225,9 +204,6 @@
       "ReportDatasetOutput" : {
         "component" : "Target",
         "group" : null,
-        "subcat" : null,
-        "ignore" : false,
-        "variables" : null,
         "properties" : {
           "src_desc" : "ReportDatasetOutput",
           "phase" : 0,
@@ -238,8 +214,8 @@
         },
         "metadata" : {
           "label" : "ReportDatasetOutput",
-          "x" : 373,
-          "y" : 154
+          "x" : 641,
+          "y" : 225
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -304,23 +280,18 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : null,
-      "id" : "PrepareForBank",
+      "lastUpdated" : 1612947348421,
+      "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
-      "changed" : false,
       "language" : "scala",
       "processors" : 1,
-      "metastore" : "",
-      "temp_storage_type" : "",
-      "temp_storage_url" : "",
-      "check_phases" : false,
       "cluster" : "local",
       "mode" : "batch",
-      "submode" : ""
+      "interimMode" : "full",
+      "udfs" : null
     },
     "inports" : { },
-    "outports" : { },
-    "codeId" : ""
+    "outports" : { }
   }
 }
