@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Filter0", label = "Filter0", x = 707, y = 89, phase = 0)
+@Visual(id = "Filter0", label = "Filter0", x = 811, y = 28, phase = 0)
 object Filter0 {
 
   def apply(spark: SparkSession, in: DataFrame): Filter = {

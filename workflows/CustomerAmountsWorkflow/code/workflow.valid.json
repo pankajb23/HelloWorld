@@ -360,8 +360,8 @@
         },
         "metadata" : {
           "label" : "Filter0",
-          "x" : 707,
-          "y" : 89
+          "x" : 811,
+          "y" : 28
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -428,29 +428,16 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Filter0",
+        "process" : "Repartition0",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_HkT5W5ZZ_"
+        "route" : "e_ryJfGcbbO"
       },
       "lineage" : ""
     }, {
       "src" : {
         "process" : "Filter0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_B1JjZ9$Wd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Repartition0",
         "port" : "out"
       },
       "tgt" : {
@@ -458,14 +445,27 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_rk$jW9W$_"
+        "route" : "e_rkXGM5ZZ_"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Repartition0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Filter0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SJLGGqbWd"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976569073,
+      "lastUpdated" : 1612976655565,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
