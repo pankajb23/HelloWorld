@@ -104,7 +104,7 @@
           "src_desc" : "CustomerOrdersDatasetOutput",
           "phase" : 0,
           "ramp" : 0,
-          "version" : 3,
+          "version" : 0,
           "id" : "17",
           "limit" : 0
         },
@@ -140,54 +140,6 @@
               "format" : "scala",
               "expr" : "sum(col(\"amount\"))"
             }
-          }, {
-            "targetCol" : "customer_id",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"customer_id\"))"
-            }
-          }, {
-            "targetCol" : "first_name",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"first_name\"))"
-            }
-          }, {
-            "targetCol" : "last_name",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"last_name\"))"
-            }
-          }, {
-            "targetCol" : "phone",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"phone\"))"
-            }
-          }, {
-            "targetCol" : "email",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"email\"))"
-            }
-          }, {
-            "targetCol" : "country_code",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"country_code\"))"
-            }
-          }, {
-            "targetCol" : "account_length_days",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"account_length_days\"))"
-            }
-          }, {
-            "targetCol" : "account_flags",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "max(col(\"account_flags\"))"
-            }
           } ],
           "opType" : "groupBy",
           "phase" : 0,
@@ -198,12 +150,24 @@
               "format" : "sql",
               "expr" : "customer_id"
             }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "first_name"
+            }
+          }, {
+            "targetCol" : "phone",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "phone"
+            }
           } ]
         },
         "metadata" : {
           "label" : "AggregateComponent",
           "x" : 517,
-          "y" : 98
+          "y" : 97
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -438,7 +402,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612973959952,
+      "lastUpdated" : 1612974137953,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

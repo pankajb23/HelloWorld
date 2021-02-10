@@ -17,7 +17,7 @@ import graph._
 @Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 841, y = 97, phase = 0)
 object CustomerOrdersDatasetOutput {
 
-  @UsesDataset(id = "17", version = 3)
+  @UsesDataset(id = "17", version = 0)
   def apply(spark: SparkSession, in: DataFrame): Target = {
     import spark.implicits._
 
@@ -26,24 +26,19 @@ object CustomerOrdersDatasetOutput {
       case "azdb" =>
         val schemaArg = StructType(
           Array(
-            StructField("order_id",            IntegerType, false),
-            StructField("orders",              IntegerType, false),
-            StructField("amount",              DoubleType,  false),
-            StructField("customer_id",         IntegerType, false),
-            StructField("first_name",          StringType,  false),
-            StructField("last_name",           StringType,  false),
-            StructField("phone",               StringType,  false),
-            StructField("email",               StringType,  false),
-            StructField("country_code",        StringType,  false),
-            StructField("account_length_days", IntegerType, false),
-            StructField("account_flags",       StringType,  false)
+            StructField("customer_id", IntegerType, false),
+            StructField("first_name",  StringType,  false),
+            StructField("phone",       StringType,  false),
+            StructField("orders",      LongType,    false),
+            StructField("amount",      DoubleType,  false)
           )
         )
         in.write
           .format("csv")
-          .option("sep", ",")
+          .option("header", true)
+          .option("sep",    ",")
           .mode("overwrite")
-          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput1.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
