@@ -8,24 +8,14 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput1.csv"
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv"
     }
   },
   "datasetId" : "17",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
-      "name" : "customer_id",
-      "type" : "integer",
-      "nullable" : false,
-      "metadata" : { }
-    }, {
-      "name" : "first_name",
-      "type" : "string",
-      "nullable" : false,
-      "metadata" : { }
-    }, {
-      "name" : "phone",
+      "name" : "country_code",
       "type" : "string",
       "nullable" : false,
       "metadata" : { }
