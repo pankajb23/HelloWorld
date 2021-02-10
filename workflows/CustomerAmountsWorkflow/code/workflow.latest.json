@@ -110,7 +110,7 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 841,
+          "x" : 842,
           "y" : 97
         },
         "ports" : {
@@ -149,6 +149,12 @@
             "expression" : {
               "format" : "sql",
               "expr" : "country_code"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "first_name"
             }
           } ]
         },
@@ -390,7 +396,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612974423041,
+      "lastUpdated" : 1612974510216,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
