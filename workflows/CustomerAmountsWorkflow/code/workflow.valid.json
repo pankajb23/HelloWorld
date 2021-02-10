@@ -338,8 +338,8 @@
         },
         "metadata" : {
           "label" : "Repartition0",
-          "x" : 950,
-          "y" : 101
+          "x" : 672,
+          "y" : 97
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -360,8 +360,8 @@
         },
         "metadata" : {
           "label" : "Filter0",
-          "x" : 727,
-          "y" : 92
+          "x" : 904,
+          "y" : 99
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -424,7 +424,33 @@
       "lineage" : ""
     }, {
       "src" : {
+        "process" : "AggregateComponent",
+        "port" : "out"
+      },
+      "tgt" : {
         "process" : "Repartition0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_rkUF$5Zbu"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Repartition0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Filter0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SJ_K$qZZu"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Filter0",
         "port" : "out"
       },
       "tgt" : {
@@ -432,40 +458,14 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_Sky8oKWZO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "AggregateComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Filter0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_HyvxZcZ$u"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Filter0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_rkheZ9bZd"
+        "route" : "e_HyjK$cZZ_"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976417529,
+      "lastUpdated" : 1612976516416,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
