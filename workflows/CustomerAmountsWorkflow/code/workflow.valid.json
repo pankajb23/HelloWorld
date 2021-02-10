@@ -356,7 +356,8 @@
           "condition" : {
             "format" : "sql",
             "expr" : "country_code='CN'"
-          }
+          },
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Filter0",
@@ -465,7 +466,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976866150,
+      "lastUpdated" : 1612976931306,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
