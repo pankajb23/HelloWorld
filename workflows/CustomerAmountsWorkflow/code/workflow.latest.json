@@ -145,22 +145,10 @@
           "phase" : 0,
           "limit" : 0,
           "columns" : [ {
-            "targetCol" : "customer_id",
+            "targetCol" : "country_code",
             "expression" : {
               "format" : "sql",
-              "expr" : "customer_id"
-            }
-          }, {
-            "targetCol" : "first_name",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "first_name"
-            }
-          }, {
-            "targetCol" : "phone",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "phone"
+              "expr" : "country_code"
             }
           } ]
         },
@@ -402,7 +390,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612974191704,
+      "lastUpdated" : 1612974423041,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

@@ -25,12 +25,9 @@ object CustomerOrdersDatasetOutput {
     fabric match {
       case "azdb" =>
         val schemaArg = StructType(
-          Array(
-            StructField("customer_id", IntegerType, false),
-            StructField("first_name",  StringType,  false),
-            StructField("phone",       StringType,  false),
-            StructField("orders",      LongType,    false),
-            StructField("amount",      DoubleType,  false)
+          Array(StructField("country_code", StringType, false),
+                StructField("orders",       LongType,   false),
+                StructField("amount",       DoubleType, false)
           )
         )
         in.write
@@ -38,7 +35,7 @@ object CustomerOrdersDatasetOutput {
           .option("header", true)
           .option("sep",    ",")
           .mode("overwrite")
-          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput1.csv")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
