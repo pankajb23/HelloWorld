@@ -14,8 +14,8 @@
         },
         "metadata" : {
           "label" : "FinalDatasetOutput",
-          "x" : 698,
-          "y" : 20
+          "x" : 631,
+          "y" : 79
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -224,20 +224,17 @@
         },
         "lineage" : ""
       },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
+      "Filter0" : {
+        "component" : "Filter",
         "properties" : {
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "2",
-          "partitionCols" : [ ]
+          "interim" : false,
+          "cache" : false,
+          "condition" : [ ]
         },
         "metadata" : {
-          "label" : "Repartition0",
-          "x" : 432,
-          "y" : 103
+          "label" : "Filter0",
+          "x" : 472,
+          "y" : 87
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -285,37 +282,11 @@
         "route" : "e_rkgfgXWbO"
       },
       "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_H1hxm7ZbO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Repartition0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "FinalDatasetOutput",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_SJOfQ7$ZO"
-      },
-      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612948904741,
+      "lastUpdated" : 1612949143811,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
