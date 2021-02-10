@@ -226,6 +226,7 @@
       },
       "Repartition0" : {
         "component" : "Repartition",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -283,11 +284,37 @@
         "route" : "e_B1rxlXbW_"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "PrepareComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "AggReportComponent",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_rkgfgXWbO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Repartition0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "FinalDatasetOutput",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SkMzlQb$u"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612947447987,
+      "lastUpdated" : 1612947470349,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
