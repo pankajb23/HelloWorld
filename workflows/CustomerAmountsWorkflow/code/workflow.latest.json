@@ -110,8 +110,8 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 843,
-          "y" : 97
+          "x" : 930,
+          "y" : 95
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -325,6 +325,26 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Repartition0" : {
+        "component" : "Repartition",
+        "properties" : {
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "opType" : "coalesce",
+          "numPartitions" : 10,
+          "partitionCols" : [ ]
+        },
+        "metadata" : {
+          "label" : "Repartition0",
+          "x" : 711,
+          "y" : 98
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -385,18 +405,31 @@
         "port" : "out"
       },
       "tgt" : {
+        "process" : "Repartition0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_S1jBoKbbd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Repartition0",
+        "port" : "out"
+      },
+      "tgt" : {
         "process" : "CustomerOrdersDatasetOutput",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e5"
+        "route" : "e_Sky8oKWZO"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612974541602,
+      "lastUpdated" : 1612974930049,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

@@ -18,12 +18,13 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_CustomersDatasetInput: Source    = CustomersDatasetInput(spark)
-    val df_OrdersDatasetInput:    Source    = OrdersDatasetInput(spark)
-    val df_JoinComponent:         Join      = JoinComponent(spark,      df_OrdersDatasetInput, df_CustomersDatasetInput)
-    val df_PrepareComponent:      Reformat  = PrepareComponent(spark,   df_JoinComponent)
-    val df_AggregateComponent:    Aggregate = AggregateComponent(spark, df_PrepareComponent)
-    CustomerOrdersDatasetOutput(spark, df_AggregateComponent)
+    val df_CustomersDatasetInput: Source      = CustomersDatasetInput(spark)
+    val df_OrdersDatasetInput:    Source      = OrdersDatasetInput(spark)
+    val df_JoinComponent:         Join        = JoinComponent(spark,      df_OrdersDatasetInput, df_CustomersDatasetInput)
+    val df_PrepareComponent:      Reformat    = PrepareComponent(spark,   df_JoinComponent)
+    val df_AggregateComponent:    Aggregate   = AggregateComponent(spark, df_PrepareComponent)
+    val df_Repartition0:          Repartition = Repartition0(spark,       df_AggregateComponent)
+    CustomerOrdersDatasetOutput(spark, df_Repartition0)
 
   }
 
