@@ -333,13 +333,13 @@
           "udf_definitions" : [ ],
           "limit" : 0,
           "opType" : "coalesce",
-          "numPartitions" : 10,
+          "numPartitions" : "1",
           "partitionCols" : [ ]
         },
         "metadata" : {
           "label" : "Repartition0",
-          "x" : 987,
-          "y" : 97
+          "x" : 936,
+          "y" : 90
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -465,7 +465,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976537799,
+      "lastUpdated" : 1612976569073,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
