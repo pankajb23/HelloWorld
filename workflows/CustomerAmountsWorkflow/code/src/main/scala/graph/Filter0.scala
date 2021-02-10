@@ -14,13 +14,13 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Repartition0", label = "Repartition0", x = 880, y = 104, phase = 0)
-object Repartition0 {
+@Visual(id = "Filter0", label = "Filter0", x = 694, y = 226, phase = 0)
+object Filter0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Repartition = {
+  def apply(spark: SparkSession, in: DataFrame): Filter = {
     import spark.implicits._
 
-    val out = in.coalesce(10)
+    val out = in.filter(col("country_code") === lit("CN"))
 
     out
 

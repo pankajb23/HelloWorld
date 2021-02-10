@@ -110,8 +110,8 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 930,
-          "y" : 95
+          "x" : 1054,
+          "y" : 98
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -328,6 +328,7 @@
       },
       "Repartition0" : {
         "component" : "Repartition",
+        "group" : null,
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
@@ -337,8 +338,29 @@
         },
         "metadata" : {
           "label" : "Repartition0",
-          "x" : 711,
-          "y" : 98
+          "x" : 880,
+          "y" : 104
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Filter0" : {
+        "component" : "Filter",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "condition" : {
+            "format" : "sql",
+            "expr" : "country_code='CN'"
+          }
+        },
+        "metadata" : {
+          "label" : "Filter0",
+          "x" : 694,
+          "y" : 226
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -401,19 +423,6 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "AggregateComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_S1jBoKbbd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
         "process" : "Repartition0",
         "port" : "out"
       },
@@ -425,11 +434,37 @@
         "route" : "e_Sky8oKWZO"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "AggregateComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Filter0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_HyvxZcZ$u"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Filter0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Repartition0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_rkheZ9bZd"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612974930049,
+      "lastUpdated" : 1612976399011,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

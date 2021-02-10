@@ -23,7 +23,8 @@ object Main {
     val df_JoinComponent:         Join        = JoinComponent(spark,      df_OrdersDatasetInput, df_CustomersDatasetInput)
     val df_PrepareComponent:      Reformat    = PrepareComponent(spark,   df_JoinComponent)
     val df_AggregateComponent:    Aggregate   = AggregateComponent(spark, df_PrepareComponent)
-    val df_Repartition0:          Repartition = Repartition0(spark,       df_AggregateComponent)
+    val df_Filter0:               Filter      = Filter0(spark,            df_AggregateComponent)
+    val df_Repartition0:          Repartition = Repartition0(spark,       df_Filter0)
     CustomerOrdersDatasetOutput(spark, df_Repartition0)
 
   }
