@@ -332,13 +332,9 @@
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
-          "opType" : "hashRepartition",
-          "partitionCols" : [ {
-            "column" : {
-              "expr" : "col(\"country_code\")",
-              "format" : "scala"
-            }
-          } ]
+          "opType" : "coalesce",
+          "numPartitions" : "1",
+          "partitionCols" : [ ]
         },
         "metadata" : {
           "label" : "Repartition0",
@@ -434,7 +430,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612978826607,
+      "lastUpdated" : 1612978912548,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
