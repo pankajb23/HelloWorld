@@ -110,7 +110,7 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 1464,
+          "x" : 1463,
           "y" : 98
         },
         "ports" : {
@@ -145,16 +145,16 @@
           "phase" : 0,
           "limit" : 0,
           "columns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "customer_id"
+            }
+          }, {
             "targetCol" : "country_code",
             "expression" : {
               "format" : "sql",
               "expr" : "country_code"
-            }
-          }, {
-            "targetCol" : "first_name",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "first_name"
             }
           } ]
         },
@@ -360,8 +360,8 @@
         },
         "metadata" : {
           "label" : "Filter0",
-          "x" : 1107,
-          "y" : 90
+          "x" : 1136,
+          "y" : 92
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -465,7 +465,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612976662458,
+      "lastUpdated" : 1612976837927,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
