@@ -334,7 +334,8 @@
           "limit" : 0,
           "opType" : "coalesce",
           "numPartitions" : "1",
-          "partitionCols" : [ ]
+          "partitionCols" : [ ],
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Repartition0",
@@ -430,7 +431,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612978385527,
+      "lastUpdated" : 1612978496147,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
