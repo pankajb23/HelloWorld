@@ -8,7 +8,7 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv"
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput3.csv"
     }
   },
   "datasetId" : "17",
