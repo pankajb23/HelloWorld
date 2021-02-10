@@ -226,15 +226,19 @@
       },
       "Filter0" : {
         "component" : "Filter",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
-          "condition" : [ ]
+          "condition" : {
+            "format" : "sql",
+            "expr" : "phone_area_code='11'"
+          }
         },
         "metadata" : {
           "label" : "Filter0",
-          "x" : 472,
-          "y" : 87
+          "x" : 342,
+          "y" : 91
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -282,11 +286,37 @@
         "route" : "e_rkgfgXWbO"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "PrepareComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Filter0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_BklC87$WO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Filter0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "FinalDatasetOutput",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_HkbkD7ZZu"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612949143811,
+      "lastUpdated" : 1612949210640,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
