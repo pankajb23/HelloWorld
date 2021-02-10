@@ -20,7 +20,7 @@ object Repartition0 {
   def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val out = in.repartition()
+    val out = in.repartition(col("phone_area_code"))
 
     out
 
