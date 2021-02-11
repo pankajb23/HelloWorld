@@ -133,17 +133,23 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "country_code",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "country_code"
             } ],
-            "addReplaceColumn" : "country_code"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "amount"
             } ],
-            "addReplaceColumn" : "amount"
+            "comment" : null,
+            "enabled" : true
           } ],
           "detailedStats" : true
         },
@@ -165,17 +171,14 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "last_name"
-            } ],
-            "addReplaceColumn" : "last_name"
-          }, {
+            "addReplaceColumn" : "country_code",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "country_code"
             } ],
-            "addReplaceColumn" : "country_code"
+            "comment" : null,
+            "enabled" : true
           } ],
           "detailedStats" : true
         },
@@ -196,20 +199,11 @@
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ {
-            "addReplaceColumn" : "last_name",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "last_name"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          } ]
+          "functions" : [ ]
         },
         "metadata" : {
           "label" : "Reformat3",
-          "x" : 1174,
+          "x" : 1173,
           "y" : 269
         },
         "ports" : {
@@ -435,7 +429,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613059404310,
+      "lastUpdated" : 1613059432091,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,

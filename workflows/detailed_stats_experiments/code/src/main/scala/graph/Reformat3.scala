@@ -14,15 +14,13 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Reformat3", label = "Reformat3", x = 1174, y = 269, phase = 0)
+@Visual(id = "Reformat3", label = "Reformat3", x = 1173, y = 269, phase = 0)
 object Reformat3 {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._
 
-    val out = in.select(
-      col("last_name")
-    )
+    val out = in
 
     out
 

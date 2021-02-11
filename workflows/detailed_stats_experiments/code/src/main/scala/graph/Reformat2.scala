@@ -21,7 +21,6 @@ object Reformat2 {
     import spark.implicits._
 
     val out = in.select(
-      col("last_name"),
       col("country_code")
     )
 
