@@ -144,31 +144,18 @@
         },
         "lineage" : ""
       },
-      "Aggregate0" : {
-        "component" : "Aggregate",
+      "Reformat2" : {
+        "component" : "Reformat",
         "group" : null,
         "properties" : {
-          "interim" : false,
+          "interim" : true,
           "cache" : false,
-          "aggcols" : [ {
-            "targetCol" : "amount",
-            "expression" : {
-              "expr" : "sum(amount)"
-            }
-          } ],
-          "columns" : [ {
-            "targetCol" : "country_code",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "country_code"
-            }
-          } ],
-          "opType" : "groupBy"
+          "functions" : [ ]
         },
         "metadata" : {
-          "label" : "Aggregate0",
-          "x" : 721,
-          "y" : 51
+          "label" : "Reformat2",
+          "x" : 944,
+          "y" : 269
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -195,18 +182,31 @@
         },
         "lineage" : ""
       },
-      "Reformat2" : {
-        "component" : "Reformat",
-        "group" : null,
+      "Aggregate0" : {
+        "component" : "Aggregate",
         "properties" : {
-          "interim" : true,
+          "interim" : false,
           "cache" : false,
-          "functions" : [ ]
+          "aggcols" : [ {
+            "targetCol" : "amount",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "sum(amount)"
+            }
+          } ],
+          "columns" : [ {
+            "targetCol" : "country_code",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "country_code"
+            }
+          } ],
+          "opType" : "groupBy"
         },
         "metadata" : {
-          "label" : "Reformat2",
-          "x" : 944,
-          "y" : 269
+          "label" : "Aggregate0",
+          "x" : 860,
+          "y" : 91
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -224,8 +224,8 @@
         },
         "metadata" : {
           "label" : "Target0",
-          "x" : 925,
-          "y" : 55
+          "x" : 1037,
+          "y" : 89
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -279,19 +279,6 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Aggregate0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_S1kMajfb_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat0",
-        "port" : "out"
-      },
-      "tgt" : {
         "process" : "Reformat1",
         "port" : "in"
       },
@@ -314,6 +301,19 @@
       "lineage" : ""
     }, {
       "src" : {
+        "process" : "Reformat0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Aggregate0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_ryI96iGZ_"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
         "process" : "Aggregate0",
         "port" : "out"
       },
@@ -322,14 +322,14 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_SkoN6oGWO"
+        "route" : "e_r11zRiGZO"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049179804,
+      "lastUpdated" : 1613049357404,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,

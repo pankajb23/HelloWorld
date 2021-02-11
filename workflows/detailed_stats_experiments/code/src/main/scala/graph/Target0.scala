@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Target0", label = "Target0", x = 925, y = 55, phase = 0)
+@Visual(id = "Target0", label = "Target0", x = 1037, y = 89, phase = 0)
 object Target0 {
 
   @UsesDataset(id = "137", version = 0)
@@ -24,6 +24,9 @@ object Target0 {
     val fabric = Config.fabricName
     fabric match {
       case "azdb" =>
+        val schemaArg = StructType(
+          Array(StructField("country_code", StringType, false), StructField("amount", DoubleType, false))
+        )
         in.write
           .format("csv")
           .option("header", true)
