@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "SQLStatement0", label = "SQLStatement0", x = 366, y = 155, phase = 0)
+@Visual(id = "SQLStatement0", label = "SQLStatement0", x = 367, y = 155, phase = 0)
 object SQLStatement0 {
 
   def apply(spark: SparkSession, in0: DataFrame, in1: DataFrame): (SQLStatement, SQLStatement) = {

@@ -43,6 +43,7 @@
       },
       "SQLStatement0" : {
         "component" : "SQLStatement",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -53,7 +54,7 @@
         },
         "metadata" : {
           "label" : "SQLStatement0",
-          "x" : 366,
+          "x" : 367,
           "y" : 155
         },
         "ports" : {
@@ -221,7 +222,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613045630295,
+      "lastUpdated" : 1613045644014,
       "id" : "scalaSQL2in2out",
       "memory" : 1,
       "imported" : true,
