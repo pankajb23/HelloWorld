@@ -20,7 +20,10 @@ object Reformat2 {
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._
 
-    val out = in
+    val out = in.select(
+      col("customer_id"),
+      col("last_name")
+    )
 
     out
 

@@ -1,26 +1,6 @@
 {
   "graph" : {
     "processes" : {
-      "Customers" : {
-        "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "15",
-          "version" : 0
-        },
-        "metadata" : {
-          "label" : "Customers",
-          "x" : 170,
-          "y" : 49
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
       "Orders" : {
         "component" : "Source",
         "group" : null,
@@ -146,13 +126,66 @@
         },
         "lineage" : ""
       },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "group" : null,
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "customer_id"
+            } ],
+            "addReplaceColumn" : "customer_id",
+            "disabled" : false
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "last_name"
+            } ],
+            "addReplaceColumn" : "last_name",
+            "disabled" : false
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "country_code"
+            } ],
+            "addReplaceColumn" : "country_code",
+            "disabled" : false
+          } ],
+          "detailedStats" : true
+        },
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 743,
+          "y" : 270
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
       "Reformat2" : {
         "component" : "Reformat",
         "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ ]
+          "functions" : [ {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "customer_id"
+            } ],
+            "addReplaceColumn" : "customer_id"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "last_name"
+            } ],
+            "addReplaceColumn" : "last_name"
+          } ]
         },
         "metadata" : {
           "label" : "Reformat2",
@@ -165,19 +198,24 @@
         },
         "lineage" : ""
       },
-      "Reformat1" : {
+      "Reformat3" : {
         "component" : "Reformat",
-        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ ],
-          "detailedStats" : true
+          "functions" : [ {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "last_name"
+            } ],
+            "addReplaceColumn" : "last_name",
+            "disabled" : false
+          } ]
         },
         "metadata" : {
-          "label" : "Reformat1",
-          "x" : 743,
-          "y" : 270
+          "label" : "Reformat3",
+          "x" : 1174,
+          "y" : 269
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -215,6 +253,26 @@
         },
         "ports" : {
           "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Customers" : {
+        "component" : "Source",
+        "group" : null,
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Customers",
+          "x" : 170,
+          "y" : 49
+        },
+        "ports" : {
+          "inputs" : [ ],
           "outputs" : [ "out" ]
         },
         "lineage" : ""
@@ -331,11 +389,24 @@
         "route" : "e_r11zRiGZO"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat2",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat3",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_HJ3qAsGZO"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049451788,
+      "lastUpdated" : 1613049510449,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
