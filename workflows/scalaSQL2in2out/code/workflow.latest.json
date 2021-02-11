@@ -1,0 +1,169 @@
+{
+  "graph" : {
+    "processes" : {
+      "Source0" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Source1" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "16",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Source1",
+          "x" : 164,
+          "y" : 228
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Script0" : {
+        "component" : "Script",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "code" : "val out0 = in0\nval out1 = in1",
+          "lastSchemaUpdate" : "",
+          "format" : "scala"
+        },
+        "metadata" : {
+          "label" : "Script0",
+          "x" : 415,
+          "y" : 149
+        },
+        "ports" : {
+          "inputs" : [ "in0", "in1" ],
+          "outputs" : [ "out0", "out1" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 606,
+          "y" : 90
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 628,
+          "y" : 232
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Script0",
+        "port" : "in0"
+      },
+      "metadata" : {
+        "route" : "e_H1eCH9GWO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Script0",
+        "port" : "in1"
+      },
+      "metadata" : {
+        "route" : "e_Hyz0r9fZO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Script0",
+        "port" : "out0"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_rJ50S5zb_"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Script0",
+        "port" : "out1"
+      },
+      "tgt" : {
+        "process" : "Reformat1",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_Bkp0rqMbu"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1613043158534,
+      "id" : "scalaSQL2in2out",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : null
+    },
+    "inports" : { },
+    "outports" : { }
+  }
+}
