@@ -3,6 +3,7 @@
     "processes" : {
       "Source0" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false
@@ -20,6 +21,7 @@
       },
       "Source1" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false
@@ -37,6 +39,7 @@
       },
       "SQLStatement0" : {
         "component" : "SQLStatement",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -58,6 +61,7 @@
       },
       "Reformat0" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -76,6 +80,7 @@
       },
       "Reformat1" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -94,6 +99,7 @@
       },
       "Reformat2" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -112,6 +118,7 @@
       },
       "Reformat3" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -129,11 +136,89 @@
         "lineage" : ""
       }
     },
-    "connections" : [ ],
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "SQLStatement0",
+        "port" : "in0"
+      },
+      "metadata" : {
+        "route" : "e_rkT_gjMWu"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "SQLStatement0",
+        "port" : "in1"
+      },
+      "metadata" : {
+        "route" : "e_BkRugszbd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "SQLStatement0",
+        "port" : "out0"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_B1eKxszZO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "SQLStatement0",
+        "port" : "out1"
+      },
+      "tgt" : {
+        "process" : "Reformat1",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SymtgiGZd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat2",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_ryVKejf$d"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat3",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_BJUFgjMbd"
+      },
+      "lineage" : ""
+    } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613045872831,
+      "lastUpdated" : 1613045886879,
       "id" : "pythonSQL2in2out",
       "memory" : 1,
       "imported" : true,
