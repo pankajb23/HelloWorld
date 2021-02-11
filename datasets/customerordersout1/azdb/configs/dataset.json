@@ -1,19 +1,32 @@
 {
-  "datasetId" : "137",
-  "schema" : null,
-  "datasetType" : "File",
-  "description" : "",
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
-    }
-  },
-  "dataFormat" : "csv",
   "outputProperties" : {
     "properties" : {
       "mode" : "overwrite",
       "sep" : ",",
       "header" : "true"
     }
-  }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+    }
+  },
+  "datasetId" : "137",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "",
+  "dataFormat" : "csv"
 }
