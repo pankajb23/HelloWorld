@@ -112,7 +112,8 @@
             }
           } ],
           "udf_definitions" : [ ],
-          "limit" : 0
+          "limit" : 0,
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Join0",
@@ -334,7 +335,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049408482,
+      "lastUpdated" : 1613049451788,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
