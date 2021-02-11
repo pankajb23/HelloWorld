@@ -6,7 +6,9 @@
         "group" : null,
         "properties" : {
           "interim" : false,
-          "cache" : false
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
         },
         "metadata" : {
           "label" : "Source0",
@@ -24,7 +26,9 @@
         "group" : null,
         "properties" : {
           "interim" : false,
-          "cache" : false
+          "cache" : false,
+          "id" : "16",
+          "version" : 0
         },
         "metadata" : {
           "label" : "Source1",
@@ -218,7 +222,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613045910267,
+      "lastUpdated" : 1613045922739,
       "id" : "pythonSQL2in2out",
       "memory" : 1,
       "imported" : true,
