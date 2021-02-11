@@ -88,8 +88,8 @@
         },
         "metadata" : {
           "label" : "JoinComponent",
-          "x" : 155,
-          "y" : 102
+          "x" : 201,
+          "y" : 101
         },
         "ports" : {
           "inputs" : [ "left", "right" ],
@@ -160,8 +160,8 @@
         },
         "metadata" : {
           "label" : "AggregateComponent",
-          "x" : 517,
-          "y" : 97
+          "x" : 574,
+          "y" : 96
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -317,8 +317,8 @@
         },
         "metadata" : {
           "label" : "PrepareComponent",
-          "x" : 321,
-          "y" : 98
+          "x" : 378,
+          "y" : 99
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -396,7 +396,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613021757460,
+      "lastUpdated" : 1613021766704,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
