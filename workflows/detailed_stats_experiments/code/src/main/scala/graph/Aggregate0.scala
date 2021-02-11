@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Aggregate0", label = "Aggregate0", x = 860, y = 91, phase = 0)
+@Visual(id = "Aggregate0", label = "Aggregate0", x = 860, y = 91, phase = 0, detailedStats = true)
 object Aggregate0 {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {

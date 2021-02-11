@@ -131,7 +131,8 @@
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ ]
+          "functions" : [ ],
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat0",
@@ -169,7 +170,8 @@
         "properties" : {
           "interim" : true,
           "cache" : false,
-          "functions" : [ ]
+          "functions" : [ ],
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat1",
@@ -184,6 +186,7 @@
       },
       "Aggregate0" : {
         "component" : "Aggregate",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -201,7 +204,8 @@
               "expr" : "country_code"
             }
           } ],
-          "opType" : "groupBy"
+          "opType" : "groupBy",
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Aggregate0",
@@ -216,6 +220,7 @@
       },
       "Target0" : {
         "component" : "Target",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -329,7 +334,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049366141,
+      "lastUpdated" : 1613049408482,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
