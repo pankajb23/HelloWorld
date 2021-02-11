@@ -10,7 +10,7 @@
         },
         "metadata" : {
           "label" : "Source0",
-          "x" : 170,
+          "x" : 149,
           "y" : 50
         },
         "ports" : {
@@ -28,7 +28,7 @@
         },
         "metadata" : {
           "label" : "Source1",
-          "x" : 162,
+          "x" : 156,
           "y" : 198
         },
         "ports" : {
@@ -218,7 +218,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613045886879,
+      "lastUpdated" : 1613045910267,
       "id" : "pythonSQL2in2out",
       "memory" : 1,
       "imported" : true,
