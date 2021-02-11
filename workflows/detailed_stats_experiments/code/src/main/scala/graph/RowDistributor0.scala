@@ -21,7 +21,7 @@ object RowDistributor0 {
     import spark.implicits._
 
     val out0 = in.filter(col("country_code") === lit("CN"))
-    val out1 = in.filter(col("country_code") === lit("CN"))
+    val out1 = in.filter(col("country_code") === lit("ID"))
 
     (out0, out1)
 

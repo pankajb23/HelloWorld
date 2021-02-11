@@ -3,6 +3,7 @@
     "processes" : {
       "RowDistributor0" : {
         "component" : "RowDistributor",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -14,7 +15,7 @@
             },
             "out1" : {
               "format" : "sql",
-              "expr" : "country_code='CN'"
+              "expr" : "country_code='ID'"
             }
           }
         },
@@ -470,7 +471,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613059948972,
+      "lastUpdated" : 1613059980773,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
