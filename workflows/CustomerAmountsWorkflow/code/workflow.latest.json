@@ -110,7 +110,7 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 1487,
+          "x" : 1486,
           "y" : 100
         },
         "ports" : {
@@ -332,9 +332,13 @@
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ]
+          "opType" : "hashRepartition",
+          "partitionCols" : [ {
+            "column" : {
+              "expr" : "col(\"country_code\")",
+              "format" : "scala"
+            }
+          } ]
         },
         "metadata" : {
           "label" : "Repartition0",
@@ -430,7 +434,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613022038712,
+      "lastUpdated" : 1613022636012,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
