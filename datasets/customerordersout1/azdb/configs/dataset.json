@@ -1,0 +1,19 @@
+{
+  "datasetId" : "137",
+  "schema" : null,
+  "datasetType" : "File",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+    }
+  },
+  "dataFormat" : "csv",
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "sep" : ",",
+      "header" : "true"
+    }
+  }
+}
