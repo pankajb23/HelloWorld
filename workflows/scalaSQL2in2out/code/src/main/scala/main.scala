@@ -18,11 +18,13 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_Source1: Source = Source1(spark)
     val df_Source0: Source = Source0(spark)
+    val df_Source1: Source = Source1(spark)
     val (df_Script0_0, df_Script0_1): (Script, Script) = Script0(spark, df_Source0, df_Source1)
     val df_Reformat0: Reformat = Reformat0(spark, df_Script0_0)
+    val df_Reformat2: Reformat = Reformat2(spark, df_Reformat0)
     val df_Reformat1: Reformat = Reformat1(spark, df_Script0_1)
+    val df_Reformat3: Reformat = Reformat3(spark, df_Reformat1)
 
   }
 

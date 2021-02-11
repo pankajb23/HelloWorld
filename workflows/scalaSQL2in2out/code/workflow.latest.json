@@ -3,6 +3,7 @@
     "processes" : {
       "Source0" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -22,6 +23,7 @@
       },
       "Source1" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -41,6 +43,7 @@
       },
       "Script0" : {
         "component" : "Script",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -61,6 +64,7 @@
       },
       "Reformat0" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -79,6 +83,7 @@
       },
       "Reformat1" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -88,6 +93,42 @@
           "label" : "Reformat1",
           "x" : 628,
           "y" : 232
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat2" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat2",
+          "x" : 882,
+          "y" : 75
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat3" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat3",
+          "x" : 823,
+          "y" : 249
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -148,11 +189,37 @@
         "route" : "e_Bkp0rqMbu"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat2",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_B1WCocfWu"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat3",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_rk7Rs5fZ_"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613043158534,
+      "lastUpdated" : 1613044684796,
       "id" : "scalaSQL2in2out",
       "memory" : 1,
       "imported" : true,
