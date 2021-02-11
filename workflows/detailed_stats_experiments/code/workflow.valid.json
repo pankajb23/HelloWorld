@@ -142,7 +142,7 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ ],
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Reformat0",
@@ -180,7 +180,7 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Reformat1",
@@ -471,7 +471,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613059980773,
+      "lastUpdated" : 1613060052904,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
