@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 1463, y = 98, phase = 0)
+@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 1487, y = 100, phase = 0)
 object CustomerOrdersDatasetOutput {
 
   @UsesDataset(id = "17", version = 0)
