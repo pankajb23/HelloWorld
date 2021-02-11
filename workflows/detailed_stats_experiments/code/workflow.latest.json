@@ -3,6 +3,7 @@
     "processes" : {
       "Customers" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -22,6 +23,7 @@
       },
       "Orders" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -41,6 +43,7 @@
       },
       "Join0" : {
         "component" : "Join",
+        "group" : null,
         "properties" : {
           "joinType" : "inner",
           "joinCondition" : {
@@ -124,6 +127,7 @@
       },
       "Reformat0" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -133,6 +137,73 @@
           "label" : "Reformat0",
           "x" : 511,
           "y" : 114
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Aggregate0" : {
+        "component" : "Aggregate",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "aggcols" : [ {
+            "targetCol" : "amount",
+            "expression" : {
+              "expr" : "sum(amount)"
+            }
+          } ],
+          "columns" : [ {
+            "targetCol" : "country_code",
+            "expression" : {
+              "format" : "sql",
+              "expr" : "country_code"
+            }
+          } ],
+          "opType" : "groupBy"
+        },
+        "metadata" : {
+          "label" : "Aggregate0",
+          "x" : 721,
+          "y" : 51
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 743,
+          "y" : 270
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat2" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat2",
+          "x" : 944,
+          "y" : 269
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -180,11 +251,50 @@
         "route" : "e_Bk1xTjG$u"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Aggregate0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_S1kMajfb_"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat1",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_ByqfTizZd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Reformat1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Reformat2",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_B11Qpizbu"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049083947,
+      "lastUpdated" : 1613049130982,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
