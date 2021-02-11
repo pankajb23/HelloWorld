@@ -126,7 +126,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
-          "detailedStats" : false,
+          "detailedStats" : true,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -328,6 +328,7 @@
       },
       "Repartition0" : {
         "component" : "Repartition",
+        "group" : null,
         "properties" : {
           "udf_definitions" : [ ],
           "limit" : 0,
@@ -429,7 +430,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613021975326,
+      "lastUpdated" : 1613022038712,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
