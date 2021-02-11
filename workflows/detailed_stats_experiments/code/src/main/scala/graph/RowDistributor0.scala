@@ -14,18 +14,16 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Reformat1", label = "Reformat1", x = 986, y = 257, phase = 0, detailedStats = true)
-object Reformat1 {
+@Visual(id = "RowDistributor0", label = "RowDistributor0", x = 814, y = 104, phase = 0)
+object RowDistributor0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Reformat = {
+  def apply(spark: SparkSession, in: DataFrame): (RowDistributor, RowDistributor) = {
     import spark.implicits._
 
-    val out = in.select(
-      col("country_code"),
-      col("amount")
-    )
+    val out0 = in.filter(col("country_code") === lit("CN"))
+    val out1 = in.filter(col("country_code") === lit("CN"))
 
-    out
+    (out0, out1)
 
   }
 

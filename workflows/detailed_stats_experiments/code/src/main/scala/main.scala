@@ -18,15 +18,17 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_Customers:    Source      = Customers(spark)
-    val df_Orders:       Source      = Orders(spark)
-    val df_Join0:        Join        = Join0(spark,        df_Customers, df_Orders)
-    val df_Reformat0:    Reformat    = Reformat0(spark,    df_Join0)
-    val df_Aggregate0:   Aggregate   = Aggregate0(spark,   df_Reformat0)
-    val df_Reformat1:    Reformat    = Reformat1(spark,    df_Aggregate0)
+    val df_Customers:  Source    = Customers(spark)
+    val df_Orders:     Source    = Orders(spark)
+    val df_Join0:      Join      = Join0(spark,      df_Customers, df_Orders)
+    val df_Reformat0:  Reformat  = Reformat0(spark,  df_Join0)
+    val df_Aggregate0: Aggregate = Aggregate0(spark, df_Reformat0)
+    val (df_RowDistributor0_0, df_RowDistributor0_1): (RowDistributor, RowDistributor) =
+      RowDistributor0(spark, df_Aggregate0)
+    val df_Reformat1:    Reformat    = Reformat1(spark,    df_RowDistributor0_1)
     val df_Reformat2:    Reformat    = Reformat2(spark,    df_Reformat1)
     val df_Reformat3:    Reformat    = Reformat3(spark,    df_Reformat2)
-    val df_Repartition0: Repartition = Repartition0(spark, df_Aggregate0)
+    val df_Repartition0: Repartition = Repartition0(spark, df_RowDistributor0_0)
     Target0(spark, df_Repartition0)
 
   }
