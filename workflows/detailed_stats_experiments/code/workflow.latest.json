@@ -146,6 +146,7 @@
       },
       "Aggregate0" : {
         "component" : "Aggregate",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -177,6 +178,7 @@
       },
       "Reformat1" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -195,6 +197,7 @@
       },
       "Reformat2" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
@@ -208,6 +211,25 @@
         "ports" : {
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Target0" : {
+        "component" : "Target",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "137",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Target0",
+          "x" : 925,
+          "y" : 55
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
         },
         "lineage" : ""
       }
@@ -290,11 +312,24 @@
         "route" : "e_B11Qpizbu"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Aggregate0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Target0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SkoN6oGWO"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049130982,
+      "lastUpdated" : 1613049179804,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
