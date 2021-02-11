@@ -133,26 +133,32 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "addReplaceColumn" : "customer_id",
-            "disabled" : false
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "addReplaceColumn" : "last_name",
-            "disabled" : false
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "country_code",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "country_code"
             } ],
-            "addReplaceColumn" : "country_code",
-            "disabled" : false
+            "comment" : null,
+            "enabled" : true
           } ],
           "detailedStats" : true
         },
@@ -174,18 +180,25 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "addReplaceColumn" : "last_name"
-          } ]
+            "comment" : null,
+            "enabled" : true
+          } ],
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat2",
@@ -200,16 +213,19 @@
       },
       "Reformat3" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "addReplaceColumn" : "last_name",
-            "disabled" : false
+            "comment" : null,
+            "enabled" : true
           } ]
         },
         "metadata" : {
@@ -406,7 +422,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613049518379,
+      "lastUpdated" : 1613049529330,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
