@@ -1,0 +1,106 @@
+{
+  "graph" : {
+    "processes" : {
+      "Source0" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Script0" : {
+        "component" : "Script",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "code" : "val out0 = in0.select((0 until 900).map(idx => col(\"first_name\").as(s\"col${idx}\")).toSeq: _*)",
+          "lastSchemaUpdate" : "",
+          "format" : "scala"
+        },
+        "metadata" : {
+          "label" : "Script0",
+          "x" : 361,
+          "y" : 56
+        },
+        "ports" : {
+          "inputs" : [ "in0" ],
+          "outputs" : [ "out0" ]
+        },
+        "lineage" : ""
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "properties" : {
+          "interim" : true,
+          "cache" : false,
+          "functions" : [ ]
+        },
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 586,
+          "y" : 66
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Script0",
+        "port" : "in0"
+      },
+      "metadata" : {
+        "route" : "e_Sy9rb9MZd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Script0",
+        "port" : "out0"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_S1nBZ5MZO"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1613042044121,
+      "id" : "LargeWorkflow",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : null
+    },
+    "inports" : { },
+    "outports" : { }
+  }
+}
