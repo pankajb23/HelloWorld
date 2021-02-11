@@ -126,7 +126,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
-          "detailedStats" : true,
+          "detailedStats" : false,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -325,27 +325,6 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
-      },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
-        "properties" : {
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ]
-        },
-        "metadata" : {
-          "label" : "Repartition0",
-          "x" : 827,
-          "y" : 190
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -406,31 +385,18 @@
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_BJJe8EG$O"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Repartition0",
-        "port" : "out"
-      },
-      "tgt" : {
         "process" : "CustomerOrdersDatasetOutput",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_SkbeU4GZO"
+        "route" : "e_SJwd8NfWd"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613018638779,
+      "lastUpdated" : 1613018736460,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
