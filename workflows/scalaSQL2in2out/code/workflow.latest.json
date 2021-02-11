@@ -41,20 +41,20 @@
         },
         "lineage" : ""
       },
-      "Script0" : {
-        "component" : "Script",
-        "group" : null,
+      "SQLStatement0" : {
+        "component" : "SQLStatement",
         "properties" : {
           "interim" : false,
           "cache" : false,
-          "code" : "val out0 = in0\nval out1 = in1",
-          "lastSchemaUpdate" : "",
-          "format" : "scala"
+          "sql" : {
+            "out0" : "select * from in0",
+            "out1" : "select * from in1"
+          }
         },
         "metadata" : {
-          "label" : "Script0",
-          "x" : 415,
-          "y" : 149
+          "label" : "SQLStatement0",
+          "x" : 366,
+          "y" : 155
         },
         "ports" : {
           "inputs" : [ "in0", "in1" ],
@@ -141,58 +141,6 @@
     },
     "connections" : [ {
       "src" : {
-        "process" : "Source0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Script0",
-        "port" : "in0"
-      },
-      "metadata" : {
-        "route" : "e_H1eCH9GWO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Source1",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Script0",
-        "port" : "in1"
-      },
-      "metadata" : {
-        "route" : "e_Hyz0r9fZO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Script0",
-        "port" : "out0"
-      },
-      "tgt" : {
-        "process" : "Reformat0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_rJ50S5zb_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Script0",
-        "port" : "out1"
-      },
-      "tgt" : {
-        "process" : "Reformat1",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_Bkp0rqMbu"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
         "process" : "Reformat0",
         "port" : "out"
       },
@@ -217,11 +165,63 @@
         "route" : "e_rk7Rs5fZ_"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "SQLStatement0",
+        "port" : "in0"
+      },
+      "metadata" : {
+        "route" : "e_BkaO1oMWO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "SQLStatement0",
+        "port" : "in1"
+      },
+      "metadata" : {
+        "route" : "e_r1$FyjMWd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "SQLStatement0",
+        "port" : "out0"
+      },
+      "tgt" : {
+        "process" : "Reformat0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_Sk7KJiGWO"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "SQLStatement0",
+        "port" : "out1"
+      },
+      "tgt" : {
+        "process" : "Reformat1",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_H1St1jMbu"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613044693212,
+      "lastUpdated" : 1613045630295,
       "id" : "scalaSQL2in2out",
       "memory" : 1,
       "imported" : true,

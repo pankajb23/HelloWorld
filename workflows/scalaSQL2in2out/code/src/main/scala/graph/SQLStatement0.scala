@@ -14,14 +14,16 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Script0", label = "Script0", x = 415, y = 149, phase = 0)
-object Script0 {
+@Visual(id = "SQLStatement0", label = "SQLStatement0", x = 366, y = 155, phase = 0)
+object SQLStatement0 {
 
-  def apply(spark: SparkSession, in0: DataFrame, in1: DataFrame): (Script, Script) = {
+  def apply(spark: SparkSession, in0: DataFrame, in1: DataFrame): (SQLStatement, SQLStatement) = {
     import spark.implicits._
 
-    val out0 = in0
-    val out1 = in1
+    in0.createOrReplaceTempView("in0")
+    in1.createOrReplaceTempView("in1")
+    val out0 = spark.sql("select * from in0")
+    val out1 = spark.sql("select * from in1")
 
     (out0, out1)
 
