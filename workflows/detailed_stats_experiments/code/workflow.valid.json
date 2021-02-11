@@ -93,7 +93,7 @@
           } ],
           "udf_definitions" : [ ],
           "limit" : 0,
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Join0",
@@ -180,7 +180,7 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Reformat2",
@@ -233,7 +233,7 @@
             }
           } ],
           "opType" : "groupBy",
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "Aggregate0",
@@ -429,7 +429,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613059439668,
+      "lastUpdated" : 1613059502539,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,

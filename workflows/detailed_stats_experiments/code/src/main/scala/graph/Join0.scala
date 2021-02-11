@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Join0", label = "Join0", x = 336, y = 118, phase = 0, detailedStats = true)
+@Visual(id = "Join0", label = "Join0", x = 336, y = 118, phase = 0)
 object Join0 {
 
   def apply(spark: SparkSession, left: DataFrame, right: DataFrame): Join = {
