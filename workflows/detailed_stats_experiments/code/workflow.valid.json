@@ -133,32 +133,17 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
-            "addReplaceColumn" : "customer_id",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "customer_id"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "last_name",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "last_name"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "country_code",
-            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "country_code"
             } ],
-            "comment" : null,
-            "enabled" : true
+            "addReplaceColumn" : "country_code"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "amount"
+            } ],
+            "addReplaceColumn" : "amount"
           } ],
           "detailedStats" : true
         },
@@ -180,23 +165,17 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ {
-            "addReplaceColumn" : "customer_id",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "customer_id"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "last_name",
-            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "comment" : null,
-            "enabled" : true
+            "addReplaceColumn" : "last_name"
+          }, {
+            "inputArgs" : [ {
+              "type" : "sql",
+              "expr" : "country_code"
+            } ],
+            "addReplaceColumn" : "country_code"
           } ],
           "detailedStats" : true
         },
@@ -456,7 +435,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613059352379,
+      "lastUpdated" : 1613059404310,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
