@@ -113,7 +113,7 @@
           "interim" : true,
           "cache" : false,
           "functions" : [ ],
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat0",
@@ -151,7 +151,7 @@
             "comment" : null,
             "enabled" : true
           } ],
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Reformat1",
@@ -233,7 +233,7 @@
             }
           } ],
           "opType" : "groupBy",
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "Aggregate0",
@@ -395,7 +395,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613109965083,
+      "lastUpdated" : 1613110209956,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
