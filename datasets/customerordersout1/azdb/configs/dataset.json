@@ -1,4 +1,11 @@
 {
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : "true",
+      "inferSchema" : "true"
+    }
+  },
   "outputProperties" : {
     "properties" : {
       "mode" : "overwrite",
@@ -8,24 +15,11 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv"
     }
   },
   "datasetId" : "137",
-  "schema" : {
-    "type" : "struct",
-    "fields" : [ {
-      "name" : "country_code",
-      "type" : "string",
-      "nullable" : false,
-      "metadata" : { }
-    }, {
-      "name" : "amount",
-      "type" : "double",
-      "nullable" : false,
-      "metadata" : { }
-    } ]
-  },
+  "schema" : null,
   "datasetType" : "File",
   "description" : "",
   "dataFormat" : "csv"
