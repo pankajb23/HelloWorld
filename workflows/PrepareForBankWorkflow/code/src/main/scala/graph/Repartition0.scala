@@ -20,7 +20,7 @@ object Repartition0 {
   def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val out = in.coalesce(1)
+    val out = in.coalesce(2)
 
     out
 
