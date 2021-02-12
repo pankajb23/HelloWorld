@@ -2,8 +2,7 @@
   "inputProperties" : {
     "properties" : {
       "sep" : ",",
-      "header" : "true",
-      "inferSchema" : "true"
+      "inferSchema" : false
     }
   },
   "outputProperties" : {
@@ -19,7 +18,54 @@
     }
   },
   "datasetId" : "137",
-  "schema" : null,
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "order_id",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "orders",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : true
+    }, {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "phone",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "account_length_days",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "account_flags",
+      "type" : "string",
+      "nullable" : true
+    } ]
+  },
   "datasetType" : "File",
   "description" : "",
   "dataFormat" : "csv"
