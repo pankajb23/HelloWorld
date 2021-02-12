@@ -167,7 +167,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -350,7 +350,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613115089604,
+      "lastUpdated" : 1613115131871,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
