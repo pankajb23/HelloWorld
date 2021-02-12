@@ -1,35 +1,6 @@
 {
   "graph" : {
     "processes" : {
-      "RowDistributor0" : {
-        "component" : "RowDistributor",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "condition" : {
-            "out0" : {
-              "format" : "sql",
-              "expr" : "country_code='CN'",
-              "type" : "sql"
-            },
-            "out1" : {
-              "format" : "sql",
-              "expr" : "country_code='ID'"
-            }
-          }
-        },
-        "metadata" : {
-          "label" : "RowDistributor0",
-          "x" : 814,
-          "y" : 104
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out0", "out1" ]
-        },
-        "lineage" : ""
-      },
       "Orders" : {
         "component" : "Source",
         "group" : null,
@@ -184,8 +155,8 @@
         },
         "metadata" : {
           "label" : "Reformat1",
-          "x" : 986,
-          "y" : 257
+          "x" : 848,
+          "y" : 296
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -266,8 +237,8 @@
         },
         "metadata" : {
           "label" : "Aggregate0",
-          "x" : 666,
-          "y" : 109
+          "x" : 962,
+          "y" : 87
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -291,27 +262,6 @@
         },
         "ports" : {
           "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
-        "properties" : {
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ]
-        },
-        "metadata" : {
-          "label" : "Repartition0",
-          "x" : 1067,
-          "y" : 90
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
         "lineage" : ""
@@ -417,7 +367,7 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "Repartition0",
+        "process" : "Aggregate0",
         "port" : "out"
       },
       "tgt" : {
@@ -425,53 +375,27 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_HJWtEAzb_"
+        "route" : "e_ry3j9cmWd"
       },
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "Aggregate0",
+        "process" : "Reformat0",
         "port" : "out"
-      },
-      "tgt" : {
-        "process" : "RowDistributor0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_H1V7PRfZd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "RowDistributor0",
-        "port" : "out0"
-      },
-      "tgt" : {
-        "process" : "Repartition0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_HkWwD0M$d"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "RowDistributor0",
-        "port" : "out1"
       },
       "tgt" : {
         "process" : "Reformat1",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_BJSvPAGZO"
+        "route" : "e_r12n9cX$u"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613060052904,
+      "lastUpdated" : 1613109965083,
       "id" : "detailedstatsexperiments",
       "memory" : 1,
       "imported" : true,
