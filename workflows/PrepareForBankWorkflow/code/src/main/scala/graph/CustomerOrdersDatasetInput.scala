@@ -27,24 +27,16 @@ object CustomerOrdersDatasetInput {
       case "azdb" =>
         val schemaArg = StructType(
           Array(
-            StructField("order_id",            IntegerType, false),
-            StructField("orders",              IntegerType, false),
-            StructField("amount",              DoubleType,  false),
-            StructField("customer_id",         IntegerType, false),
-            StructField("first_name",          StringType,  false),
-            StructField("last_name",           StringType,  false),
-            StructField("phone",               StringType,  false),
-            StructField("email",               StringType,  false),
-            StructField("country_code",        StringType,  false),
-            StructField("account_length_days", IntegerType, false),
-            StructField("account_flags",       StringType,  false)
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("orders",       LongType,    false),
+            StructField("amount",       DoubleType,  false)
           )
         )
         spark.read
           .format("csv")
-          .option("sep", ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv")
+          .load("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }

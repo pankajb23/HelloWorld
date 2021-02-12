@@ -245,6 +245,26 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Repartition0" : {
+        "component" : "Repartition",
+        "properties" : {
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "opType" : "coalesce",
+          "numPartitions" : "2",
+          "partitionCols" : [ ]
+        },
+        "metadata" : {
+          "label" : "Repartition0",
+          "x" : 624,
+          "y" : 7
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -305,18 +325,31 @@
         "port" : "out"
       },
       "tgt" : {
+        "process" : "Repartition0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_Hyza6cXbd"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Repartition0",
+        "port" : "out"
+      },
+      "tgt" : {
         "process" : "FinalDatasetOutput",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_rkQKx4bbO"
+        "route" : "e_rJNpa5Q$d"
       },
       "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1612961747185,
+      "lastUpdated" : 1613110721405,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
