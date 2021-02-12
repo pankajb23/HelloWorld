@@ -14,7 +14,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "Repartition0", label = "Repartition0", x = 624, y = 7, phase = 0)
+@Visual(id = "Repartition0", label = "Repartition0", x = 624, y = 6, phase = 0)
 object Repartition0 {
 
   def apply(spark: SparkSession, in: DataFrame): Repartition = {
