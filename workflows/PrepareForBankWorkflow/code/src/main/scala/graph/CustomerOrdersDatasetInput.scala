@@ -14,10 +14,10 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import graph._
 
-@Visual(id = "CustomerOrdersDatasetInput", label = "CustomerOrdersDatasetInput", x = 7, y = 98, phase = 0)
+@Visual(id = "CustomerOrdersDatasetInput", label = "CustomerOrdersDatasetInput", x = 6, y = 97, phase = 0)
 object CustomerOrdersDatasetInput {
 
-  @UsesDataset(id = "17", version = 0)
+  @UsesDataset(id = "15", version = 0)
   def apply(spark: SparkSession): Source = {
     import spark.implicits._
 
@@ -27,16 +27,21 @@ object CustomerOrdersDatasetInput {
       case "azdb" =>
         val schemaArg = StructType(
           Array(
-            StructField("customer_id",  IntegerType, false),
-            StructField("country_code", StringType,  false),
-            StructField("orders",       LongType,    false),
-            StructField("amount",       DoubleType,  false)
+            StructField("customer_id",       IntegerType, false),
+            StructField("first_name",        StringType,  false),
+            StructField("last_name",         StringType,  false),
+            StructField("phone",             StringType,  false),
+            StructField("email",             StringType,  false),
+            StructField("country_code",      StringType,  false),
+            StructField("account_open_date", StringType,  false),
+            StructField("account_flags",     StringType,  false)
           )
         )
         spark.read
           .format("csv")
+          .option("sep", ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
+          .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }
