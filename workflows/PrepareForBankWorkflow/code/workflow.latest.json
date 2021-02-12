@@ -253,7 +253,7 @@
           "udf_definitions" : [ ],
           "limit" : 0,
           "opType" : "coalesce",
-          "numPartitions" : "2",
+          "numPartitions" : "1",
           "partitionCols" : [ ]
         },
         "metadata" : {
@@ -350,7 +350,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613115223454,
+      "lastUpdated" : 1613115259878,
       "id" : "PrepareForBankWorkflow",
       "memory" : 1,
       "imported" : true,
