@@ -12,6 +12,7 @@ import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
+import udfs.UDFs._
 import graph._
 
 @Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 7, y = 154, phase = 0)
