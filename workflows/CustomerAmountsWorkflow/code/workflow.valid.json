@@ -313,7 +313,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : true
+          "detailedStats" : false
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -434,7 +434,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613475694417,
+      "lastUpdated" : 1613475817237,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
