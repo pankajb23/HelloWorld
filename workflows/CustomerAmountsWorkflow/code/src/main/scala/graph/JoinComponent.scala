@@ -12,6 +12,7 @@ import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
+import udfs.UDFs._
 import graph._
 
 @Visual(id = "JoinComponent", label = "JoinComponent", x = 201, y = 101, phase = 0)

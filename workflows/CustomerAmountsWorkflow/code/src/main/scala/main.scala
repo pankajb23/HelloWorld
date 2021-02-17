@@ -26,6 +26,7 @@ object Main {
     val df_AggregateComponent:    Aggregate   = AggregateComponent(spark, df_PrepareComponent)
     val df_Repartition0:          Repartition = Repartition0(spark,       df_AggregateComponent)
     CustomerOrdersDatasetOutput(spark, df_Repartition0)
+    val df_Filter0: Filter = Filter0(spark, df_PrepareComponent)
 
   }
 
