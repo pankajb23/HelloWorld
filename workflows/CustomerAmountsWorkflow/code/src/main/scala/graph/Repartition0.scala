@@ -12,6 +12,7 @@ import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
+import udfs.UDFs._
 import graph._
 
 @Visual(id = "Repartition0", label = "Repartition0", x = 1003, y = 196, phase = 0)
@@ -20,7 +21,7 @@ object Repartition0 {
   def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val out = in.repartition(col("country_code"))
+    val out = in.coalesce(1)
 
     out
 
