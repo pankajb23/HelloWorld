@@ -347,25 +347,6 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
-      },
-      "Filter0" : {
-        "component" : "Filter",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "condition" : [ ]
-        },
-        "metadata" : {
-          "label" : "Filter0",
-          "x" : 639,
-          "y" : 281
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -446,24 +427,11 @@
         "route" : "e_B1SMXrM$u"
       },
       "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Filter0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_Sk08rq5WO"
-      },
-      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613731433731,
+      "lastUpdated" : 1613732489546,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
