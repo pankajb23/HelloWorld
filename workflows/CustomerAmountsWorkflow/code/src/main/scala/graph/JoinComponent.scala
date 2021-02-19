@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "JoinComponent", label = "JoinComponent", x = 201, y = 101, phase = 0)
+@Visual(id = "JoinComponent", label = "JoinComponent", x = 201, y = 101, phase = 0, detailedStats = true)
 object JoinComponent {
 
   def apply(spark: SparkSession, left: DataFrame, right: DataFrame): Join = {

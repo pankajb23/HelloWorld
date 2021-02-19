@@ -84,7 +84,8 @@
           } ],
           "ramp" : 0,
           "joinType" : "inner",
-          "limit" : 0
+          "limit" : 0,
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "JoinComponent",
@@ -126,7 +127,7 @@
           "interim" : true,
           "cache" : false,
           "src_desc" : "AggregateComponent",
-          "detailedStats" : false,
+          "detailedStats" : true,
           "ramp" : 0,
           "aggcols" : [ {
             "targetCol" : "orders",
@@ -313,7 +314,7 @@
             "enabled" : true
           } ],
           "limit" : 0,
-          "detailedStats" : false
+          "detailedStats" : true
         },
         "metadata" : {
           "label" : "PrepareComponent",
@@ -349,6 +350,7 @@
       },
       "Filter0" : {
         "component" : "Filter",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -461,7 +463,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613567319996,
+      "lastUpdated" : 1613731433731,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

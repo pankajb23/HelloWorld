@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "PrepareComponent", label = "PrepareComponent", x = 378, y = 99, phase = 0)
+@Visual(id = "PrepareComponent", label = "PrepareComponent", x = 378, y = 99, phase = 0, detailedStats = true)
 object PrepareComponent {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
