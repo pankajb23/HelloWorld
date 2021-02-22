@@ -25,8 +25,6 @@ object Main {
     val df_JoinComponent:         Join     = JoinComponent(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
     val df_SubGraph0:             SubGraph = SubGraph0(spark,     df_JoinComponent)
     CustomerOrdersDatasetOutput(spark, df_SubGraph0)
-    val df_PrepareComponent:   Reformat  = PrepareComponent(spark,   df_JoinComponent)
-    val df_AggregateComponent: Aggregate = AggregateComponent(spark, df_PrepareComponent)
 
   }
 

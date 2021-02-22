@@ -120,78 +120,6 @@
         },
         "lineage" : ""
       },
-      "AggregateComponent" : {
-        "component" : "Aggregate",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "src_desc" : "AggregateComponent",
-          "detailedStats" : true,
-          "ramp" : 0,
-          "aggcols" : [ {
-            "targetCol" : "orders",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "count(col(\"order_id\"))"
-            }
-          }, {
-            "targetCol" : "amount",
-            "expression" : {
-              "format" : "scala",
-              "expr" : "sum(col(\"amount\"))"
-            }
-          } ],
-          "opType" : "groupBy",
-          "phase" : 0,
-          "limit" : 0,
-          "columns" : [ {
-            "targetCol" : "customer_id",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "customer_id"
-            }
-          }, {
-            "targetCol" : "country_code",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "country_code"
-            }
-          } ]
-        },
-        "metadata" : {
-          "label" : "AggregateComponent",
-          "x" : 924,
-          "y" : 157
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "CustomersDatasetInput" : {
-        "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "src_desc" : "CustomersDatasetInput",
-          "phase" : 0,
-          "ramp" : 0,
-          "version" : 3,
-          "id" : "15",
-          "limit" : 0
-        },
-        "metadata" : {
-          "label" : "CustomersDatasetInput",
-          "x" : 7,
-          "y" : 154
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
       "OrdersDatasetInput" : {
         "component" : "Source",
         "group" : null,
@@ -214,115 +142,24 @@
         },
         "lineage" : ""
       },
-      "PrepareComponent" : {
-        "component" : "Reformat",
+      "CustomersDatasetInput" : {
+        "component" : "Source",
         "group" : null,
         "properties" : {
-          "src_desc" : "PrepareComponent",
+          "src_desc" : "CustomersDatasetInput",
           "phase" : 0,
           "ramp" : 0,
-          "udf_definitions" : [ ],
-          "functions" : [ {
-            "addReplaceColumn" : "account_length_days",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "datediff(current_date(), col(\"account_open_date\"))"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "order_id",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"order_id\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "customer_id",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"customer_id\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "amount",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"amount\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "first_name",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"first_name\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "last_name",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"last_name\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "phone",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"phone\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "email",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"email\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "country_code",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"country_code\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          }, {
-            "addReplaceColumn" : "account_flags",
-            "functionName" : "column_expression",
-            "inputArgs" : [ {
-              "type" : "pass",
-              "expr" : "col(\"account_flags\")"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          } ],
-          "limit" : 0,
-          "detailedStats" : true
+          "version" : 3,
+          "id" : "15",
+          "limit" : 0
         },
         "metadata" : {
-          "label" : "PrepareComponent",
-          "x" : 588,
-          "y" : 161
+          "label" : "CustomersDatasetInput",
+          "x" : 7,
+          "y" : 154
         },
         "ports" : {
-          "inputs" : [ "in" ],
+          "inputs" : [ ],
           "outputs" : [ "out" ]
         },
         "lineage" : ""
@@ -356,19 +193,6 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "PrepareComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "AggregateComponent",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e4"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
         "process" : "JoinComponent",
         "port" : "out"
       },
@@ -393,19 +217,6 @@
         "route" : "e_rk1j8Z$f_"
       },
       "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "JoinComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "PrepareComponent",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_ryGhLbZMd"
-      },
-      "lineage" : ""
     } ],
     "groups" : [ {
       "alias" : "SubGraph0",
@@ -420,68 +231,86 @@
               "interim" : true,
               "cache" : false,
               "functions" : [ {
+                "addReplaceColumn" : "order_id",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "order_id"
                 } ],
-                "addReplaceColumn" : "order_id",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "customer_id",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "customer_id"
                 } ],
-                "addReplaceColumn" : "customer_id",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "amount",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "amount"
                 } ],
-                "addReplaceColumn" : "amount",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "first_name",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "first_name"
                 } ],
-                "addReplaceColumn" : "first_name",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "last_name",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "last_name"
                 } ],
-                "addReplaceColumn" : "last_name",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "phone",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "phone"
                 } ],
-                "addReplaceColumn" : "phone",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "email",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "email"
                 } ],
-                "addReplaceColumn" : "email",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "country_code",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "country_code"
                 } ],
-                "addReplaceColumn" : "country_code",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               }, {
+                "addReplaceColumn" : "account_flags",
+                "functionName" : null,
                 "inputArgs" : [ {
                   "type" : "sql",
                   "expr" : "account_flags"
                 } ],
-                "addReplaceColumn" : "account_flags",
-                "disabled" : false
+                "comment" : null,
+                "enabled" : true
               } ]
             },
             "metadata" : {
@@ -616,7 +445,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613989662833,
+      "lastUpdated" : 1613989683922,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
