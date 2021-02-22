@@ -161,8 +161,8 @@
         },
         "metadata" : {
           "label" : "AggregateComponent",
-          "x" : 574,
-          "y" : 96
+          "x" : 924,
+          "y" : 157
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -318,29 +318,8 @@
         },
         "metadata" : {
           "label" : "PrepareComponent",
-          "x" : 378,
-          "y" : 99
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Repartition0" : {
-        "component" : "Repartition",
-        "group" : null,
-        "properties" : {
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "opType" : "coalesce",
-          "numPartitions" : "1",
-          "partitionCols" : [ ]
-        },
-        "metadata" : {
-          "label" : "Repartition0",
-          "x" : 1003,
-          "y" : 196
+          "x" : 588,
+          "y" : 161
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -377,19 +356,6 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "JoinComponent",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "PrepareComponent",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e3"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
         "process" : "PrepareComponent",
         "port" : "out"
       },
@@ -403,20 +369,20 @@
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "AggregateComponent",
+        "process" : "JoinComponent",
         "port" : "out"
       },
       "tgt" : {
-        "process" : "Repartition0",
+        "process" : "SubGraph0",
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_SJXGmrfZO"
+        "route" : "e_BkvqL$WM_"
       },
       "lineage" : ""
     }, {
       "src" : {
-        "process" : "Repartition0",
+        "process" : "SubGraph0",
         "port" : "out"
       },
       "tgt" : {
@@ -424,14 +390,233 @@
         "port" : "in"
       },
       "metadata" : {
-        "route" : "e_B1SMXrM$u"
+        "route" : "e_rk1j8Z$f_"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "JoinComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "PrepareComponent",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_ryGhLbZMd"
       },
       "lineage" : ""
     } ],
-    "groups" : [ ],
+    "groups" : [ {
+      "alias" : "SubGraph0",
+      "component" : "SubGraph",
+      "name" : "SubGraph0",
+      "graph" : {
+        "processes" : {
+          "Reformat0" : {
+            "component" : "Reformat",
+            "group" : "SubGraph0",
+            "properties" : {
+              "interim" : true,
+              "cache" : false,
+              "functions" : [ {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "order_id"
+                } ],
+                "addReplaceColumn" : "order_id",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "customer_id"
+                } ],
+                "addReplaceColumn" : "customer_id",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "amount"
+                } ],
+                "addReplaceColumn" : "amount",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "first_name"
+                } ],
+                "addReplaceColumn" : "first_name",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "last_name"
+                } ],
+                "addReplaceColumn" : "last_name",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "phone"
+                } ],
+                "addReplaceColumn" : "phone",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "email"
+                } ],
+                "addReplaceColumn" : "email",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "country_code"
+                } ],
+                "addReplaceColumn" : "country_code",
+                "disabled" : false
+              }, {
+                "inputArgs" : [ {
+                  "type" : "sql",
+                  "expr" : "account_flags"
+                } ],
+                "addReplaceColumn" : "account_flags",
+                "disabled" : false
+              } ]
+            },
+            "metadata" : {
+              "label" : "Reformat0",
+              "x" : 386,
+              "y" : 356
+            },
+            "ports" : {
+              "inputs" : [ "in" ],
+              "outputs" : [ "out" ]
+            },
+            "lineage" : ""
+          },
+          "Aggregate0" : {
+            "component" : "Aggregate",
+            "group" : "SubGraph0",
+            "properties" : {
+              "interim" : false,
+              "cache" : false,
+              "aggcols" : [ {
+                "targetCol" : "order_id",
+                "expression" : {
+                  "format" : "sql",
+                  "expr" : "count(order_id)"
+                }
+              }, {
+                "targetCol" : "amount",
+                "expression" : {
+                  "format" : "sql",
+                  "expr" : "sum(amount)"
+                }
+              } ],
+              "columns" : [ {
+                "targetCol" : "customer_id",
+                "expression" : {
+                  "format" : "sql",
+                  "expr" : "customer_id"
+                }
+              }, {
+                "targetCol" : "country_code",
+                "expression" : {
+                  "format" : "sql",
+                  "expr" : "country_code"
+                }
+              } ],
+              "opType" : "groupBy"
+            },
+            "metadata" : {
+              "label" : "Aggregate0",
+              "x" : 698,
+              "y" : 345
+            },
+            "ports" : {
+              "inputs" : [ "in" ],
+              "outputs" : [ "out" ]
+            },
+            "lineage" : ""
+          }
+        },
+        "connections" : [ {
+          "src" : {
+            "process" : "SubGraph0",
+            "port" : "in"
+          },
+          "tgt" : {
+            "process" : "Reformat0",
+            "port" : "in"
+          },
+          "metadata" : {
+            "route" : "e_rJUR8$Wfu"
+          },
+          "lineage" : ""
+        }, {
+          "src" : {
+            "process" : "Reformat0",
+            "port" : "out"
+          },
+          "tgt" : {
+            "process" : "Aggregate0",
+            "port" : "in"
+          },
+          "metadata" : {
+            "route" : "e_SJ1yw$WMu"
+          },
+          "lineage" : ""
+        }, {
+          "src" : {
+            "process" : "Aggregate0",
+            "port" : "out"
+          },
+          "tgt" : {
+            "process" : "SubGraph0",
+            "port" : "out"
+          },
+          "metadata" : {
+            "route" : "e_S1GkPZZMu"
+          },
+          "lineage" : ""
+        } ],
+        "groups" : [ ],
+        "locked" : false,
+        "metainfo" : {
+          "lastUpdated" : null,
+          "id" : null,
+          "memory" : 1,
+          "imported" : true,
+          "language" : "scala",
+          "processors" : 1,
+          "cluster" : "local",
+          "mode" : "batch",
+          "interimMode" : "full",
+          "udfs" : null
+        },
+        "inports" : {
+          "0" : "in"
+        },
+        "outports" : {
+          "0" : "out"
+        }
+      },
+      "metadata" : {
+        "x" : 805,
+        "y" : 319,
+        "label" : "SubGraph0"
+      },
+      "properties" : { },
+      "group" : null,
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      }
+    } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613732489546,
+      "lastUpdated" : 1613989662833,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "AggregateComponent", label = "AggregateComponent", x = 574, y = 96, phase = 0, detailedStats = true)
+@Visual(id = "AggregateComponent", label = "AggregateComponent", x = 924, y = 157, phase = 0, detailedStats = true)
 object AggregateComponent {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {

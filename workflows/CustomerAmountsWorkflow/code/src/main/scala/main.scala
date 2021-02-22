@@ -12,6 +12,7 @@ import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
 
+import graph.SubGraph0._
 import graph._
 
 @Visual(mode = "batch", interimMode = "full")
@@ -19,13 +20,23 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_CustomersDatasetInput: Source      = CustomersDatasetInput(spark)
-    val df_OrdersDatasetInput:    Source      = OrdersDatasetInput(spark)
-    val df_JoinComponent:         Join        = JoinComponent(spark,      df_OrdersDatasetInput, df_CustomersDatasetInput)
-    val df_PrepareComponent:      Reformat    = PrepareComponent(spark,   df_JoinComponent)
-    val df_AggregateComponent:    Aggregate   = AggregateComponent(spark, df_PrepareComponent)
-    val df_Repartition0:          Repartition = Repartition0(spark,       df_AggregateComponent)
-    CustomerOrdersDatasetOutput(spark, df_Repartition0)
+    val df_CustomersDatasetInput: Source   = CustomersDatasetInput(spark)
+    val df_OrdersDatasetInput:    Source   = OrdersDatasetInput(spark)
+    val df_JoinComponent:         Join     = JoinComponent(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
+    val df_SubGraph0:             SubGraph = SubGraph0(spark,     df_JoinComponent)
+    CustomerOrdersDatasetOutput(spark, df_SubGraph0)
+    val df_PrepareComponent:   Reformat  = PrepareComponent(spark,   df_JoinComponent)
+    val df_AggregateComponent: Aggregate = AggregateComponent(spark, df_PrepareComponent)
+
+  }
+
+  @Visual(id = "SubGraph0", label = "SubGraph0", x = 805, y = 319, phase = 0)
+  def SubGraph0(spark: SparkSession, in: DataFrame): SubGraph = {
+
+    val df_Reformat0: Reformat  = Reformat0(spark,  in)
+    val out:          Aggregate = Aggregate0(spark, df_Reformat0)
+
+    out
 
   }
 

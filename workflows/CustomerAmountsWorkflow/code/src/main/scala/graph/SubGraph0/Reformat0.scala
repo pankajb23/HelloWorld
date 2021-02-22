@@ -1,4 +1,4 @@
-package graph
+package graph.SubGraph0
 
 import org.apache.spark.sql.types._
 import io.prophecy.libs._
@@ -13,16 +13,15 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
-import graph._
+import graph.SubGraph0._
 
-@Visual(id = "PrepareComponent", label = "PrepareComponent", x = 588, y = 161, phase = 0, detailedStats = true)
-object PrepareComponent {
+@Visual(id = "Reformat0", label = "Reformat0", x = 386, y = 356, phase = 0)
+object Reformat0 {
 
   def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._
 
     val out = in.select(
-      datediff(current_date(), col("account_open_date")).as("account_length_days"),
       col("order_id"),
       col("customer_id"),
       col("amount"),

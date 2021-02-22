@@ -1,4 +1,4 @@
-package graph
+package graph.SubGraph0
 
 import org.apache.spark.sql.types._
 import io.prophecy.libs._
@@ -13,15 +13,16 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
-import graph._
+import graph.SubGraph0._
 
-@Visual(id = "Repartition0", label = "Repartition0", x = 1003, y = 196, phase = 0)
-object Repartition0 {
+@Visual(id = "Aggregate0", label = "Aggregate0", x = 698, y = 345, phase = 0)
+object Aggregate0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Repartition = {
+  def apply(spark: SparkSession, in: DataFrame): Aggregate = {
     import spark.implicits._
 
-    val out = in.coalesce(1)
+    val dfGroupBy = in.groupBy(col("customer_id").as("customer_id"),     col("country_code").as("country_code"))
+    val out       = dfGroupBy.agg(count(col("order_id")).as("order_id"), sum(col("amount")).as("amount"))
 
     out
 
