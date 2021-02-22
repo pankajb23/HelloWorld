@@ -361,7 +361,7 @@
             "metadata" : {
               "label" : "Aggregate0",
               "x" : 698,
-              "y" : 345
+              "y" : 344
             },
             "ports" : {
               "inputs" : [ "in" ],
@@ -445,7 +445,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1613992179191,
+      "lastUpdated" : 1613992464986,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

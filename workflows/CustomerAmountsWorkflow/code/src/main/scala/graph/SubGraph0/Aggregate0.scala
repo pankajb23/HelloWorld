@@ -1,4 +1,4 @@
-package graph.SubGraph0
+package graph
 
 import org.apache.spark.sql.types._
 import io.prophecy.libs._
@@ -13,9 +13,9 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
-import graph.SubGraph0._
+import graph._
 
-@Visual(id = "Aggregate0", label = "Aggregate0", x = 698, y = 345, phase = 0)
+@Visual(id = "Aggregate0", label = "Aggregate0", x = 698, y = 344, phase = 0)
 object Aggregate0 {
 
   def apply(spark: SparkSession, in: DataFrame): Aggregate = {
