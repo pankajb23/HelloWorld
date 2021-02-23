@@ -5,87 +5,74 @@
         "component" : "Join",
         "group" : null,
         "properties" : {
-          "src_desc" : "JoinComponent",
-          "phase" : 0,
+          "joinType" : "inner",
           "joinCondition" : {
-            "format" : "scala",
-            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
+            "expr" : "col(\"left.customer_id\") === col()",
+            "format" : "scala"
           },
           "selectColumns" : [ {
             "targetCol" : "account_open_date",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.account_open_date\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.account_open_date\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "order_id",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"left.order_id\")"
-            },
-            "isLeftTableCol" : true
+              "expr" : "col(\"left.order_id\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "customer_id",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"left.customer_id\")"
-            },
-            "isLeftTableCol" : true
+              "expr" : "col(\"left.customer_id\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "amount",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"left.amount\")"
-            },
-            "isLeftTableCol" : true
+              "expr" : "col(\"left.amount\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "first_name",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.first_name\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.first_name\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "last_name",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.last_name\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.last_name\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "phone",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.phone\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.phone\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "email",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.email\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.email\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "country_code",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.country_code\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.country_code\")",
+              "format" : "scala"
+            }
           }, {
             "targetCol" : "account_flags",
             "expression" : {
-              "format" : "scala",
-              "expr" : "col(\"right.account_flags\")"
-            },
-            "isLeftTableCol" : false
+              "expr" : "col(\"right.account_flags\")",
+              "format" : "scala"
+            }
           } ],
-          "ramp" : 0,
-          "joinType" : "inner",
-          "limit" : 0,
-          "detailedStats" : false
+          "udf_definitions" : [ ],
+          "limit" : 0
         },
         "metadata" : {
           "label" : "JoinComponent",
@@ -445,7 +432,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1614097464531,
+      "lastUpdated" : 1614108196709,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
