@@ -7,7 +7,7 @@
         "properties" : {
           "joinType" : "inner",
           "joinCondition" : {
-            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_ids\")",
             "format" : "scala"
           },
           "selectColumns" : [ {
@@ -432,7 +432,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1614108960589,
+      "lastUpdated" : 1614840322759,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,

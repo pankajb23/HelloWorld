@@ -23,7 +23,7 @@ object JoinComponent {
 
     val leftAlias  = left.as("left")
     val rightAlias = right.as("right")
-    val dfJoin     = leftAlias.join(rightAlias, col("left.customer_id") === col("right.customer_id"), "inner")
+    val dfJoin     = leftAlias.join(rightAlias, col("left.customer_id") === col("right.customer_ids"), "inner")
 
     val out = dfJoin.select(
       col("right.account_open_date").as("account_open_date"),
