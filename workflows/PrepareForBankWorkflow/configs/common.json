@@ -10,6 +10,14 @@
         "value" : "B",
         "type" : "string"
       }
+    }, {
+      "name" : "B",
+      "comment" : "",
+      "optional" : false,
+      "kind" : {
+        "value" : 1,
+        "type" : "int"
+      }
     } ]
   }
 }
