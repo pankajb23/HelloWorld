@@ -1,0 +1,15 @@
+{
+  "name" : "common",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ {
+      "name" : "A",
+      "comment" : "",
+      "optional" : false,
+      "kind" : {
+        "value" : "B",
+        "type" : "string"
+      }
+    } ]
+  }
+}
