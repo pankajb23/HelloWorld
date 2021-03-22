@@ -1,7 +1,6 @@
 {
-  "datasetId" : "datasetId",
-  "projectId" : "projectId",
   "description" : "PLACEHOLDER_DESC",
+  "datasetId" : "16",
   "dataFormat" : "csv",
   "datasetType" : "File",
   "schema" : {
@@ -9,43 +8,48 @@
     "fields" : [ {
       "name" : "order_id",
       "type" : "integer",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "customer_id",
       "type" : "integer",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "order_status",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "order_category",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "order_date",
       "type" : "string",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     }, {
       "name" : "amount",
       "type" : "double",
-      "nullable" : false
+      "nullable" : false,
+      "metadata" : { }
     } ]
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv"
+    }
   },
   "inputProperties" : {
     "properties" : {
-      "inferSchema" : "true",
       "sep" : ","
     }
   },
   "outputProperties" : {
     "properties" : {
       "sep" : ","
-    }
-  },
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv"
     }
   }
 }
