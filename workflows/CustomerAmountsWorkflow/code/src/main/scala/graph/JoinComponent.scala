@@ -30,6 +30,7 @@ object JoinComponent {
       col("left.order_id").as("order_id"),
       col("left.customer_id").as("customer_id"),
       col("left.amount").as("amount"),
+      col("left.order_status").as("order_status"),
       col("right.first_name").as("first_name"),
       col("right.last_name").as("last_name"),
       col("right.phone").as("phone"),
