@@ -1,0 +1,7 @@
+{
+  "name" : "Delta",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name" : "azdb",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ {
+      "name" : "A",
+      "comment" : "",
+      "optional" : true,
+      "kind" : {
+        "value" : false,
+        "type" : "boolean"
+      }
+    } ]
+  }
+}
