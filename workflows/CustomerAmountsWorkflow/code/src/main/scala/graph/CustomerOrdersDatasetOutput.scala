@@ -37,7 +37,7 @@ object CustomerOrdersDatasetOutput {
           .format("csv")
           .option("header", true)
           .option("sep",    ",")
-          .mode("append")
+          .mode("overwrite")
           .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
