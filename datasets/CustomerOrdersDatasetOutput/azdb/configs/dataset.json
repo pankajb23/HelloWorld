@@ -1,7 +1,7 @@
 {
   "outputProperties" : {
     "properties" : {
-      "mode" : "append",
+      "mode" : "overwrite",
       "sep" : ",",
       "header" : true
     }
