@@ -1,8 +1,17 @@
 {
-  "description" : "PLACEHOLDER_DESC",
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "append",
+      "sep" : ",",
+      "header" : true
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+    }
+  },
   "datasetId" : "17",
-  "dataFormat" : "csv",
-  "datasetType" : "File",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -27,16 +36,7 @@
       "metadata" : { }
     } ]
   },
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
-    }
-  },
-  "outputProperties" : {
-    "properties" : {
-      "mode" : "overwrite",
-      "sep" : ",",
-      "header" : true
-    }
-  }
+  "datasetType" : "File",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv"
 }
