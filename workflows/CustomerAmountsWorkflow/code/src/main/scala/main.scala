@@ -20,8 +20,8 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_CustomersDatasetInput: Source   = CustomersDatasetInput(spark)
     val df_OrdersDatasetInput:    Source   = OrdersDatasetInput(spark)
+    val df_CustomersDatasetInput: Source   = CustomersDatasetInput(spark)
     val df_JoinComponent:         Join     = JoinComponent(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
     val df_SubGraph0:             SubGraph = SubGraph0(spark,     df_JoinComponent)
     CustomerOrdersDatasetOutput(spark, df_SubGraph0)
