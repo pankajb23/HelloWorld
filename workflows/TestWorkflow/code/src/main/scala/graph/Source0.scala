@@ -43,7 +43,7 @@ object Source0 {
           .option("header", true)
           .option("sep",    ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/rajat/CustomersDatasetInput1.csv")
+          .load("dbfs:/Users/prophecy/rajat/CustomersDatasetInput.csv")
           .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }
