@@ -8,7 +8,9 @@
   },
   "outputProperties" : {
     "properties" : {
-      "sep" : ","
+      "mode" : "append",
+      "sep" : ",",
+      "header" : "true"
     }
   },
   "commonProperties" : {
