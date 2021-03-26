@@ -1,0 +1,71 @@
+{
+  "graph" : {
+    "processes" : {
+      "Source0" : {
+        "component" : "Source",
+        "properties" : {
+          "interim" : false,
+          "cache" : false
+        },
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "Target0" : {
+        "component" : "Target",
+        "properties" : {
+          "interim" : false,
+          "cache" : false
+        },
+        "metadata" : {
+          "label" : "Target0",
+          "x" : 442,
+          "y" : 47
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Target0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_S1Gtlqo4d"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1616777339513,
+      "id" : "TestWorkflow",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : null,
+      "sparkOptions" : null
+    },
+    "inports" : { },
+    "outports" : { }
+  }
+}
