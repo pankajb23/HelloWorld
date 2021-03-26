@@ -42,7 +42,7 @@ object Target0 {
           .option("header", true)
           .option("sep",    ",")
           .mode("append")
-          .save("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
+          .save("dbfs:/Users/prophecy/rajat/CustomersDatasetInput1.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
