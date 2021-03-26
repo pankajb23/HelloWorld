@@ -15,7 +15,7 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/rajat/CustomersDatasetInput.csv"
+      "location" : "s3a://abinitio-spark-redshift-testing/FileStore/tables/a"
     }
   },
   "datasetId" : "15",
