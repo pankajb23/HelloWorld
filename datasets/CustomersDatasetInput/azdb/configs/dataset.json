@@ -15,7 +15,7 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "s3a://abinitio-spark-redshift-testing/FileStore/tables/a"
+      "location" : "s3a://abinitio-spark-redshift-testing/FileStore/tables/b"
     }
   },
   "datasetId" : "15",
