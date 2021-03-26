@@ -15,7 +15,7 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv"
+      "location" : "dbfs:/Users/prophecy/rajat/CustomersDatasetInput.csv"
     }
   },
   "datasetId" : "15",
