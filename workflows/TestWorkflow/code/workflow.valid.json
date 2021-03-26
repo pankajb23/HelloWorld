@@ -3,9 +3,12 @@
     "processes" : {
       "Source0" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
-          "cache" : false
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
         },
         "metadata" : {
           "label" : "Source0",
@@ -20,9 +23,12 @@
       },
       "Target0" : {
         "component" : "Target",
+        "group" : null,
         "properties" : {
           "interim" : false,
-          "cache" : false
+          "cache" : false,
+          "id" : "15",
+          "version" : 0
         },
         "metadata" : {
           "label" : "Target0",
@@ -53,7 +59,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1616777339513,
+      "lastUpdated" : 1616777369100,
       "id" : "TestWorkflow",
       "memory" : 1,
       "imported" : true,
