@@ -1,0 +1,59 @@
+{
+  "name" : "SQLStatement0",
+  "component" : "SQLStatement",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "order_id"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "order_id"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "customer_id"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "customer_id"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "order_status"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "order_status"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "order_category"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "order_category"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "order_date"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "order_date"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in0",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out0",
+      "name" : "amount"
+    }
+  } ]
+}
