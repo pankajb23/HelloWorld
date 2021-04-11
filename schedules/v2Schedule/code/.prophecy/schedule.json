@@ -15,63 +15,8 @@
       "fabrics" : { }
     }
   },
-  "processes" : {
-    "Workflow" : {
-      "component" : "Workflow",
-      "metadata" : {
-        "label" : "Workflow",
-        "x" : 100,
-        "y" : 100
-      },
-      "ports" : {
-        "inputs" : [ "in" ],
-        "outputs" : [ "out" ]
-      },
-      "properties" : {
-        "projectId" : "7",
-        "fabrics" : {
-          "emr" : {
-            "jobSizeId" : "S",
-            "airflowOperator" : "emr"
-          }
-        },
-        "configuration" : {
-          "JOB_ID" : "1",
-          "RUN_DATE" : "01/01/01"
-        },
-        "workflowId" : "12",
-        "trigger" : "all_success"
-      }
-    },
-    "Email" : {
-      "component" : "Email",
-      "metadata" : {
-        "label" : "Email",
-        "x" : 840,
-        "y" : 81
-      },
-      "ports" : {
-        "inputs" : [ "in" ],
-        "outputs" : [ "out" ]
-      },
-      "properties" : {
-        "trigger" : "all_success",
-        "recipient" : "",
-        "subject" : "",
-        "message" : ""
-      }
-    }
-  },
-  "connections" : [ {
-    "src" : {
-      "process" : "Workflow",
-      "port" : "out"
-    },
-    "tgt" : {
-      "process" : "Email",
-      "port" : "in"
-    }
-  } ],
+  "processes" : { },
+  "connections" : [ ],
   "ports" : {
     "inputs" : [ "in" ],
     "outputs" : [ "out" ]
