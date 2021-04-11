@@ -1,0 +1,69 @@
+{
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : "true",
+      "inferSchema" : "true"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "append",
+      "sep" : ",",
+      "header" : "true"
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "s3a://abinitio-spark-redshift-testing/FileStore/tables/b"
+    }
+  },
+  "datasetId" : "15",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "phone",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "account_open_date",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "account_flags",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv"
+}

@@ -1,0 +1,14 @@
+{
+  "name" : "Reformat2",
+  "component" : "Reformat",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "country_code"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "country_code"
+    }
+  } ]
+}

@@ -1,0 +1,489 @@
+{
+  "graph" : {
+    "processes" : {
+      "CustomersDatasetInput" : {
+        "component" : "Source",
+        "group" : null,
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 3,
+          "id" : "15",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "CustomersDatasetInput",
+          "x" : 7,
+          "y" : 154
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "OrdersDatasetInput" : {
+        "component" : "Source",
+        "group" : null,
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 2,
+          "id" : "16",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "OrdersDatasetInput",
+          "x" : 7,
+          "y" : 42
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "JoinComponent" : {
+        "component" : "Join",
+        "group" : null,
+        "properties" : {
+          "selectColumns" : [ {
+            "targetCol" : "account_open_date",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.account_open_date\")"
+            }
+          }, {
+            "targetCol" : "order_id",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.order_id\")"
+            }
+          }, {
+            "targetCol" : "customer_id",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.customer_id\")"
+            }
+          }, {
+            "targetCol" : "amount",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.amount\")"
+            }
+          }, {
+            "targetCol" : "order_status",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.order_status\")"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.first_name\")"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.last_name\")"
+            }
+          }, {
+            "targetCol" : "phone",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.phone\")"
+            }
+          }, {
+            "targetCol" : "email",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.email\")"
+            }
+          }, {
+            "targetCol" : "country_code",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.country_code\")"
+            }
+          }, {
+            "targetCol" : "account_flags",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.account_flags\")"
+            }
+          } ],
+          "joinType" : "inner",
+          "src_desc" : "",
+          "detailedStats" : false,
+          "joinCondition" : {
+            "format" : "scala",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
+          },
+          "ramp" : 0,
+          "udf_definitions" : [ ],
+          "phase" : 0,
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "JoinComponent",
+          "x" : 206,
+          "y" : 108
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
+      },
+      "CustomerOrdersDatasetOutput" : {
+        "component" : "Target",
+        "group" : null,
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "17",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "metadata" : {
+          "label" : "CustomerOrdersDatasetOutput",
+          "x" : 1486,
+          "y" : 100
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
+      }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "OrdersDatasetInput",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "JoinComponent",
+        "port" : "left"
+      },
+      "metadata" : {
+        "route" : "e1"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "CustomersDatasetInput",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "JoinComponent",
+        "port" : "right"
+      },
+      "metadata" : {
+        "route" : "e2"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "JoinComponent",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "SubGraph0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e3"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "SubGraph0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "CustomerOrdersDatasetOutput",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e4"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ {
+      "alias" : "SubGraph0",
+      "component" : "SubGraph",
+      "name" : "SubGraph0",
+      "graph" : {
+        "processes" : {
+          "Aggregate0" : {
+            "component" : "Aggregate",
+            "group" : "SubGraph0",
+            "properties" : {
+              "src_desc" : "",
+              "detailedStats" : false,
+              "ramp" : 0,
+              "aggcols" : [ {
+                "targetCol" : "order_id",
+                "expression" : {
+                  "format" : "scala",
+                  "expr" : "count(col(\"order_id\"))"
+                }
+              }, {
+                "targetCol" : "amount",
+                "expression" : {
+                  "format" : "scala",
+                  "expr" : "sum(col(\"amount\"))"
+                }
+              } ],
+              "udf_definitions" : [ ],
+              "opType" : "groupBy",
+              "phase" : 0,
+              "limit" : 0,
+              "columns" : [ {
+                "targetCol" : "customer_id",
+                "expression" : {
+                  "format" : "scala",
+                  "expr" : "col(\"customer_id\")"
+                }
+              }, {
+                "targetCol" : "country_code",
+                "expression" : {
+                  "format" : "scala",
+                  "expr" : "col(\"country_code\")"
+                }
+              } ]
+            },
+            "metadata" : {
+              "label" : "Aggregate0",
+              "x" : 698,
+              "y" : 344
+            },
+            "ports" : {
+              "inputs" : [ "in" ],
+              "outputs" : [ "out" ]
+            },
+            "lineage" : ""
+          },
+          "Reformat0" : {
+            "component" : "Reformat",
+            "group" : "SubGraph0",
+            "properties" : {
+              "src_desc" : "",
+              "phase" : 0,
+              "ramp" : 0,
+              "detailedStats" : false,
+              "udf_definitions" : [ ],
+              "functions" : [ {
+                "addReplaceColumn" : "order_id",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"order_id\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "customer_id",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"customer_id\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "amount",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"amount\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "first_name",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"first_name\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "last_name",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"last_name\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "phone",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"phone\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "email",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"email\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "country_code",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"country_code\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              }, {
+                "addReplaceColumn" : "account_flags",
+                "functionName" : "column_expression",
+                "inputArgs" : [ {
+                  "type" : "scala",
+                  "expr" : "col(\"account_flags\")"
+                } ],
+                "comment" : null,
+                "enabled" : true
+              } ],
+              "limit" : 0
+            },
+            "metadata" : {
+              "label" : "Reformat0",
+              "x" : 386,
+              "y" : 356
+            },
+            "ports" : {
+              "inputs" : [ "in" ],
+              "outputs" : [ "out" ]
+            },
+            "lineage" : ""
+          }
+        },
+        "connections" : [ {
+          "src" : {
+            "process" : "SubGraph0",
+            "port" : "in"
+          },
+          "tgt" : {
+            "process" : "Reformat0",
+            "port" : "in"
+          },
+          "metadata" : {
+            "route" : "e5"
+          },
+          "lineage" : ""
+        }, {
+          "src" : {
+            "process" : "Reformat0",
+            "port" : "out"
+          },
+          "tgt" : {
+            "process" : "Aggregate0",
+            "port" : "in"
+          },
+          "metadata" : {
+            "route" : "e6"
+          },
+          "lineage" : ""
+        }, {
+          "src" : {
+            "process" : "Aggregate0",
+            "port" : "out"
+          },
+          "tgt" : {
+            "process" : "SubGraph0",
+            "port" : "out"
+          },
+          "metadata" : {
+            "route" : "e8"
+          },
+          "lineage" : ""
+        } ],
+        "groups" : [ ],
+        "locked" : false,
+        "metainfo" : {
+          "lastUpdated" : null,
+          "id" : "SubGraph0",
+          "memory" : 1,
+          "imported" : true,
+          "language" : "scala",
+          "processors" : 1,
+          "cluster" : "local",
+          "mode" : "batch",
+          "interimMode" : "full",
+          "udfs" : {
+            "language" : "scala",
+            "udfs" : [ ]
+          },
+          "sparkOptions" : null
+        },
+        "inports" : { },
+        "outports" : { }
+      },
+      "metadata" : {
+        "label" : "SubGraph0",
+        "x" : 805,
+        "y" : 317
+      },
+      "properties" : {
+        "phase" : 0
+      },
+      "group" : null,
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      }
+    } ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1616684524485,
+      "id" : "CustomerAmountsWorkflow",
+      "memory" : 1,
+      "language" : "scala",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      },
+      "sparkOptions" : null
+    },
+    "inports" : { },
+    "outports" : { }
+  }
+}

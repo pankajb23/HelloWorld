@@ -1,0 +1,42 @@
+{
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "sep" : ",",
+      "header" : true
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+    }
+  },
+  "datasetId" : "17",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "orders",
+      "type" : "long",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "PLACEHOLDER_DESC",
+  "dataFormat" : "csv"
+}

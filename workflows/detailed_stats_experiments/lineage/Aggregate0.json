@@ -1,0 +1,24 @@
+{
+  "name" : "Aggregate0",
+  "component" : "Aggregate",
+  "transformations" : [ {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "country_code"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "country_code"
+    }
+  }, {
+    "sources" : [ {
+      "port" : "in",
+      "name" : "amount"
+    } ],
+    "destination" : {
+      "port" : "out",
+      "name" : "amount"
+    },
+    "transformation" : "sum(`amount`)"
+  } ]
+}

@@ -1,0 +1,7 @@
+{
+  "name" : "azdbdp1",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ ]
+  }
+}

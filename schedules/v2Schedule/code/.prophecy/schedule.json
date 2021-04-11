@@ -1,0 +1,25 @@
+{
+  "metadata" : {
+    "language" : "python",
+    "parameters" : {
+      "dag_id" : "v2Schedule",
+      "schedule_interval" : "hourly",
+      "start_date" : "2020-12-12T10:10:10",
+      "timezone" : "Europe/Warsaw"
+    },
+    "configurations" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { }
+    }
+  },
+  "processes" : { },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
