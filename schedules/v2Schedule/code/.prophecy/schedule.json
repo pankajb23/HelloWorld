@@ -47,8 +47,8 @@
       "component" : "Email",
       "metadata" : {
         "label" : "Email",
-        "x" : 829,
-        "y" : 139
+        "x" : 840,
+        "y" : 81
       },
       "ports" : {
         "inputs" : [ "in" ],
