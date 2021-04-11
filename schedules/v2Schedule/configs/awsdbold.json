@@ -1,0 +1,7 @@
+{
+  "name" : "awsdbold",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ ]
+  }
+}
