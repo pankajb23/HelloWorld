@@ -24,6 +24,20 @@ object CustomerOrdersDatasetOutput {
 
     val fabric = Config.fabricName
     fabric match {
+      case "azdbdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("order_id",     LongType,    false),
+            StructField("amount",       DoubleType,  false)
+          )
+        )
+        in.write
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv/")
       case "azdb" =>
         val schemaArg = StructType(
           Array(
