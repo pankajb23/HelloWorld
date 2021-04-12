@@ -1,0 +1,41 @@
+{
+  "datasetId" : "17",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "order_id",
+      "type" : "long",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv/"
+    }
+  },
+  "dataFormat" : "csv",
+  "outputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : "true"
+    }
+  }
+}
