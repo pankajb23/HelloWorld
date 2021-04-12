@@ -39,6 +39,21 @@ object CustomerOrdersDatasetOutput {
           .option("sep",    ",")
           .mode("overwrite")
           .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
+      case "azdbdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("orders",       LongType,    false),
+            StructField("amount",       DoubleType,  false)
+          )
+        )
+        in.write
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .mode("overwrite")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 
