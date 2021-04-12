@@ -475,7 +475,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1618210852358,
+      "lastUpdated" : 1618210920711,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "language" : "scala",
