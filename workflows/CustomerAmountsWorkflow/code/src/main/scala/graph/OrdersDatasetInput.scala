@@ -25,6 +25,24 @@ object OrdersDatasetInput {
     val fabric = Config.fabricName
 
     val out = fabric match {
+      case "emr2" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("order_id",       IntegerType,   true),
+            StructField("customer_id",    IntegerType,   true),
+            StructField("order_status",   StringType,    true),
+            StructField("order_category", StringType,    true),
+            StructField("order_date",     TimestampType, true),
+            StructField("amount",         DoubleType,    true)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .schema(schemaArg)
+          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/OrdersDatasetInput.csv")
+          .cache()
       case "azdbdp1" =>
         val schemaArg = StructType(
           Array(
