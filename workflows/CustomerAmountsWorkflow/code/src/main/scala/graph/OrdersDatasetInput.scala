@@ -25,6 +25,23 @@ object OrdersDatasetInput {
     val fabric = Config.fabricName
 
     val out = fabric match {
+      case "azdbdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("order_id",       IntegerType, true),
+            StructField("customer_id",    IntegerType, true),
+            StructField("order_status",   StringType,  true),
+            StructField("order_category", StringType,  true),
+            StructField("order_date",     StringType,  true),
+            StructField("amount",         DoubleType,  true)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("sep", ",")
+          .schema(schemaArg)
+          .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv")
+          .cache()
       case "azdb" =>
         val schemaArg = StructType(
           Array(
