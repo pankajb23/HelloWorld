@@ -28,7 +28,7 @@ object Main {
 
   }
 
-  @Visual(id = "SubGraph0", label = "SubGraph0", x = 842, y = 131, phase = 0)
+  @Visual(id = "SubGraph0", label = "SubGraph0", x = 597, y = 106, phase = 0)
   def SubGraph0(spark: SparkSession, in: DataFrame): SubGraph = {
 
     val df_Reformat0: Reformat  = Reformat0(spark,  in)
