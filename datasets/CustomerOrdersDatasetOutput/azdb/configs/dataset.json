@@ -1,17 +1,8 @@
 {
-  "outputProperties" : {
-    "properties" : {
-      "mode" : "overwrite",
-      "sep" : ",",
-      "header" : true
-    }
-  },
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
-    }
-  },
+  "description" : "PLACEHOLDER_DESC",
   "datasetId" : "17",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -36,7 +27,16 @@
       "metadata" : { }
     } ]
   },
-  "datasetType" : "File",
-  "description" : "PLACEHOLDER_DESC",
-  "dataFormat" : "csv"
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "sep" : ",",
+      "header" : true
+    }
+  }
 }
