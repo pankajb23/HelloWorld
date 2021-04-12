@@ -28,7 +28,7 @@ object Main {
 
   }
 
-  @Visual(id = "SubGraph0", label = "SubGraph0", x = 805, y = 317, phase = 0)
+  @Visual(id = "SubGraph0", label = "SubGraph0", x = 832, y = 267, phase = 0)
   def SubGraph0(spark: SparkSession, in: DataFrame): SubGraph = {
 
     val df_Reformat0: Reformat  = Reformat0(spark,  in)
@@ -42,10 +42,10 @@ object Main {
     import config._
     ConfigStore.Config = ConfigurationFactoryImpl.fromCLI(args)
 
-    val spark: SparkSession = SparkSession
+    val spark = SparkSession
       .builder()
       .appName("CustomerAmountsWorkflow")
-      .config("spark.default.parallelism", 4)
+      .config("spark.default.parallelism", "4")
       .enableHiveSupport()
       .getOrCreate()
 
