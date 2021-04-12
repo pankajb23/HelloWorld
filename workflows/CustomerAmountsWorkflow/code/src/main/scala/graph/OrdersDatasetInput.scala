@@ -42,23 +42,6 @@ object OrdersDatasetInput {
           .schema(schemaArg)
           .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv")
           .cache()
-      case "azdbdp1" =>
-        val schemaArg = StructType(
-          Array(
-            StructField("order_id",       IntegerType, false),
-            StructField("customer_id",    IntegerType, false),
-            StructField("order_status",   StringType,  false),
-            StructField("order_category", StringType,  false),
-            StructField("order_date",     StringType,  false),
-            StructField("amount",         DoubleType,  false)
-          )
-        )
-        spark.read
-          .format("csv")
-          .option("sep", ",")
-          .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv")
-          .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }
 
