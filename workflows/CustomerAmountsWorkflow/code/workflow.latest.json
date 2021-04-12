@@ -9,7 +9,7 @@
           "phase" : 0,
           "ramp" : 0,
           "detailedStats" : false,
-          "version" : 3,
+          "version" : 0,
           "id" : "15",
           "udf_definitions" : [ ],
           "limit" : 0
@@ -475,7 +475,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1618208832625,
+      "lastUpdated" : 1618208878138,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "language" : "scala",
