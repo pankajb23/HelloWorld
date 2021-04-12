@@ -44,6 +44,25 @@ object CustomersDatasetInput {
           .schema(schemaArg)
           .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
           .cache()
+      case "azdbdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",       IntegerType, false),
+            StructField("first_name",        StringType,  false),
+            StructField("last_name",         StringType,  false),
+            StructField("phone",             StringType,  false),
+            StructField("email",             StringType,  false),
+            StructField("country_code",      StringType,  false),
+            StructField("account_open_date", StringType,  false),
+            StructField("account_flags",     StringType,  false)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("sep", ",")
+          .schema(schemaArg)
+          .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
+          .cache()
       case _ => throw new Exception(s"The fabric '$fabric' is not handled")
     }
 
