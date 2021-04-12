@@ -25,6 +25,26 @@ object CustomersDatasetInput {
     val fabric = Config.fabricName
 
     val out = fabric match {
+      case "azdbdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",       IntegerType,   true),
+            StructField("first_name",        StringType,    true),
+            StructField("last_name",         StringType,    true),
+            StructField("phone",             StringType,    true),
+            StructField("email",             StringType,    true),
+            StructField("country_code",      StringType,    true),
+            StructField("account_open_date", TimestampType, true),
+            StructField("account_flags",     StringType,    true)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .schema(schemaArg)
+          .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
+          .cache()
       case "azdb" =>
         val schemaArg = StructType(
           Array(
