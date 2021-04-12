@@ -1,0 +1,45 @@
+{
+  "datasetId" : "16",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "order_id",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : true
+    }, {
+      "name" : "order_status",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "order_category",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "order_date",
+      "type" : "string",
+      "nullable" : true
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : true
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv"
+    }
+  },
+  "dataFormat" : "csv",
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "inferSchema" : false
+    }
+  }
+}
