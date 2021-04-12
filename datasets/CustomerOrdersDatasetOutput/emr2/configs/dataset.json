@@ -1,0 +1,38 @@
+{
+  "datasetId" : "17",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "order_id",
+      "type" : "long",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
+  "datasetType" : "File",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerDatasetOutput2.csv/"
+    }
+  },
+  "dataFormat" : "parquet",
+  "outputProperties" : {
+    "properties" : { }
+  }
+}
