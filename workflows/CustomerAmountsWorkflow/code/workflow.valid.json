@@ -169,7 +169,7 @@
         },
         "metadata" : {
           "label" : "CustomerOrdersDatasetOutput",
-          "x" : 1142,
+          "x" : 1141,
           "y" : 108
         },
         "ports" : {
@@ -475,7 +475,7 @@
     } ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1618210920711,
+      "lastUpdated" : 1618210943218,
       "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "language" : "scala",

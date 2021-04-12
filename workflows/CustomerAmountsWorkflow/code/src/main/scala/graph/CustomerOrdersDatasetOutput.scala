@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 1142, y = 108, phase = 0)
+@Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 1141, y = 108, phase = 0)
 object CustomerOrdersDatasetOutput {
 
   @UsesDataset(id = "17", version = 0)
@@ -24,6 +24,18 @@ object CustomerOrdersDatasetOutput {
 
     val fabric = Config.fabricName
     fabric match {
+      case "emr2" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("order_id",     LongType,    false),
+            StructField("amount",       DoubleType,  false)
+          )
+        )
+        in.write
+          .format("parquet")
+          .save("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerDatasetOutput2.csv/")
       case "azdbdp1" =>
         val schemaArg = StructType(
           Array(
