@@ -18,7 +18,7 @@ import graph._
 @Visual(id = "OrdersDatasetInput", label = "OrdersDatasetInput", x = 7, y = 42, phase = 0)
 object OrdersDatasetInput {
 
-  @UsesDataset(id = "16", version = 2)
+  @UsesDataset(id = "16", version = 0)
   def apply(spark: SparkSession): Source = {
     import spark.implicits._
 
