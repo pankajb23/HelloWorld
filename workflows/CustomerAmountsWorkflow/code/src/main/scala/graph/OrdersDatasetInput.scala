@@ -15,7 +15,7 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "OrdersDatasetInput", label = "OrdersDatasetInput", x = 7, y = 42, phase = 0)
+@Visual(id = "OrdersDatasetInput", label = "OrdersDatasetInput", x = 6, y = 42, phase = 0)
 object OrdersDatasetInput {
 
   @UsesDataset(id = "16", version = 0)
@@ -56,9 +56,18 @@ object OrdersDatasetInput {
         )
         spark.read
           .format("csv")
-          .option("sep", ",")
+          .option("header", true)
+          .option("sep",    ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv")
+          .load("dbfs:/Users/prophecy/abhishek/OrdersDatasetInput.csv")
+          .cache()
+      case "livy" =>
+        spark.read
+          .format("csv")
+          .option("header",      true)
+          .option("sep",         ",")
+          .option("inferSchema", true)
+          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/OrdersDatasetInput.csv")
           .cache()
       case "azdb" =>
         val schemaArg = StructType(

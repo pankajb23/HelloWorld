@@ -49,7 +49,22 @@ object CustomerOrdersDatasetOutput {
           .format("csv")
           .option("header", true)
           .option("sep",    ",")
-          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv/")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput7.csv/")
+      case "livy" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("order_id",     LongType,    false),
+            StructField("amount",       DoubleType,  false)
+          )
+        )
+        in.write
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .mode("overwrite")
+          .save("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/")
       case "azdb" =>
         val schemaArg = StructType(
           Array(
@@ -60,11 +75,10 @@ object CustomerOrdersDatasetOutput {
           )
         )
         in.write
-          .format("csv")
-          .option("header", true)
-          .option("sep",    ",")
+          .format("parquet")
+          .option("compression", 1)
           .mode("overwrite")
-          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv")
+          .save("dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv")
       case _ => throw new Exception("Unknown Fabric")
     }
 

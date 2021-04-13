@@ -1,0 +1,52 @@
+{
+  "outputProperties" : {
+    "properties" : {
+      "kafka.security.protocol" : "SSL",
+      "topic" : "testcopy",
+      "checkpointLocation" : "s3://abinitio-spark-redshift-testing/teststreaming-checkpoint",
+      "triggerType" : "micro-batch",
+      "triggerTime" : "1"
+    }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "kafka.bootstrap.servers" : "b-1.test-kafka-cluster-1.ufns57.c4.kafka.us-west-1.amazonaws.com:9094,b-2.test-kafka-cluster-1.ufns57.c4.kafka.us-west-1.amazonaws.com:9094"
+    }
+  },
+  "datasetId" : "190",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "key",
+      "type" : "binary",
+      "nullable" : false
+    }, {
+      "name" : "value",
+      "type" : "binary",
+      "nullable" : false
+    }, {
+      "name" : "topic",
+      "type" : "string",
+      "nullable" : false
+    }, {
+      "name" : "partition",
+      "type" : "integer",
+      "nullable" : false
+    }, {
+      "name" : "offset",
+      "type" : "long",
+      "nullable" : false
+    }, {
+      "name" : "timestamp",
+      "type" : "timestamp",
+      "nullable" : false
+    }, {
+      "name" : "timestampType",
+      "type" : "integer",
+      "nullable" : false
+    } ]
+  },
+  "datasetType" : "Stream",
+  "description" : "",
+  "dataFormat" : "kafka"
+}

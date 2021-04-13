@@ -1,7 +1,0 @@
-{
-  "name" : "azdb",
-  "configurations" : {
-    "type" : "record",
-    "fields" : [ ]
-  }
-}

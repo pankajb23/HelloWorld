@@ -1,114 +1,105 @@
 {
+  "resolvers" : [ ],
   "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.default.parallelism" : "4",
+          "spark.app.name" : "scalaSQL2in2out",
+          "spark.sql.catalogImplementation" : "hive"
+        }
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Source0"
+      },
+      "tgt" : {
+        "port" : "in0",
+        "process" : "SQLStatement0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Source1"
+      },
+      "tgt" : {
+        "port" : "in1",
+        "process" : "SQLStatement0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out0",
+        "process" : "SQLStatement0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e4"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat2"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e5"
+      },
+      "src" : {
+        "port" : "out1",
+        "process" : "SQLStatement0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat1"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e6"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat1"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat3"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
     "processes" : {
-      "Source0" : {
-        "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "15",
-          "version" : 0
-        },
-        "metadata" : {
-          "label" : "Source0",
-          "x" : 170,
-          "y" : 50
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Source1" : {
-        "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "16",
-          "version" : 0
-        },
-        "metadata" : {
-          "label" : "Source1",
-          "x" : 164,
-          "y" : 228
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "SQLStatement0" : {
-        "component" : "SQLStatement",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "sql" : {
-            "out0" : "select * from in0",
-            "out1" : "select * from in1"
-          }
-        },
-        "metadata" : {
-          "label" : "SQLStatement0",
-          "x" : 367,
-          "y" : 155
-        },
-        "ports" : {
-          "inputs" : [ "in0", "in1" ],
-          "outputs" : [ "out0", "out1" ]
-        },
-        "lineage" : ""
-      },
-      "Reformat0" : {
-        "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
-        "metadata" : {
-          "label" : "Reformat0",
-          "x" : 606,
-          "y" : 90
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Reformat1" : {
-        "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
-        "metadata" : {
-          "label" : "Reformat1",
-          "x" : 628,
-          "y" : 232
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
       "Reformat2" : {
         "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
         "metadata" : {
           "label" : "Reformat2",
           "x" : 882,
@@ -118,16 +109,42 @@
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Source1" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Source1",
+          "x" : 164,
+          "y" : 228
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "16",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
       },
       "Reformat3" : {
         "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
         "metadata" : {
           "label" : "Reformat3",
           "x" : 909,
@@ -137,103 +154,110 @@
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Source0" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 170,
+          "y" : 50
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "15",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 606,
+          "y" : 90
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "SQLStatement0" : {
+        "component" : "SQLStatement",
+        "metadata" : {
+          "label" : "SQLStatement0",
+          "x" : 367,
+          "y" : 155
+        },
+        "ports" : {
+          "inputs" : [ "in0", "in1" ],
+          "outputs" : [ "out0", "out1" ]
+        },
+        "properties" : {
+          "outputSchema" : { },
+          "sql" : {
+            "out0" : "select * from in0",
+            "out1" : "select * from in1"
+          },
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 628,
+          "y" : 232
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
       }
-    },
-    "connections" : [ {
-      "src" : {
-        "process" : "Reformat0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat2",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_B1WCocfWu"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat1",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat3",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_rk7Rs5fZ_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Source0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "SQLStatement0",
-        "port" : "in0"
-      },
-      "metadata" : {
-        "route" : "e_BkaO1oMWO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Source1",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "SQLStatement0",
-        "port" : "in1"
-      },
-      "metadata" : {
-        "route" : "e_r1$FyjMWd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "SQLStatement0",
-        "port" : "out0"
-      },
-      "tgt" : {
-        "process" : "Reformat0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_Sk7KJiGWO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "SQLStatement0",
-        "port" : "out1"
-      },
-      "tgt" : {
-        "process" : "Reformat1",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_H1St1jMbu"
-      },
-      "lineage" : ""
-    } ],
-    "groups" : [ ],
-    "locked" : false,
-    "metainfo" : {
-      "lastUpdated" : 1613045644014,
-      "id" : "scalaSQL2in2out",
-      "memory" : 1,
-      "imported" : true,
-      "language" : "scala",
-      "processors" : 1,
-      "cluster" : "local",
-      "mode" : "batch",
-      "interimMode" : "full",
-      "udfs" : null
-    },
-    "inports" : { },
-    "outports" : { }
+    }
   }
 }

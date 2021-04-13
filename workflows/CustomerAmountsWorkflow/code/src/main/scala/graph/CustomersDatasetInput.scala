@@ -65,6 +65,14 @@ object CustomersDatasetInput {
           .schema(schemaArg)
           .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
           .cache()
+      case "livy" =>
+        spark.read
+          .format("csv")
+          .option("header",      true)
+          .option("sep",         ",")
+          .option("inferSchema", true)
+          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomersDatasetInput.csv")
+          .cache()
       case "azdb" =>
         val schemaArg = StructType(
           Array(

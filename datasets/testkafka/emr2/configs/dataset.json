@@ -1,0 +1,19 @@
+{
+  "datasetId" : "189",
+  "schema" : null,
+  "datasetType" : "Stream",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "kafka.bootstrap.servers" : "b-1.test-kafka-cluster-1.ufns57.c4.kafka.us-west-1.amazonaws.com:9094,b-2.test-kafka-cluster-1.ufns57.c4.kafka.us-west-1.amazonaws.com:9094"
+    }
+  },
+  "dataFormat" : "kafka",
+  "inputProperties" : {
+    "properties" : {
+      "kafka.security.protocol" : "SSL",
+      "subscribe" : "test",
+      "startingOffsets" : "earliest"
+    }
+  }
+}

@@ -1,5 +1,8 @@
 {
+  "description" : "",
   "datasetId" : "17",
+  "dataFormat" : "parquet",
+  "datasetType" : "File",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -24,14 +27,11 @@
       "metadata" : { }
     } ]
   },
-  "datasetType" : "File",
-  "description" : "",
   "commonProperties" : {
     "properties" : {
       "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerDatasetOutput2.csv/"
     }
   },
-  "dataFormat" : "parquet",
   "outputProperties" : {
     "properties" : { }
   }

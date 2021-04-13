@@ -1,0 +1,130 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "stream",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.app.name" : "teststreaming",
+          "spark.sql.catalogImplementation" : "hive"
+        }
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Source0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Target0"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "Source0" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 31,
+          "y" : 75
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "189",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Target0" : {
+        "component" : "Target",
+        "metadata" : {
+          "label" : "Target0",
+          "x" : 686,
+          "y" : 106
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "190",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 349,
+          "y" : 88
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "value",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"value\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
+      }
+    }
+  }
+}

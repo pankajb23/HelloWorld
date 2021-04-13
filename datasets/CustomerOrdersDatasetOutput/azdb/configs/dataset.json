@@ -1,7 +1,7 @@
 {
   "description" : "PLACEHOLDER_DESC",
   "datasetId" : "17",
-  "dataFormat" : "csv",
+  "dataFormat" : "parquet",
   "datasetType" : "File",
   "schema" : {
     "type" : "struct",
@@ -29,14 +29,13 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput5.csv"
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv"
     }
   },
   "outputProperties" : {
     "properties" : {
       "mode" : "overwrite",
-      "sep" : ",",
-      "header" : true
+      "compression" : "1"
     }
   }
 }

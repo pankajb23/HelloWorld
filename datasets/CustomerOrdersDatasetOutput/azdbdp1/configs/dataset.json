@@ -1,5 +1,8 @@
 {
+  "description" : "",
   "datasetId" : "17",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
   "schema" : {
     "type" : "struct",
     "fields" : [ {
@@ -24,18 +27,15 @@
       "metadata" : { }
     } ]
   },
-  "datasetType" : "File",
-  "description" : "",
   "commonProperties" : {
     "properties" : {
-      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput6.csv/"
+      "location" : "dbfs:/Users/prophecy/eng/CustomerOrdersDatasetOutput7.csv/"
     }
   },
-  "dataFormat" : "csv",
   "outputProperties" : {
     "properties" : {
       "sep" : ",",
-      "header" : "true"
+      "header" : true
     }
   }
 }

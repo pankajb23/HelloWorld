@@ -1,100 +1,129 @@
 {
+  "resolvers" : [ ],
   "graph" : {
-    "processes" : {
-      "Orders" : {
-        "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "16",
-          "version" : 0
-        },
-        "metadata" : {
-          "label" : "Orders",
-          "x" : 168,
-          "y" : 178
-        },
-        "ports" : {
-          "inputs" : [ ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
       },
+      "sparkOptions" : {
+        "options" : {
+          "spark.default.parallelism" : "4",
+          "spark.app.name" : "detailedstatsexperiments",
+          "spark.sql.catalogImplementation" : "hive"
+        }
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Customers"
+      },
+      "tgt" : {
+        "port" : "left",
+        "process" : "Join0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Orders"
+      },
+      "tgt" : {
+        "port" : "right",
+        "process" : "Join0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Join0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e4"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat1"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e5"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat1"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat2"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e6"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat2"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat3"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e7"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Aggregate0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e8"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Aggregate0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Target0"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
       "Join0" : {
         "component" : "Join",
-        "group" : null,
-        "properties" : {
-          "joinType" : "inner",
-          "joinCondition" : {
-            "expr" : "left.customer_id = right.customer_id",
-            "format" : "sql"
-          },
-          "selectColumns" : [ {
-            "targetCol" : "order_id",
-            "expression" : {
-              "expr" : "right.order_id",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "customer_id",
-            "expression" : {
-              "expr" : "right.customer_id",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "amount",
-            "expression" : {
-              "expr" : "right.amount",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "first_name",
-            "expression" : {
-              "expr" : "left.first_name",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "last_name",
-            "expression" : {
-              "expr" : "left.last_name",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "email",
-            "expression" : {
-              "expr" : "left.email",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "phone",
-            "expression" : {
-              "expr" : "left.phone",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "country_code",
-            "expression" : {
-              "expr" : "left.country_code",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "account_open_date",
-            "expression" : {
-              "expr" : "left.account_open_date",
-              "format" : "sql"
-            }
-          }, {
-            "targetCol" : "account_flags",
-            "expression" : {
-              "expr" : "left.account_flags",
-              "format" : "sql"
-            }
-          } ],
-          "udf_definitions" : [ ],
-          "limit" : 0,
-          "detailedStats" : false
-        },
         "metadata" : {
           "label" : "Join0",
           "x" : 336,
@@ -104,84 +133,94 @@
           "inputs" : [ "left", "right" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
-      },
-      "Reformat0" : {
-        "component" : "Reformat",
-        "group" : null,
         "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ],
-          "detailedStats" : true
-        },
-        "metadata" : {
-          "label" : "Reformat0",
-          "x" : 511,
-          "y" : 114
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
-      },
-      "Reformat1" : {
-        "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ {
-            "addReplaceColumn" : "country_code",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "country_code"
-            } ],
-            "comment" : null,
-            "enabled" : true
+          "src_desc" : "",
+          "phase" : 0,
+          "joinCondition" : {
+            "format" : "scala",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "order_id",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.order_id\")"
+            }
           }, {
-            "addReplaceColumn" : "amount",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "amount"
-            } ],
-            "comment" : null,
-            "enabled" : true
+            "targetCol" : "customer_id",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.customer_id\")"
+            }
+          }, {
+            "targetCol" : "amount",
+            "isLeftTableCol" : false,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"right.amount\")"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.first_name\")"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.last_name\")"
+            }
+          }, {
+            "targetCol" : "email",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.email\")"
+            }
+          }, {
+            "targetCol" : "phone",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.phone\")"
+            }
+          }, {
+            "targetCol" : "country_code",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.country_code\")"
+            }
+          }, {
+            "targetCol" : "account_open_date",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.account_open_date\")"
+            }
+          }, {
+            "targetCol" : "account_flags",
+            "isLeftTableCol" : true,
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"left.account_flags\")"
+            }
           } ],
-          "detailedStats" : true
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "joinType" : "inner",
+          "limit" : 0
         },
-        "metadata" : {
-          "label" : "Reformat1",
-          "x" : 848,
-          "y" : 296
-        },
-        "ports" : {
-          "inputs" : [ "in" ],
-          "outputs" : [ "out" ]
-        },
-        "lineage" : ""
+        "ignore" : false
       },
       "Reformat2" : {
         "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ {
-            "addReplaceColumn" : "country_code",
-            "functionName" : null,
-            "inputArgs" : [ {
-              "type" : "sql",
-              "expr" : "country_code"
-            } ],
-            "comment" : null,
-            "enabled" : true
-          } ],
-          "detailedStats" : false
-        },
         "metadata" : {
           "label" : "Reformat2",
           "x" : 1191,
@@ -191,16 +230,27 @@
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "country_code",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"country_code\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
       },
       "Reformat3" : {
         "component" : "Reformat",
-        "group" : null,
-        "properties" : {
-          "interim" : true,
-          "cache" : false,
-          "functions" : [ ]
-        },
         "metadata" : {
           "label" : "Reformat3",
           "x" : 1444,
@@ -210,31 +260,19 @@
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
       },
       "Aggregate0" : {
         "component" : "Aggregate",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "aggcols" : [ {
-            "targetCol" : "amount",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "sum(amount)"
-            }
-          } ],
-          "columns" : [ {
-            "targetCol" : "country_code",
-            "expression" : {
-              "format" : "sql",
-              "expr" : "country_code"
-            }
-          } ],
-          "opType" : "groupBy",
-          "detailedStats" : true
-        },
         "metadata" : {
           "label" : "Aggregate0",
           "x" : 962,
@@ -244,17 +282,33 @@
           "inputs" : [ "in" ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : true,
+          "columns" : [ {
+            "targetCol" : "country_code",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "col(\"country_code\")"
+            }
+          } ],
+          "udf_definitions" : [ ],
+          "aggcols" : [ {
+            "targetCol" : "amount",
+            "expression" : {
+              "format" : "scala",
+              "expr" : "sum(col(\"amount\"))"
+            }
+          } ],
+          "opType" : "groupBy",
+          "limit" : 0
+        },
+        "ignore" : false
       },
       "Customers" : {
         "component" : "Source",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "15",
-          "version" : 0
-        },
         "metadata" : {
           "label" : "Customers",
           "x" : 170,
@@ -264,17 +318,20 @@
           "inputs" : [ ],
           "outputs" : [ "out" ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "15",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
       },
       "Target0" : {
         "component" : "Target",
-        "group" : null,
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "137",
-          "version" : 0
-        },
         "metadata" : {
           "label" : "Target0",
           "x" : 1443,
@@ -284,129 +341,101 @@
           "inputs" : [ "in" ],
           "outputs" : [ ]
         },
-        "lineage" : ""
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "137",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 511,
+          "y" : 114
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : true,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Orders" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Orders",
+          "x" : 168,
+          "y" : 178
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "16",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 848,
+          "y" : 296
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : true,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "country_code",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"country_code\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "amount",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"amount\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
       }
-    },
-    "connections" : [ {
-      "src" : {
-        "process" : "Customers",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Join0",
-        "port" : "left"
-      },
-      "metadata" : {
-        "route" : "e_HJiinjz$u"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Orders",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Join0",
-        "port" : "right"
-      },
-      "metadata" : {
-        "route" : "e_By6j2jMWd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Join0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_Bk1xTjG$u"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat1",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat2",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_B11Qpizbu"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Aggregate0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_ryI96iGZ_"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat2",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat3",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_HJ3qAsGZO"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Aggregate0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Target0",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_ry3j9cmWd"
-      },
-      "lineage" : ""
-    }, {
-      "src" : {
-        "process" : "Reformat0",
-        "port" : "out"
-      },
-      "tgt" : {
-        "process" : "Reformat1",
-        "port" : "in"
-      },
-      "metadata" : {
-        "route" : "e_r12n9cX$u"
-      },
-      "lineage" : ""
-    } ],
-    "groups" : [ ],
-    "locked" : false,
-    "metainfo" : {
-      "lastUpdated" : 1613110209956,
-      "id" : "detailedstatsexperiments",
-      "memory" : 1,
-      "imported" : true,
-      "language" : "scala",
-      "processors" : 1,
-      "cluster" : "local",
-      "mode" : "batch",
-      "interimMode" : "full",
-      "udfs" : null
-    },
-    "inports" : { },
-    "outports" : { }
+    }
   }
 }

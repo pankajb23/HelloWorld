@@ -1,201 +1,139 @@
 {
-	"metadata": {
-		"language": "python",
-		"parameters": {
-			"dag_id": "dag_id",
-			"start_date": "2020-12-12T10:10:10",
-			"timezone": "Europe/Warsaw",
-			"schedule_interval": "hourly",
-			"default_args": {
-				"owner": "prophecy"
-			},
-			"max_active_runs": "config.max_active_runs"
-		},
-		"configurations": {
-			"common": [{
-				"key": "dag_id",
-				"value": "some_dag",
-				"required": true
-			}, {
-				"key": "timezone",
-				"value": "US/Pacific",
-				"required": true
-			}, {
-				"key": "start_date",
-				"value": "2021-01-01 00:00",
-				"required": true
-			}, {
-				"key": "schedule_interval",
-				"value": "daily",
-				"required": true
-			}],
-			"fabrics": {
-				"azuredatabricks": []
-			}
-		}
-	},
-	"processes": {
-		"GetNextFile": {
-			"component": "Script",
-			"metadata": {
-				"label": "Get Next File",
-				"x": 0,
-				"y": 0
-			},
-			"ports": {
-				"inputs": [],
-				"outputs": [
-					"out"
-				]
-			},
-			"properties": {
-				"trigger": "all_success",
-				"code": "def execute(config, **kwargs):\n    return 'Some script component'"
-			}
-		},
-		"CustomerWF": {
-			"component": "Workflow",
-			"metadata": {
-				"label": "Customer WF",
-				"x": 0,
-				"y": 0
-			},
-			"ports": {
-				"inputs": [
-					"in"
-				],
-				"outputs": [
-					"out"
-				]
-			},
-			"properties": {
-				"projectId": "10",
-				"fabrics": {
-					"databricksFabric": {
-						"jobSizeId": "10",
-						"airflowOperator": "databricks"
-					},
-					"emrFabric": {
-						"jobSizeId": "10",
-						"airflowOperator": "emr"
-					},
-					"azuredatabricks": {
-						"jobSizeId": "10",
-						"airflowOperator": "emr"
-					},
-					"emr": {
-						"jobSizeId": "10",
-						"airflowOperator": "emr"
-					}
-				},
-				"configuration": {
-					"RUN_DATE": "20201212"
-				},
-				"workflowId": "1",
-				"trigger": "all_success"
-			}
-		},
-		"ArchiveInput": {
-			"component": "Script",
-			"metadata": {
-				"label": "Archive Input",
-				"x": 0,
-				"y": 0
-			},
-			"ports": {
-				"inputs": [
-					"in"
-				],
-				"outputs": [
-					"out"
-				]
-			},
-			"properties": {
-				"trigger": "all_success",
-				"code": "def execute(config, **kwargs):\n    return 'Archiving...'"
-			}
-		},
-		"Notify": {
-			"component": "Email",
-			"metadata": {
-				"label": "Notify",
-				"x": 0,
-				"y": 0
-			},
-			"ports": {
-				"inputs": [
-					"in"
-				],
-				"outputs": [
-					"out"
-				]
-			},
-			"properties": {
-				"trigger": "one_failed",
-				"recipient": "$email",
-				"subject": "title",
-				"message": "Some content"
-			}
-		}
-	},
-	"connections": [{
-			"src": {
-				"process": "GetNextFile",
-				"port": "out"
-			},
-			"tgt": {
-				"process": "CustomerWF",
-				"port": "in"
-			}
-		},
-		{
-			"src": {
-				"process": "GetNextFile",
-				"port": "out"
-			},
-			"tgt": {
-				"process": "Notify",
-				"port": "in"
-			}
-		},
-		{
-			"src": {
-				"process": "CustomerWF",
-				"port": "out"
-			},
-			"tgt": {
-				"process": "ArchiveInput",
-				"port": "in"
-			}
-		},
-		{
-			"src": {
-				"process": "CustomerWF",
-				"port": "out"
-			},
-			"tgt": {
-				"process": "Notify",
-				"port": "in"
-			}
-		},
-		{
-			"src": {
-				"process": "ArchiveInput",
-				"port": "out"
-			},
-			"tgt": {
-				"process": "Notify",
-				"port": "in"
-			}
-		}
-	],
-	"ports": {
-		"inputs": [
-			"in"
-		],
-		"outputs": [
-			"out"
-		]
-	},
-	"groups": {}
+  "metadata" : {
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "v2Schedule",
+        "required" : true
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Email_1" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_1",
+        "x" : 976,
+        "y" : 201
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "",
+        "subject" : "",
+        "message" : ""
+      }
+    },
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 207,
+        "y" : 78
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "7",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : {
+          "JOB_ID" : "1",
+          "RUN_DATE" : "01/01/01"
+        },
+        "workflowId" : "12",
+        "trigger" : "all_success"
+      }
+    },
+    "Email_Test123" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_Test 123",
+        "x" : 973,
+        "y" : 78
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "",
+        "subject" : "",
+        "message" : ""
+      }
+    },
+    "Branch_0" : {
+      "component" : "Branch",
+      "metadata" : {
+        "label" : "Branch_0",
+        "x" : 595,
+        "y" : 201
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : ""
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_Test123",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Branch_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Branch_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_1",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
 }
