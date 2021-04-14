@@ -1,4 +1,3 @@
-from airflow.models import Variable
 
 
 class Config(object):

@@ -1,0 +1,17 @@
+{
+  "description" : "",
+  "datasetId" : "17",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "hello12as232"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : true
+    }
+  }
+}

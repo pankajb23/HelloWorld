@@ -1,0 +1,16 @@
+{
+  "outputProperties" : {
+    "properties" : { }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "tableName" : "njj",
+      "databaseName" : "hnhhj"
+    }
+  },
+  "datasetId" : "191",
+  "schema" : null,
+  "datasetType" : "Table",
+  "description" : "",
+  "dataFormat" : "hive"
+}

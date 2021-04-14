@@ -5,10 +5,12 @@
   "datasetType" : "File",
   "commonProperties" : {
     "properties" : {
-      "location" : "testing12.3.com"
+      "location" : "qwq"
     }
   },
   "outputProperties" : {
-    "properties" : { }
+    "properties" : {
+      "mode" : "overwrite"
+    }
   }
 }

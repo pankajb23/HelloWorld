@@ -1,14 +1,13 @@
 {
-  "datasetId" : "15",
-  "schema" : null,
-  "datasetType" : "File",
   "description" : "",
+  "datasetId" : "15",
+  "dataFormat" : "parquet",
+  "datasetType" : "File",
   "commonProperties" : {
     "properties" : {
       "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/"
     }
   },
-  "dataFormat" : "parquet",
   "inputProperties" : {
     "properties" : { }
   }

@@ -13,6 +13,6 @@ def Email_Test123(config) -> BaseOperator:
         to="",
         subject="''",
         html_content=content,
-        task_id="email_notification",
+        task_id="Email_Test123",
         trigger_rule="all_success"
     )
