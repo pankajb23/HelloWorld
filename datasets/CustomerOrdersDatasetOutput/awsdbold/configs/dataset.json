@@ -1,0 +1,15 @@
+{
+  "datasetId" : "17",
+  "schema" : null,
+  "datasetType" : "File",
+  "description" : "PLACEHOLDER_DESC",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "testing12.3"
+    }
+  },
+  "dataFormat" : "parquet",
+  "outputProperties" : {
+    "properties" : { }
+  }
+}
