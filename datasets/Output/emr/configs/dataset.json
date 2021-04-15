@@ -1,0 +1,18 @@
+{
+  "description" : "",
+  "datasetId" : "200",
+  "dataFormat" : "csv",
+  "datasetType" : "File",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/TestPankajOuput.csv/"
+    }
+  },
+  "outputProperties" : {
+    "properties" : {
+      "mode" : "overwrite",
+      "sep" : ",",
+      "header" : true
+    }
+  }
+}

@@ -45,6 +45,11 @@ object CustomersDatasetInput {
           .schema(schemaArg)
           .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomersDatasetInput.csv")
           .cache()
+      case "narayan" =>
+        spark.read
+          .format("parquet")
+          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/")
+          .cache()
       case "azdbdp1" =>
         val schemaArg = StructType(
           Array(

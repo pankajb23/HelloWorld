@@ -1,0 +1,36 @@
+{
+  "metadata" : {
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "rajatSchedule",
+        "required" : true
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : { },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}

@@ -1,0 +1,148 @@
+{
+  "metadata" : {
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "pankajSchedule",
+        "required" : true
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Workflow_2" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_2",
+        "x" : 494,
+        "y" : 293
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "5",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "92",
+        "trigger" : "all_success"
+      }
+    },
+    "Email_1" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_1",
+        "x" : 863,
+        "y" : 308
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "Delta@prophecy.io",
+        "subject" : "Delta2",
+        "message" : "Delta"
+      }
+    },
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 114,
+        "y" : 114
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "5",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "93",
+        "trigger" : "all_success"
+      }
+    },
+    "Email0" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email 0",
+        "x" : 791,
+        "y" : 29
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "Delta@prophecy.io",
+        "subject" : "Delta",
+        "message" : "Delta"
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Workflow_2",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_2",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_1",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}

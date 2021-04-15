@@ -1,0 +1,162 @@
+{
+  "metadata" : {
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "ruchirSchedule",
+        "required" : true
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 216,
+        "y" : 184
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "",
+        "fabrics" : {
+          "azdb" : {
+            "jobSizeId" : "Small",
+            "airflowOperator" : "databricks"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "",
+        "trigger" : "all_success"
+      }
+    },
+    "Branch_0" : {
+      "component" : "Branch",
+      "metadata" : {
+        "label" : "Branch_0",
+        "x" : 766,
+        "y" : 256
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place your branching strategy here. Only the task ids that this function returns\n    # will be executed.\n\n    # It can return a single task_id as a string (e.g. `return “next_task_id”`) or\n    # a list with many task ids (e.g. `return [“task_id_1”, “task_id_2”]`).\n    # ===================================\n\n    return “next_task_id”\n\n"
+      }
+    },
+    "Script_0" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Script_0",
+        "x" : 376,
+        "y" : 284
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return “Finished”\n\n"
+      }
+    },
+    "Workflow_1" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_1",
+        "x" : 225,
+        "y" : 390
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "",
+        "fabrics" : {
+          "azdb" : {
+            "jobSizeId" : "Small",
+            "airflowOperator" : "databricks"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "",
+        "trigger" : "all_success"
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Branch_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_1",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Branch_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_1",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Script_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Branch_0",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}

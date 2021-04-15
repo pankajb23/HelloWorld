@@ -24,6 +24,11 @@ object CustomerOrdersDatasetOutput {
 
     val fabric = Config.fabricName
     fabric match {
+      case "Delta" =>
+        in.write
+          .format("parquet")
+          .mode("overwrite")
+          .save("heds")
       case "emr2" =>
         val schemaArg = StructType(
           Array(
@@ -36,6 +41,25 @@ object CustomerOrdersDatasetOutput {
         in.write
           .format("parquet")
           .save("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerDatasetOutput2.csv/")
+      case "narayan" =>
+        in.write
+          .format("parquet")
+          .save("mmm")
+      case "awsdbold" =>
+        in.write
+          .format("parquet")
+          .save("testing12.3.com")
+      case "emr" =>
+        in.write
+          .format("parquet")
+          .mode("overwrite")
+          .save("qwq")
+      case "awsnewdp1" =>
+        in.write
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .save("hello12as232")
       case "azdbdp1" =>
         val schemaArg = StructType(
           Array(

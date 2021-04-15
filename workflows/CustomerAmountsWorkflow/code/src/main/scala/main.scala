@@ -22,8 +22,8 @@ object Main {
 
     val df_OrdersDatasetInput:    Source   = OrdersDatasetInput(spark)
     val df_CustomersDatasetInput: Source   = CustomersDatasetInput(spark)
-    val df_JoinComponent:         Join     = JoinComponent(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
-    val df_SubGraph0:             SubGraph = SubGraph0(spark,     df_JoinComponent)
+    val df_My_Join_Component:     Join     = My_Join_Component(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
+    val df_SubGraph0:             SubGraph = SubGraph0(spark,         df_My_Join_Component)
     CustomerOrdersDatasetOutput(spark, df_SubGraph0)
 
   }

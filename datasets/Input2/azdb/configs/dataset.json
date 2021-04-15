@@ -1,0 +1,14 @@
+{
+  "description" : "",
+  "datasetId" : "201",
+  "dataFormat" : "parquet",
+  "datasetType" : "File",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/OrdersDatasetInput.csv"
+    }
+  },
+  "inputProperties" : {
+    "properties" : { }
+  }
+}

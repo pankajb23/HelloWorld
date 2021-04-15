@@ -15,8 +15,8 @@ import config.ConfigStore._
 import udfs.UDFs._
 import graph._
 
-@Visual(id = "JoinComponent", label = "JoinComponent", x = 206, y = 108, phase = 0)
-object JoinComponent {
+@Visual(id = "My_Join_Component", label = "My Join Component", x = 206, y = 108, phase = 0)
+object My_Join_Component {
 
   def apply(spark: SparkSession, left: DataFrame, right: DataFrame): Join = {
     import spark.implicits._
