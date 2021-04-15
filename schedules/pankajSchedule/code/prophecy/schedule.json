@@ -39,7 +39,7 @@
         "outputs" : [ "out" ]
       },
       "properties" : {
-        "projectId" : "5",
+        "projectId" : "124",
         "fabrics" : {
           "emr" : {
             "jobSizeId" : "S",
@@ -47,7 +47,7 @@
           }
         },
         "configuration" : [ ],
-        "workflowId" : "92",
+        "workflowId" : "95",
         "trigger" : "all_success"
       }
     },
@@ -81,7 +81,7 @@
         "outputs" : [ "out" ]
       },
       "properties" : {
-        "projectId" : "5",
+        "projectId" : "124",
         "fabrics" : {
           "emr" : {
             "jobSizeId" : "S",
@@ -89,7 +89,7 @@
           }
         },
         "configuration" : [ ],
-        "workflowId" : "93",
+        "workflowId" : "94",
         "trigger" : "all_success"
       }
     },

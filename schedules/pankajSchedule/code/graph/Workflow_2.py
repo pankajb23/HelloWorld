@@ -6,9 +6,9 @@ from airflow.providers.amazon.aws.operators.emr_terminate_job_flow import EmrTer
 from airflow.providers.amazon.aws.sensors.emr_step import EmrStepSensor
 def Workflow_2(config):
     if config.fabric == "emr":
-        workflow_id = "92"
+        workflow_id = "95"
         workflow_version = "latest"
-        workflow_jar = "s3://abinitio-spark-redshift-testing/prophecy/jars/92/latest/workflow.jar"
+        workflow_jar = "s3://abinitio-spark-redshift-testing/prophecy/jars/95/latest/workflow.jar"
         prophecy_libs_jar = "s3://abinitio-spark-redshift-testing/prophecy/jars/libs/version/prophecy-libs-assembly-1.0.jar"
         executor_memory = "1g"
         executor_cores = "4"

@@ -1,5 +1,5 @@
 {
-  "description" : "PLACEHOLDER_DESC",
+  "description" : "",
   "datasetId" : "17",
   "dataFormat" : "parquet",
   "datasetType" : "File",
