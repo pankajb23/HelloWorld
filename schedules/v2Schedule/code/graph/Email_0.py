@@ -13,6 +13,6 @@ def Email_0(config) -> BaseOperator:
         to="",
         subject="''",
         html_content=content,
-        task_id="email_notification",
-        trigger_rule="all_success"
+        task_id="Email_0",
+        trigger_rule="one_failed"
     )

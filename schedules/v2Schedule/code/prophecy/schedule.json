@@ -19,7 +19,25 @@
         "value" : "@daily",
         "required" : true
       } ],
-      "fabrics" : { }
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdbold" : [ {
+          "key" : "dag_id",
+          "value" : "v2Schedule",
+          "required" : true
+        } ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ {
+          "key" : "timezone",
+          "value" : "US/Pacific",
+          "required" : true
+        } ],
+        "emr2" : [ ]
+      }
     }
   },
   "processes" : {
@@ -27,8 +45,8 @@
       "component" : "Script",
       "metadata" : {
         "label" : "Script_0",
-        "x" : 1100,
-        "y" : 321
+        "x" : 972,
+        "y" : 370
       },
       "ports" : {
         "inputs" : [ "in" ],
@@ -36,15 +54,15 @@
       },
       "properties" : {
         "trigger" : "all_success",
-        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return ���Finished���\n\n"
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
       }
     },
     "Email_1" : {
       "component" : "Email",
       "metadata" : {
         "label" : "Email_1",
-        "x" : 554,
-        "y" : 175
+        "x" : 539,
+        "y" : 211
       },
       "ports" : {
         "inputs" : [ "in" ],
@@ -52,9 +70,9 @@
       },
       "properties" : {
         "trigger" : "all_success",
-        "recipient" : "Delta@prophecy.io",
+        "recipient" : "rajat@prophecy.io",
         "subject" : "Delta",
-        "message" : "Delta"
+        "message" : "Test email"
       }
     },
     "Branch_0" : {
@@ -62,7 +80,7 @@
       "metadata" : {
         "label" : "Branch_0",
         "x" : 734,
-        "y" : 398
+        "y" : 313
       },
       "ports" : {
         "inputs" : [ "in" ],
@@ -70,7 +88,7 @@
       },
       "properties" : {
         "trigger" : "all_success",
-        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place your branching strategy here. Only the task ids that this function returns\n    # will be executed.\n\n    # It can return a single task_id as a string (e.g. `return ���next_task_id���`) or\n    # a list with many task ids (e.g. `return [���task_id_1���, ���task_id_2���]`).\n    # ===================================\n\n    return ���next_task_id���\n\n"
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place your branching strategy here. Only the task ids that this function returns\n    # will be executed.\n\n    # It can return a single task_id as a string (e.g. `return ���������������������������������������������������������������������������������next_task_id���������������������������������������������������������������������������������`) or\n    # a list with many task ids (e.g. `return [���������������������������������������������������������������������������������task_id_1���������������������������������������������������������������������������������, ���������������������������������������������������������������������������������task_id_2���������������������������������������������������������������������������������]`).\n    # ===================================\n\n    return \"Workflow_1\"\n\n"
       }
     },
     "Workflow_0" : {
@@ -105,15 +123,15 @@
       "component" : "Email",
       "metadata" : {
         "label" : "Email_0",
-        "x" : 1103,
-        "y" : 479
+        "x" : 1166,
+        "y" : 343
       },
       "ports" : {
         "inputs" : [ "in" ],
         "outputs" : [ "out" ]
       },
       "properties" : {
-        "trigger" : "all_success",
+        "trigger" : "one_failed",
         "recipient" : "",
         "subject" : "",
         "message" : ""
@@ -123,8 +141,8 @@
       "component" : "Workflow",
       "metadata" : {
         "label" : "Workflow_1",
-        "x" : 1085,
-        "y" : 65
+        "x" : 1044,
+        "y" : 111
       },
       "ports" : {
         "inputs" : [ "in" ],
@@ -142,24 +160,6 @@
         "workflowId" : "93",
         "trigger" : "all_success"
       }
-    },
-    "Email_Test123" : {
-      "component" : "Email",
-      "metadata" : {
-        "label" : "Email_Test 123",
-        "x" : 728,
-        "y" : 65
-      },
-      "ports" : {
-        "inputs" : [ "in" ],
-        "outputs" : [ "out" ]
-      },
-      "properties" : {
-        "trigger" : "all_success",
-        "recipient" : "Delta@prophecy.io",
-        "subject" : "Delta",
-        "message" : "Delta"
-      }
     }
   },
   "connections" : [ {
@@ -168,25 +168,7 @@
       "port" : "out"
     },
     "tgt" : {
-      "process" : "Email_Test123",
-      "port" : "in"
-    }
-  }, {
-    "src" : {
-      "process" : "Workflow_0",
-      "port" : "out"
-    },
-    "tgt" : {
       "process" : "Email_1",
-      "port" : "in"
-    }
-  }, {
-    "src" : {
-      "process" : "Email_Test123",
-      "port" : "out"
-    },
-    "tgt" : {
-      "process" : "Workflow_1",
       "port" : "in"
     }
   }, {
@@ -209,11 +191,38 @@
     }
   }, {
     "src" : {
-      "process" : "Branch_0",
+      "process" : "Script_0",
       "port" : "out"
     },
     "tgt" : {
       "process" : "Email_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_1",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Workflow_1",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Branch_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Workflow_1",
       "port" : "in"
     }
   } ],

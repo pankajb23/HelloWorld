@@ -1,0 +1,88 @@
+{
+  "metadata" : {
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "sarathSchedule",
+        "required" : true
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "",
+        "fabrics" : {
+          "azdb" : {
+            "jobSizeId" : "Small",
+            "airflowOperator" : "databricks"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "",
+        "trigger" : "all_success"
+      }
+    },
+    "Email_0" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_0",
+        "x" : 466,
+        "y" : 112
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "",
+        "subject" : "",
+        "message" : ""
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_0",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
