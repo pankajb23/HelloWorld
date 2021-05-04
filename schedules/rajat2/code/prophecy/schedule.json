@@ -54,8 +54,8 @@
       "component" : "Workflow",
       "metadata" : {
         "label" : "Workflow_0",
-        "x" : 320,
-        "y" : 177
+        "x" : 356,
+        "y" : 112
       },
       "ports" : {
         "inputs" : [ "in" ],
