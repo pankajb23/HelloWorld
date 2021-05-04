@@ -11,6 +11,5 @@ with DAG(**config.dag_args()) as the_dag:
     _Branch_0 >> _Script_1
     _Branch_0 >> _Script_0
     _Script_1 >> _Script_2
-    _Script_0 >> _Script_2
 
 

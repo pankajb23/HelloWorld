@@ -137,15 +137,6 @@
       "process" : "Script_2",
       "port" : "in"
     }
-  }, {
-    "src" : {
-      "process" : "Script_0",
-      "port" : "out"
-    },
-    "tgt" : {
-      "process" : "Script_2",
-      "port" : "in"
-    }
   } ],
   "ports" : {
     "inputs" : [ "in" ],
