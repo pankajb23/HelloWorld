@@ -68,9 +68,42 @@
         "workflowId" : "9",
         "trigger" : "all_success"
       }
+    },
+    "Workflow_1" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_1",
+        "x" : 668,
+        "y" : 147
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "5",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "9",
+        "trigger" : "all_success"
+      }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Workflow_1",
+      "port" : "in"
+    }
+  } ],
   "ports" : {
     "inputs" : [ "in" ],
     "outputs" : [ "out" ]
