@@ -1,0 +1,66 @@
+{
+  "metadata" : {
+    "name" : "rajat2",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "rajat2",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-05-01T00:00:00",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdp2" : [ ],
+        "awsdbold" : [ ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ ],
+        "emr2" : [ ]
+      }
+    }
+  },
+  "processes" : {
+    "Script_0" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Script_0",
+        "x" : 510,
+        "y" : 206
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    }
+  },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
