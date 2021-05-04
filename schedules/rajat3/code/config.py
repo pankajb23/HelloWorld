@@ -7,7 +7,7 @@ class Config(object):
         self.fabric = fabric
         self.dag_id = "rajat3333"
         self.timezone = "US/Pacific"
-        self.start_date = "2021-05-04T09:54:38"
+        self.start_date = "2021-05-03T09:54:38"
         self.schedule_interval = "@daily"
         self.cluster_id = "eng.pankaj.002@prophecy.io_49_connId"
 
