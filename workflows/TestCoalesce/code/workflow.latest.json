@@ -1,0 +1,207 @@
+{
+  "resolvers" : [ ],
+  "graph" : {
+    "metainfo" : {
+      "cluster" : "local",
+      "id" : "id",
+      "memory" : 1,
+      "mode" : "batch",
+      "processors" : 1,
+      "language" : "scala",
+      "interimMode" : "full",
+      "udfs" : {
+        "language" : "scala",
+        "udfs" : [ ]
+      },
+      "udafs" : {
+        "language" : "scala",
+        "code" : "package udfs\n\nimport org.apache.spark.sql.expressions._\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\n\n/**\n  * Here you can define your custom aggregate functions.\n  *\n  * Make sure to register your `udafs` in the register_udafs function below.\n  *\n  * Example:\n  *\n  * object GeometricMean extends UserDefinedAggregateFunction {\n  *   // This is the input fields for your aggregate function.\n  *   override def inputSchema: org.apache.spark.sql.types.StructType =\n  *     StructType(StructField(\"value\", DoubleType) :: Nil)\n  *\n  *   // This is the internal fields you keep for computing your aggregate.\n  *   override def bufferSchema: StructType = StructType(\n  *     StructField(\"count\", LongType) ::\n  *     StructField(\"product\", DoubleType) :: Nil\n  *   )\n  *\n  *   // This is the output type of your aggregatation function.\n  *   override def dataType: DataType = DoubleType\n  *\n  *   override def deterministic: Boolean = true\n  *\n  *   // This is the initial value for your buffer schema.\n  *   override def initialize(buffer: MutableAggregationBuffer): Unit = {\n  *     buffer(0) = 0L\n  *     buffer(1) = 1.0\n  *   }\n  *\n  *   // This is how to update your buffer schema given an input.\n  *   override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {\n  *     buffer(0) = buffer.getAs[Long](0) + 1\n  *     buffer(1) = buffer.getAs[Double](1) * input.getAs[Double](0)\n  *   }\n  *\n  *   // This is how to merge two objects with the bufferSchema type.\n  *   override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {\n  *     buffer1(0) = buffer1.getAs[Long](0) + buffer2.getAs[Long](0)\n  *     buffer1(1) = buffer1.getAs[Double](1) * buffer2.getAs[Double](1)\n  *   }\n  *\n  *   // This is where you output the final value, given the final value of your bufferSchema.\n  *   override def evaluate(buffer: Row): Any = {\n  *     math.pow(buffer.getDouble(1), 1.toDouble / buffer.getLong(0))\n  *   }\n  * }\n  *\n  */\n\n\nobject UDAFs {\n  /**\n    * Registers UDAFs with Spark SQL\n    */\n  def registerUDAFs(spark: SparkSession): Unit = {\n    /**\n      * Example:\n      *\n      * spark.udf.register(\"gm\", GeometricMean)\n      *\n      */\n\n\n  }\n}\n"
+      },
+      "sparkOptions" : {
+        "options" : {
+          "spark.app.name" : "TestCoalesce",
+          "spark.sql.catalogImplementation" : "hive"
+        }
+      }
+    },
+    "connections" : [ {
+      "metadata" : {
+        "route" : "e1"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Source0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e2"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Reformat0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Repartition0"
+      }
+    }, {
+      "metadata" : {
+        "route" : "e3"
+      },
+      "src" : {
+        "port" : "out",
+        "process" : "Repartition0"
+      },
+      "tgt" : {
+        "port" : "in",
+        "process" : "Reformat1"
+      }
+    } ],
+    "groups" : [ ],
+    "inports" : { },
+    "outports" : { },
+    "processes" : {
+      "Source0" : {
+        "component" : "Source",
+        "metadata" : {
+          "label" : "Source0",
+          "x" : 360,
+          "y" : 148
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "version" : 0,
+          "id" : "15",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Repartition0" : {
+        "component" : "Repartition",
+        "metadata" : {
+          "label" : "Repartition0",
+          "x" : 974,
+          "y" : 125
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "opType" : "randomRepartition",
+          "limit" : 0,
+          "numPartitions" : 1
+        },
+        "ignore" : false
+      },
+      "Script0" : {
+        "component" : "Script",
+        "metadata" : {
+          "label" : "Script0",
+          "x" : 366,
+          "y" : 25
+        },
+        "ports" : {
+          "inputs" : [ ],
+          "outputs" : [ ]
+        },
+        "properties" : {
+          "outputSchema" : { },
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "code" : "spark.conf.set(\n      \"spark.sql.optimizer.excludedRules\",\n      \"org.apache.spark.sql.catalyst.optimizer.PushProjectionThroughUnion,org.apache.spark.sql.catalyst.optimizer.ReorderJoin,org.apache.spark.sql.catalyst.optimizer.EliminateOuterJoin,org.apache.spark.sql.catalyst.optimizer.PushPredicateThroughJoin,org.apache.spark.sql.catalyst.optimizer.PushDownPredicate,org.apache.spark.sql.catalyst.optimizer.LimitPushDown,org.apache.spark.sql.catalyst.optimizer.ColumnPruning,org.apache.spark.sql.catalyst.optimizer.ColumnPruning,org.apache.spark.sql.catalyst.optimizer.CollapseProject,org.apache.spark.sql.catalyst.optimizer.CollapseWindow,org.apache.spark.sql.catalyst.optimizer.CombineFilters,org.apache.spark.sql.catalyst.optimizer.CombineLimits,org.apache.spark.sql.catalyst.optimizer.CombineUnions,org.apache.spark.sql.catalyst.optimizer.NullPropagation,org.apache.spark.sql.catalyst.optimizer.ConstantPropagation,org.apache.spark.sql.catalyst.optimizer.FoldablePropagation,org.apache.spark.sql.catalyst.optimizer.OptimizeIn,org.apache.spark.sql.catalyst.optimizer.ConstantFolding,org.apache.spark.sql.catalyst.optimizer.ReorderAssociativeOperator,org.apache.spark.sql.catalyst.optimizer.LikeSimplification,org.apache.spark.sql.catalyst.optimizer.BooleanSimplification,org.apache.spark.sql.catalyst.optimizer.SimplifyConditionals,org.apache.spark.sql.catalyst.optimizer.RemoveDispensableExpressions,org.apache.spark.sql.catalyst.optimizer.SimplifyBinaryComparison,org.apache.spark.sql.catalyst.optimizer.PruneFilters,org.apache.spark.sql.catalyst.optimizer.EliminateSorts,org.apache.spark.sql.catalyst.optimizer.SimplifyCasts,org.apache.spark.sql.catalyst.optimizer.SimplifyCaseConversionExpressions,org.apache.spark.sql.catalyst.optimizer.RewriteCorrelatedScalarSubquery,org.apache.spark.sql.catalyst.optimizer.EliminateSerialization,org.apache.spark.sql.catalyst.optimizer.RemoveRedundantAliases,org.apache.spark.sql.catalyst.optimizer.RemoveRedundantProject,org.apache.spark.sql.catalyst.optimizer.SimplifyExtractValueOps,org.apache.spark.sql.catalyst.optimizer.CombineConcats\"\n    )",
+          "udf_definitions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat0" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat0",
+          "x" : 672,
+          "y" : 107
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 1,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "customer_id",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"customer_id\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "phone",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"phone\")"
+            } ],
+            "enabled" : true
+          }, {
+            "functionName" : "column_expression",
+            "addReplaceColumn" : "account_open_date",
+            "inputArgs" : [ {
+              "type" : "scala",
+              "expr" : "col(\"account_open_date\")"
+            } ],
+            "enabled" : true
+          } ],
+          "limit" : 0
+        },
+        "ignore" : false
+      },
+      "Reformat1" : {
+        "component" : "Reformat",
+        "metadata" : {
+          "label" : "Reformat1",
+          "x" : 1193,
+          "y" : 166
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "properties" : {
+          "src_desc" : "",
+          "phase" : 0,
+          "ramp" : 0,
+          "detailedStats" : false,
+          "udf_definitions" : [ ],
+          "functions" : [ ],
+          "limit" : 0
+        },
+        "ignore" : false
+      }
+    }
+  }
+}

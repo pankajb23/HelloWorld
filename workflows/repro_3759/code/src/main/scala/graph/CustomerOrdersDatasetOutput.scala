@@ -13,6 +13,7 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 import graph._
 
 @Visual(id = "CustomerOrdersDatasetOutput", label = "CustomerOrdersDatasetOutput", x = 1141, y = 108, phase = 0)
@@ -40,6 +41,7 @@ object CustomerOrdersDatasetOutput {
         )
         in.write
           .format("parquet")
+          .mode("overwrite")
           .save("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerDatasetOutput2.csv/")
       case "narayan" =>
         in.write
@@ -55,11 +57,20 @@ object CustomerOrdersDatasetOutput {
           .mode("overwrite")
           .save("qwq")
       case "awsnewdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",  IntegerType, false),
+            StructField("country_code", StringType,  false),
+            StructField("order_id",     LongType,    false),
+            StructField("amount",       DoubleType,  false)
+          )
+        )
         in.write
           .format("csv")
           .option("header", true)
           .option("sep",    ",")
-          .save("hello12as232")
+          .mode("overwrite")
+          .save("dbfs:/Prophecy/rajat@prophecy.io/CustomerOrdersDatasetOutput1.csv/")
       case "azdbdp1" =>
         val schemaArg = StructType(
           Array(

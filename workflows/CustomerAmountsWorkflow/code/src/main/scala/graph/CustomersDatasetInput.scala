@@ -1,6 +1,5 @@
 package graph
 
-import org.apache.spark.sql.types._
 import io.prophecy.libs._
 import io.prophecy.libs.UDFUtils._
 import io.prophecy.libs.Component._
@@ -11,8 +10,10 @@ import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 import graph._
 
 @Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 7, y = 154, phase = 0)
@@ -25,6 +26,26 @@ object CustomersDatasetInput {
     val fabric = Config.fabricName
 
     val out = fabric match {
+      case "awsdp2" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",       IntegerType,   true),
+            StructField("first_name",        StringType,    true),
+            StructField("last_name",         StringType,    true),
+            StructField("phone",             StringType,    true),
+            StructField("email",             StringType,    true),
+            StructField("country_code",      StringType,    true),
+            StructField("account_open_date", TimestampType, true),
+            StructField("account_flags",     StringType,    true)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .schema(schemaArg)
+          .load("dbfs:/Prophecy/rajat@prophecy.io/CustomersDatasetInput.csv")
+          .cache()
       case "emr2" =>
         val schemaArg = StructType(
           Array(
@@ -49,6 +70,26 @@ object CustomersDatasetInput {
         spark.read
           .format("parquet")
           .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/")
+          .cache()
+      case "awsnewdp1" =>
+        val schemaArg = StructType(
+          Array(
+            StructField("customer_id",       IntegerType,   true),
+            StructField("first_name",        StringType,    true),
+            StructField("last_name",         StringType,    true),
+            StructField("phone",             StringType,    true),
+            StructField("email",             StringType,    true),
+            StructField("country_code",      StringType,    true),
+            StructField("account_open_date", TimestampType, true),
+            StructField("account_flags",     StringType,    true)
+          )
+        )
+        spark.read
+          .format("csv")
+          .option("header", true)
+          .option("sep",    ",")
+          .schema(schemaArg)
+          .load("dbfs:/Prophecy/rajat@prophecy.io/CustomersDatasetInput.csv")
           .cache()
       case "azdbdp1" =>
         val schemaArg = StructType(

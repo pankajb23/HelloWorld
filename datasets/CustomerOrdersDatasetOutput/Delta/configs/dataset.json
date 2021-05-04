@@ -8,6 +8,9 @@
       "location" : "heds"
     }
   },
+  "inputProperties" : {
+    "properties" : { }
+  },
   "outputProperties" : {
     "properties" : {
       "mode" : "overwrite"

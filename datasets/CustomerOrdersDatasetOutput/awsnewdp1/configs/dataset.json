@@ -3,13 +3,38 @@
   "datasetId" : "17",
   "dataFormat" : "csv",
   "datasetType" : "File",
+  "schema" : {
+    "type" : "struct",
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "order_id",
+      "type" : "long",
+      "nullable" : false,
+      "metadata" : { }
+    }, {
+      "name" : "amount",
+      "type" : "double",
+      "nullable" : false,
+      "metadata" : { }
+    } ]
+  },
   "commonProperties" : {
     "properties" : {
-      "location" : "hello12as232"
+      "location" : "dbfs:/Prophecy/rajat@prophecy.io/CustomerOrdersDatasetOutput1.csv/"
     }
   },
   "outputProperties" : {
     "properties" : {
+      "mode" : "overwrite",
       "sep" : ",",
       "header" : true
     }

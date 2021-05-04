@@ -13,16 +13,20 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 import graph._
 
-@Visual(id = "Aggregate0", label = "Aggregate0", x = 698, y = 344, phase = 0)
-object Aggregate0 {
+@Visual(id = "Reformat1", label = "Reformat1", x = 462, y = 229, phase = 0)
+object Reformat1 {
 
-  def apply(spark: SparkSession, in: DataFrame): Aggregate = {
+  def apply(spark: SparkSession, in: DataFrame): Reformat = {
     import spark.implicits._
 
-    val dfGroupBy = in.groupBy(col("customer_id").as("customer_id"),     col("country_code").as("country_code"))
-    val out       = dfGroupBy.agg(count(col("order_id")).as("order_id"), sum(col("amount")).as("amount"))
+    val out = in.select(
+      col("first_name"),
+      col("last_name"),
+      col("phone")
+    )
 
     out
 

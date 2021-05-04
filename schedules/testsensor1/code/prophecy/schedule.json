@@ -1,0 +1,98 @@
+{
+  "metadata" : {
+    "name" : "testsensor1",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "testsensor1",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Sensor_0" : {
+      "component" : "Sensor",
+      "metadata" : {
+        "label" : "Sensor_0",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "sensor" : {
+          "sslCertificates" : false,
+          "connectionId" : "aws_default_pankaj",
+          "wildcards" : false,
+          "s3FullPath" : "s3://abinitio-spark-redshift-testing/prophecy-libs-assembly-2.jar",
+          "type" : "s3Key"
+        },
+        "interval" : "60",
+        "softFail" : false,
+        "mode" : "poke",
+        "exponentialBackoff" : false,
+        "timeout" : "604800",
+        "trigger" : "all_success"
+      }
+    },
+    "Email_0" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_0",
+        "x" : 321,
+        "y" : 106
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "rajat@prophecy.io",
+        "subject" : "testsensor",
+        "message" : "test sensor success"
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Sensor_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_0",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}

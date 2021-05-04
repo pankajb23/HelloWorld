@@ -11,6 +11,7 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 
 import graph.SubGraph0._
 import graph._
@@ -48,6 +49,9 @@ object Main {
       .config("spark.default.parallelism", "4")
       .enableHiveSupport()
       .getOrCreate()
+
+    UDFs.registerUDFs(spark)
+    UDAFs.registerUDAFs(spark)
 
     val sc = spark.sparkContext
     sc.setCheckpointDir("/tmp/checkpoints")

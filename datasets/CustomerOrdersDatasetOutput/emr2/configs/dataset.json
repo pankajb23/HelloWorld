@@ -33,6 +33,8 @@
     }
   },
   "outputProperties" : {
-    "properties" : { }
+    "properties" : {
+      "mode" : "overwrite"
+    }
   }
 }

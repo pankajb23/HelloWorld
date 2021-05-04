@@ -1,0 +1,144 @@
+{
+  "metadata" : {
+    "name" : "rajat1",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "rajat1",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-01-01T00:00:00",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "cluster_id",
+        "value" : "j-2JURTB707CUAU",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Script_0" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Hi",
+        "x" : 417,
+        "y" : 368
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    },
+    "Script_1" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Hello",
+        "x" : 417,
+        "y" : 126
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    },
+    "Branch_0" : {
+      "component" : "Branch",
+      "metadata" : {
+        "label" : "Branch_0",
+        "x" : 142,
+        "y" : 259
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place your branching strategy here. Only the task ids that this function returns\n    # will be executed.\n\n    # It can return a single task_id as a string (e.g. `return \"next_task_id\"`) or\n    # a list with many task ids (e.g. `return [\"task_id_1\", \"task_id_2\"]`).\n    # ===================================\n\n    return \"Script_1\"\n\n"
+      }
+    },
+    "Script_2" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Script_2",
+        "x" : 619,
+        "y" : 240
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "one_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Branch_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_1",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Branch_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Script_1",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_2",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Script_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_2",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}

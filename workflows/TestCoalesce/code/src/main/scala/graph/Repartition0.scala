@@ -13,25 +13,16 @@ import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 import graph._
 
-@Visual(id = "Reformat0", label = "Reformat0", x = 386, y = 356, phase = 0)
-object Reformat0 {
+@Visual(id = "Repartition0", label = "Repartition0", x = 974, y = 125, phase = 1)
+object Repartition0 {
 
-  def apply(spark: SparkSession, in: DataFrame): Reformat = {
+  def apply(spark: SparkSession, in: DataFrame): Repartition = {
     import spark.implicits._
 
-    val out = in.select(
-      col("order_id"),
-      col("customer_id"),
-      col("amount"),
-      col("first_name"),
-      col("last_name"),
-      col("phone"),
-      col("email"),
-      col("country_code"),
-      col("account_flags")
-    )
+    val out = in.repartition(1)
 
     out
 
