@@ -16,7 +16,7 @@
         "comment" : ""
       }, {
         "key" : "start_date",
-        "value" : "2021-01-01T00:00:00",
+        "value" : "2021-05-04T00:00:00",
         "required" : true,
         "comment" : ""
       }, {
@@ -30,7 +30,18 @@
         "required" : true,
         "comment" : ""
       } ],
-      "fabrics" : { }
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdp2" : [ ],
+        "awsdbold" : [ ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ ],
+        "emr2" : [ ]
+      }
     }
   },
   "processes" : {
@@ -86,8 +97,8 @@
       "component" : "Script",
       "metadata" : {
         "label" : "Script_2",
-        "x" : 619,
-        "y" : 240
+        "x" : 716,
+        "y" : 211
       },
       "ports" : {
         "inputs" : [ "in" ],
