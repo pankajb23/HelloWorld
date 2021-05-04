@@ -1,0 +1,79 @@
+{
+  "metadata" : {
+    "name" : "rajat3",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "rajat3333",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-05-04T09:54:38",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdp2" : [ ],
+        "awsdbold" : [ ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ ],
+        "emr2" : [ ]
+      }
+    }
+  },
+  "processes" : {
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 419,
+        "y" : 101
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "5",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ {
+          "key" : "A",
+          "value" : "B",
+          "required" : false,
+          "comment" : ""
+        } ],
+        "workflowId" : "9",
+        "trigger" : "all_success"
+      }
+    }
+  },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
