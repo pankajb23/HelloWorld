@@ -1,12 +1,12 @@
 {
   "metadata" : {
-    "name" : "Ruchir_Test",
+    "name" : "Ruchir_Test_URL",
     "projectId" : "5",
     "language" : "python",
     "configurations" : {
       "common" : [ {
         "key" : "dag_id",
-        "value" : "Ruchir_Test",
+        "value" : "Ruchir_Test_URL",
         "required" : true,
         "comment" : ""
       }, {
@@ -16,7 +16,7 @@
         "comment" : ""
       }, {
         "key" : "start_date",
-        "value" : "2021-05-05T06:22:29",
+        "value" : "2021-05-05T06:28:29",
         "required" : true,
         "comment" : ""
       }, {
@@ -33,8 +33,8 @@
       "component" : "Script",
       "metadata" : {
         "label" : "Script_0",
-        "x" : 624,
-        "y" : 152
+        "x" : 610,
+        "y" : 189
       },
       "ports" : {
         "inputs" : [ "in" ],

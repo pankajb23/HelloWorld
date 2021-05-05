@@ -5,9 +5,9 @@ class Config(object):
 
     def __init__(self, fabric: str="common"):
         self.fabric = fabric
-        self.dag_id = "Ruchir_Test"
+        self.dag_id = "Ruchir_Test_URL"
         self.timezone = "US/Pacific"
-        self.start_date = "2021-05-05T06:22:29"
+        self.start_date = "2021-05-05T06:28:29"
         self.schedule_interval = "@daily"
         self.cluster_id = "eng.pankaj.002@prophecy.io_49_connId"
 
