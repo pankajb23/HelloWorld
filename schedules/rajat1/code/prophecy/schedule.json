@@ -65,7 +65,7 @@
       "component" : "Script",
       "metadata" : {
         "label" : "Hello",
-        "x" : 417,
+        "x" : 444,
         "y" : 126
       },
       "ports" : {

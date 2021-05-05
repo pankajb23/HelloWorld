@@ -3,7 +3,7 @@ from airflow import DAG
 
 config = load_config()
 with DAG(**config.dag_args()) as the_dag:
-    _Script_0 = Script_0(config)
+    _Test_Script = Test_Script(config)
 
     
 

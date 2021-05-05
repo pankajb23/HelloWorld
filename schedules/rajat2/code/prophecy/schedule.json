@@ -40,12 +40,12 @@
     }
   },
   "processes" : {
-    "Script_0" : {
+    "Test_Script" : {
       "component" : "Script",
       "metadata" : {
-        "label" : "Script_0",
-        "x" : 510,
-        "y" : 206
+        "label" : "Test Script",
+        "x" : 514,
+        "y" : 111
       },
       "ports" : {
         "inputs" : [ "in" ],
