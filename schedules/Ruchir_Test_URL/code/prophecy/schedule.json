@@ -44,9 +44,42 @@
         "trigger" : "all_success",
         "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
       }
+    },
+    "Workflow_0" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Workflow_0",
+        "x" : 366,
+        "y" : 185
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "5",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "102",
+        "trigger" : "all_success"
+      }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "src" : {
+      "process" : "Workflow_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Script_0",
+      "port" : "in"
+    }
+  } ],
   "ports" : {
     "inputs" : [ "in" ],
     "outputs" : [ "out" ]
