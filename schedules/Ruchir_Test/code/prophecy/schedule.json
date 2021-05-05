@@ -1,0 +1,55 @@
+{
+  "metadata" : {
+    "name" : "Ruchir_Test",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "Ruchir_Test",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-05-05T06:22:29",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : {
+    "Script_0" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Script_0",
+        "x" : 624,
+        "y" : 152
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    }
+  },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
