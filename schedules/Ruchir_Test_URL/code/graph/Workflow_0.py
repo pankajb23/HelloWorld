@@ -7,9 +7,9 @@ from airflow.providers.amazon.aws.sensors.emr_step import EmrStepSensor
 
 def Workflow_0(config):
     if config.fabric == "emr":
-        workflow_id = "102"
+        workflow_id = "98"
         workflow_version = "latest"
-        workflow_jar = f"s3://{config.s3Bucket}/prophecy/jars/102/latest/workflow.jar"
+        workflow_jar = f"s3://{config.s3Bucket}/prophecy/jars/98/latest/workflow.jar"
         prophecy_libs_jar = f"{config.prophecyLibsJar}"
         executor_memory = "1g"
         executor_cores = "4"

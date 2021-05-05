@@ -57,7 +57,7 @@
         "outputs" : [ "out" ]
       },
       "properties" : {
-        "projectId" : "5",
+        "projectId" : "125",
         "fabrics" : {
           "emr" : {
             "jobSizeId" : "S",
@@ -65,7 +65,7 @@
           }
         },
         "configuration" : [ ],
-        "workflowId" : "102",
+        "workflowId" : "98",
         "trigger" : "all_success"
       }
     }
