@@ -44,8 +44,8 @@
       "component" : "Script",
       "metadata" : {
         "label" : "Test Script",
-        "x" : 514,
-        "y" : 111
+        "x" : 401,
+        "y" : 249
       },
       "ports" : {
         "inputs" : [ "in" ],
