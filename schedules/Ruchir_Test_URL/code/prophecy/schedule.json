@@ -24,8 +24,29 @@
         "value" : "@daily",
         "required" : true,
         "comment" : ""
+      }, {
+        "key" : "Test",
+        "value" : "test",
+        "required" : false,
+        "comment" : "comment in test"
       } ],
-      "fabrics" : { }
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdp2" : [ ],
+        "awsdbold" : [ ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ {
+          "key" : "start_date",
+          "value" : "2021-05-05T06:28:29",
+          "required" : true,
+          "comment" : ""
+        } ],
+        "emr2" : [ ]
+      }
     }
   },
   "processes" : {
@@ -49,8 +70,8 @@
       "component" : "Workflow",
       "metadata" : {
         "label" : "Workflow_0",
-        "x" : 366,
-        "y" : 185
+        "x" : 370,
+        "y" : 68
       },
       "ports" : {
         "inputs" : [ "in" ],
@@ -68,6 +89,24 @@
         "workflowId" : "98",
         "trigger" : "all_success"
       }
+    },
+    "Test_Email" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Test Email",
+        "x" : 926,
+        "y" : 69
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "recipient" : "Test",
+        "subject" : "Test",
+        "message" : "Test"
+      }
     }
   },
   "connections" : [ {
@@ -77,6 +116,15 @@
     },
     "tgt" : {
       "process" : "Script_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Script_0",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Test_Email",
       "port" : "in"
     }
   } ],
