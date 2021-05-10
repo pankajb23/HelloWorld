@@ -11,18 +11,23 @@
         "comment" : ""
       }, {
         "key" : "timezone",
-        "value" : "US/Pacific",
+        "value" : "",
         "required" : true,
         "comment" : ""
       }, {
         "key" : "start_date",
-        "value" : "2021-05-03T05:01:18",
+        "value" : "",
         "required" : true,
         "comment" : ""
       }, {
         "key" : "schedule_interval",
-        "value" : "@daily",
+        "value" : "",
         "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "poke_interval",
+        "value" : "55",
+        "required" : false,
         "comment" : ""
       } ],
       "fabrics" : {

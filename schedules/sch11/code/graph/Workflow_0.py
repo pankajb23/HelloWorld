@@ -40,7 +40,7 @@ def Workflow_0(config):
             job_flow_id = job_flow_id,
             aws_conn_id = "aws_default",
             steps = spark_steps,
-            trigger_rule = "all_success"
+            trigger_rule = "all_failed"
         )
         step_checker = EmrStepSensor(
             task_id = "Workflow_0WatchSteps",

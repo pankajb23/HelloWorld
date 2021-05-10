@@ -94,8 +94,8 @@
       "component" : "Email",
       "metadata" : {
         "label" : "Test Email",
-        "x" : 961,
-        "y" : 69
+        "x" : 826,
+        "y" : 279
       },
       "ports" : {
         "inputs" : [ "in" ],
