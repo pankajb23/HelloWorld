@@ -1,0 +1,196 @@
+{
+  "metadata" : {
+    "name" : "sch12",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "sch12",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : {
+        "azdbdp1" : [ ],
+        "Delta" : [ ],
+        "livy" : [ ],
+        "emr" : [ ],
+        "awsdp2" : [ ],
+        "awsdbold" : [ ],
+        "awsnewdp1" : [ ],
+        "narayan" : [ ],
+        "azdb" : [ ],
+        "emr2" : [ ]
+      }
+    }
+  },
+  "processes" : {
+    "Run_Workflow" : {
+      "component" : "Workflow",
+      "metadata" : {
+        "label" : "Run Workflow",
+        "x" : 505,
+        "y" : 223
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "projectId" : "125",
+        "fabrics" : {
+          "emr" : {
+            "jobSizeId" : "S",
+            "airflowOperator" : "emr"
+          }
+        },
+        "configuration" : [ ],
+        "workflowId" : "98",
+        "trigger" : "all_success"
+      }
+    },
+    "Email_0" : {
+      "component" : "Email",
+      "metadata" : {
+        "label" : "Email_0",
+        "x" : 794,
+        "y" : 124
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "one_success",
+        "recipient" : "rajat@prophecy.io",
+        "subject" : "Success",
+        "message" : "Yay"
+      }
+    },
+    "Decide" : {
+      "component" : "Branch",
+      "metadata" : {
+        "label" : "Decide",
+        "x" : 261,
+        "y" : 99
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place your branching strategy here. Only the task ids that this function returns\n    # will be executed.\n\n    # It can return a single task_id as a string (e.g. `return \"next_task_id\"`) or\n    # a list with many task ids (e.g. `return [\"task_id_1\", \"task_id_2\"]`).\n    # ===================================\n\n    return \"Run_Workflow\"\n\n"
+      }
+    },
+    "Run_Script" : {
+      "component" : "Script",
+      "metadata" : {
+        "label" : "Run Script",
+        "x" : 507,
+        "y" : 19
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "trigger" : "all_success",
+        "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
+      }
+    },
+    "Wait_for_Data" : {
+      "component" : "Sensor",
+      "metadata" : {
+        "label" : "Wait for Data",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "sensor" : {
+          "sslCertificates" : false,
+          "connectionId" : "aws_default",
+          "wildcards" : false,
+          "s3FullPath" : "s3://abinitio-spark-redshift-testing/gates/2021-05-03",
+          "type" : "s3Key"
+        },
+        "interval" : "60",
+        "softFail" : false,
+        "mode" : "poke",
+        "exponentialBackoff" : false,
+        "timeout" : "604800",
+        "trigger" : "all_success"
+      }
+    }
+  },
+  "connections" : [ {
+    "src" : {
+      "process" : "Wait_for_Data",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Decide",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Decide",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Run_Script",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Decide",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Run_Workflow",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Run_Script",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_0",
+      "port" : "in"
+    }
+  }, {
+    "src" : {
+      "process" : "Run_Workflow",
+      "port" : "out"
+    },
+    "tgt" : {
+      "process" : "Email_0",
+      "port" : "in"
+    }
+  } ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
