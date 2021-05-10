@@ -11,17 +11,17 @@
         "comment" : ""
       }, {
         "key" : "timezone",
-        "value" : "",
+        "value" : "US/Pacific",
         "required" : true,
         "comment" : ""
       }, {
         "key" : "start_date",
-        "value" : "",
+        "value" : "2021-05-03T05:01:18",
         "required" : true,
         "comment" : ""
       }, {
         "key" : "schedule_interval",
-        "value" : "",
+        "value" : "@daily",
         "required" : true,
         "comment" : ""
       } ],
