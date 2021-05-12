@@ -1,0 +1,38 @@
+{
+  "metadata" : {
+    "name" : "sch13",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "sch13",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-05-10T09:03:48",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : { },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
