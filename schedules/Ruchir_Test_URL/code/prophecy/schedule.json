@@ -28,7 +28,7 @@
         "key" : "Test",
         "value" : "test",
         "required" : false,
-        "comment" : "comment in test"
+        "comment" : "comment in test 1"
       } ],
       "fabrics" : {
         "azdbdp1" : [ ],
