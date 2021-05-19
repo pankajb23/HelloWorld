@@ -7,7 +7,6 @@ with DAG(**config.dag_args()) as dag:
     op_workflow_0 = Workflow_0(config)
     op_script_0 = Script_0(config)
     op_test_email = Test_Email(config)
-    op_branch_0 = Branch_0(config)
 
     op_workflow_0[1] >> op_script_0
     op_script_0 >> op_test_email
