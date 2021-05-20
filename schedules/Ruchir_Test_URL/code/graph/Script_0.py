@@ -13,5 +13,5 @@ def Script_0(config) -> BaseOperator:
         task_id = "Script_0",
         op_kwargs = {"config" : config},
         python_callable = execute,
-        trigger_rule = "all_success"
+        trigger_rule = "one_failed"
     )

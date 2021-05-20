@@ -62,7 +62,7 @@
         "outputs" : [ "out" ]
       },
       "properties" : {
-        "trigger" : "all_success",
+        "trigger" : "one_failed",
         "code" : "def execute(config, **kwargs):\n    # ===================================\n    # Place any Python code here\n    # ===================================\n\n    return \"Finished\"\n\n"
       }
     },
