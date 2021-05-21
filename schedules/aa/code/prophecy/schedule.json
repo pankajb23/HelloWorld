@@ -1,0 +1,38 @@
+{
+  "metadata" : {
+    "name" : "aa",
+    "projectId" : "5",
+    "language" : "python",
+    "configurations" : {
+      "common" : [ {
+        "key" : "dag_id",
+        "value" : "aa",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "timezone",
+        "value" : "US/Pacific",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "start_date",
+        "value" : "2021-05-20T07:03:49",
+        "required" : true,
+        "comment" : ""
+      }, {
+        "key" : "schedule_interval",
+        "value" : "@daily",
+        "required" : true,
+        "comment" : ""
+      } ],
+      "fabrics" : { }
+    }
+  },
+  "processes" : { },
+  "connections" : [ ],
+  "ports" : {
+    "inputs" : [ "in" ],
+    "outputs" : [ "out" ]
+  },
+  "groups" : { }
+}
