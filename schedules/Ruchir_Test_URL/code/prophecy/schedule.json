@@ -112,7 +112,7 @@
       "component" : "Sensor",
       "metadata" : {
         "label" : "Sensor_0",
-        "x" : 100,
+        "x" : 99,
         "y" : 101
       },
       "ports" : {
