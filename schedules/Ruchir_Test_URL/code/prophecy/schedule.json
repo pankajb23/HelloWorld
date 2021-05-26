@@ -107,6 +107,33 @@
         "subject" : "Test",
         "message" : "Test"
       }
+    },
+    "Sensor_0" : {
+      "component" : "Sensor",
+      "metadata" : {
+        "label" : "Sensor_0",
+        "x" : 100,
+        "y" : 101
+      },
+      "ports" : {
+        "inputs" : [ "in" ],
+        "outputs" : [ "out" ]
+      },
+      "properties" : {
+        "sensor" : {
+          "sslCertificates" : false,
+          "connectionId" : "",
+          "wildcards" : false,
+          "s3FullPath" : "",
+          "type" : "s3Key"
+        },
+        "interval" : "60",
+        "softFail" : false,
+        "mode" : "poke",
+        "exponentialBackoff" : false,
+        "timeout" : "604800",
+        "trigger" : "all_success"
+      }
     }
   },
   "connections" : [ {
