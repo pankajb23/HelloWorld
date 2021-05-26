@@ -122,7 +122,7 @@
       "properties" : {
         "sensor" : {
           "sslCertificates" : false,
-          "connectionId" : "",
+          "connectionId" : "eng@prophecy.io_emr_aws_connId",
           "wildcards" : false,
           "s3FullPath" : "",
           "type" : "s3Key"
