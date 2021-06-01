@@ -1,14 +1,15 @@
 {
-  "description" : "",
-  "datasetId" : "16",
-  "dataFormat" : "parquet",
-  "datasetType" : "File",
-  "commonProperties" : {
-    "properties" : {
-      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/"
-    }
-  },
   "inputProperties" : {
     "properties" : { }
-  }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput1.csv/"
+    }
+  },
+  "datasetId" : "16",
+  "schema" : null,
+  "datasetType" : "File",
+  "description" : "",
+  "dataFormat" : "parquet"
 }
