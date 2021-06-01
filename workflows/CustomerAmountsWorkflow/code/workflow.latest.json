@@ -222,8 +222,8 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1622572820409,
-      "id" : "id",
+      "lastUpdated" : 1622573086789,
+      "id" : "CustomerAmountsWorkflow",
       "memory" : 1,
       "imported" : true,
       "language" : "scala",

@@ -39,7 +39,7 @@ object OrdersDatasetInput {
       case "narayan" =>
         spark.read
           .format("parquet")
-          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput.csv/")
+          .load("s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv/")
           .cache()
       case "awsnewdp1" =>
         val schemaArg = StructType(
@@ -98,9 +98,10 @@ object OrdersDatasetInput {
         )
         spark.read
           .format("csv")
-          .option("sep", ",")
+          .option("header", true)
+          .option("sep",    ",")
           .schema(schemaArg)
-          .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput.csv")
+          .load("dbfs:/Users/prophecy/eng/OrdersDatasetInput1.csv")
           .cache()
       case _ => throw new Exception(s"The fabric is not handled")
     }
