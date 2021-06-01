@@ -1,12 +1,6 @@
 package graph
 
 import io.prophecy.libs._
-import io.prophecy.libs.UDFUtils._
-import io.prophecy.libs.Component._
-import io.prophecy.libs.DataHelpers._
-import io.prophecy.libs.SparkFunctions._
-import io.prophecy.libs.FixedFileFormatImplicits._
-import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
@@ -16,16 +10,14 @@ import udfs.UDFs._
 import udfs._
 import graph._
 
-@Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 7, y = 154, phase = 0)
+@Visual(id = "CustomersDatasetInput", label = "CustomersDatasetInput", x = 71, y = 210, phase = 0)
 object CustomersDatasetInput {
 
   @UsesDataset(id = "15", version = 0)
   def apply(spark: SparkSession): Source = {
     import spark.implicits._
 
-    val fabric = Config.fabricName
-
-    val out = fabric match {
+    val out = Config.fabricName match {
       case "awsdp2" =>
         val schemaArg = StructType(
           Array(
@@ -138,7 +130,7 @@ object CustomersDatasetInput {
           .schema(schemaArg)
           .load("dbfs:/Users/prophecy/eng/CustomersDatasetInput.csv")
           .cache()
-      case _ => throw new Exception(s"The fabric '$fabric' is not handled")
+      case _ => throw new Exception(s"The fabric is not handled")
     }
 
     out

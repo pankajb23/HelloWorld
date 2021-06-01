@@ -1,10 +1,4 @@
 import io.prophecy.libs._
-import io.prophecy.libs.UDFUtils._
-import io.prophecy.libs.Component._
-import io.prophecy.libs.DataHelpers._
-import io.prophecy.libs.SparkFunctions._
-import io.prophecy.libs.FixedFileFormatImplicits._
-import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
@@ -20,7 +14,8 @@ object Main {
 
   def graph(spark: SparkSession): Unit = {
 
-    val df_OrdersDatasetInput:    Source = OrdersDatasetInput(spark)
+    val df_OrdersDatasetInput: Source = OrdersDatasetInput(spark)
+
     val df_CustomersDatasetInput: Source = CustomersDatasetInput(spark)
     val df_My_Join_Component:     Join   = My_Join_Component(spark, df_OrdersDatasetInput, df_CustomersDatasetInput)
     CustomerOrdersDatasetOutput(spark, df_My_Join_Component)

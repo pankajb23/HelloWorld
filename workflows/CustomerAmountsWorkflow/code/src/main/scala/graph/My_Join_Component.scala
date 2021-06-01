@@ -1,21 +1,16 @@
 package graph
 
-import org.apache.spark.sql.types._
 import io.prophecy.libs._
-import io.prophecy.libs.UDFUtils._
-import io.prophecy.libs.Component._
-import io.prophecy.libs.DataHelpers._
-import io.prophecy.libs.SparkFunctions._
-import io.prophecy.libs.FixedFileFormatImplicits._
-import org.apache.spark.sql.ProphecyDataFrame._
 import org.apache.spark._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
 import config.ConfigStore._
 import udfs.UDFs._
+import udfs._
 import graph._
 
-@Visual(id = "My_Join_Component", label = "My Join Component", x = 206, y = 108, phase = 0)
+@Visual(id = "My_Join_Component", label = "My Join Component", x = 260, y = 210, phase = 0)
 object My_Join_Component {
 
   def apply(spark: SparkSession, left: DataFrame, right: DataFrame): Join = {
