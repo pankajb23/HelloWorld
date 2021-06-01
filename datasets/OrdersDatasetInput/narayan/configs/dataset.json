@@ -4,7 +4,7 @@
   },
   "commonProperties" : {
     "properties" : {
-      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput1.csv/"
+      "location" : "s3://abinitio-spark-redshift-testing/Users/prophecy/eng/CustomerOrdersDatasetOutput2.csv/"
     }
   },
   "datasetId" : "16",
